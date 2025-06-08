@@ -1,0 +1,12 @@
+clickhouse-connect
+clickhouse-driver
+
+pandas
+
+langchain-community
+langchain-core
+langchain-openai
+
+python-dotenv
+faker
+PyYAML
