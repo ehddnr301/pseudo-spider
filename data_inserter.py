@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 # ClickHouse 연결 설정
 CLICKHOUSE_CONFIG = {
     "host": "localhost",
-    "port": 8124,
+    "port": 8123,
     "username": "clickhouse",
     "password": "clickhouse",
     "database": "default",

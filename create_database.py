@@ -16,7 +16,7 @@ def create_clickhouse_databases():
     # ClickHouse 연결 설정 (필요에 따라 수정)
     client = clickhouse_connect.get_client(
         host="localhost",
-        port=8124,
+        port=8123,
         username="clickhouse",
         password="clickhouse",  # 필요시 패스워드 입력
     )

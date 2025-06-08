@@ -1,0 +1,18 @@
+source:
+  type: "dbt"
+  config:
+    # Coordinates
+    # To use this as-is, set the environment variable DBT_PROJECT_ROOT to the root folder of your dbt project
+    manifest_path: "/home/${USER}/pseudo-spider/pseudolab/target/manifest.json"
+    catalog_path: "/home/${USER}/pseudo-spider/pseudolab/target/catalog.json"
+    run_results_paths:
+      - "/home/${USER}/pseudo-spider/pseudolab/target/run_results.json" # optional for recording dbt test results after running dbt test
+
+    # Options
+    target_platform: "clickhouse" # e.g. bigquery/postgres/etc.
+
+sink:
+  # DataHub GMS API 서버 정보
+  type: "datahub-rest"
+  config:
+    server: "http://localhost:8080"

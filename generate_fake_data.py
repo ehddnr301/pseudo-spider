@@ -12,7 +12,6 @@ from langchain_community.llms import OpenAI
 from langchain_core.prompts import PromptTemplate
 from faker import Faker
 import pandas as pd
-from clickhouse_driver import Client
 import glob
 
 from dotenv import load_dotenv

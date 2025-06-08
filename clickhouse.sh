@@ -1,7 +1,7 @@
 docker run -d \
   --name clickhouse2 \
   --ulimit nofile=262144:262144 \
-  -p 8124:8123 \
+  -p 8123:8123 \
   -p 9001:9000 \
   -p 9004:9009 \
   -e CLICKHOUSE_USER=clickhouse \

@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class ClickHouseEmptyTableFinder:
     def __init__(
-        self, host="localhost", port=8124, username="clickhouse", password="clickhouse"
+        self, host="localhost", port=8123, username="clickhouse", password="clickhouse"
     ):
         """
         ClickHouse 연결 초기화
@@ -230,7 +230,7 @@ def main():
     """메인 함수"""
     # ClickHouse 연결 정보
     clickhouse_host = "127.0.0.1"
-    clickhouse_port = 8124
+    clickhouse_port = 8123
     clickhouse_username = "clickhouse"
     clickhouse_password = "clickhouse"
 

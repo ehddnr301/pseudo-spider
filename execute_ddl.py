@@ -15,7 +15,7 @@ class ClickHouseDDLExecutor:
     """생성된 DDL 파일들을 ClickHouse에 실행하는 클래스"""
 
     def __init__(
-        self, host="localhost", port=8124, username="clickhouse", password="clickhouse"
+        self, host="localhost", port=8123, username="clickhouse", password="clickhouse"
     ):
         """ClickHouse 연결 초기화"""
         self.client = clickhouse_connect.get_client(
@@ -249,7 +249,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="ClickHouse DDL 실행기")
     parser.add_argument("--host", default="localhost", help="ClickHouse 호스트")
-    parser.add_argument("--port", default=8124, type=int, help="ClickHouse 포트")
+    parser.add_argument("--port", default=8123, type=int, help="ClickHouse 포트")
     parser.add_argument("--username", default="clickhouse", help="사용자명")
     parser.add_argument("--password", default="clickhouse", help="패스워드")
     parser.add_argument("--ddl-dir", default="clickhouse_ddl", help="DDL 파일 디렉토리")

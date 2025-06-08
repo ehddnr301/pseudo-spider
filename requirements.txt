@@ -1,5 +1,4 @@
 clickhouse-connect
-clickhouse-driver
 
 pandas
 
