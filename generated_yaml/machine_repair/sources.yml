@@ -1,0 +1,99 @@
+version: 2
+sources:
+- name: machine_repair
+  description: machine_repair 데이터셋의 테이블 모음
+  database: machine_repair
+  tables:
+  - name: technician
+    description: 기술자에 대한 정보
+    columns:
+    - name: technician_id
+      description: 기술자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 기술자의 이름
+      tests:
+      - not_null
+    - name: Team
+      description: 기술자가 속한 팀
+      tests:
+      - not_null
+    - name: Starting_Year
+      description: 기술자가 시작한 연도
+      tests:
+      - not_null
+    - name: Age
+      description: 기술자의 나이
+      tests:
+      - not_null
+  - name: repair_assignment
+    description: 수리 할당 테이블
+    columns:
+    - name: technician_id
+      description: 기술자 식별자
+      tests:
+      - unique
+      - not_null
+    - name: repair_ID
+      description: 수리 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Machine_ID
+      description: 기계 식별자
+      tests:
+      - not_null
+  - name: repair
+    description: 수리 테이블에 대한 설명
+    columns:
+    - name: repair_ID
+      description: 수리 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 수리 요청자 이름
+      tests:
+      - not_null
+    - name: Launch_Date
+      description: 수리 시작 날짜
+      tests:
+      - not_null
+    - name: Notes
+      description: 수리에 대한 추가 정보
+      tests:
+      - not_null
+  - name: machine
+    description: 기계에 대한 설명
+    columns:
+    - name: Machine_ID
+      description: 기계의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Making_Year
+      description: 기계가 제작된 연도
+      tests:
+      - not_null
+    - name: Class
+      description: 기계의 분류
+      tests:
+      - not_null
+    - name: Team
+      description: 기계의 팀
+      tests:
+      - not_null
+    - name: Machine_series
+      description: 기계의 시리즈
+      tests:
+      - not_null
+    - name: value_points
+      description: 기계의 가치 점수
+      tests:
+      - not_null
+    - name: quality_rank
+      description: 기계의 품질 순위
+      tests:
+      - not_null

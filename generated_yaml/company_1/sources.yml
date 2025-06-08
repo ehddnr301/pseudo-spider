@@ -1,0 +1,135 @@
+version: 2
+sources:
+- name: company_1
+  description: company_1 데이터셋의 테이블 모음
+  database: company_1
+  tables:
+  - name: dependent
+    description: 의존자에 대한 정보
+    columns:
+    - name: Essn
+      description: 직원 번호
+      tests:
+      - unique
+      - not_null
+    - name: Dependent_name
+      description: 의존자 이름
+      tests:
+      - not_null
+    - name: Sex
+      description: 성별
+      tests:
+      - not_null
+    - name: Bdate
+      description: 생년월일
+      tests:
+      - not_null
+    - name: Relationship
+      description: 관계
+      tests:
+      - not_null
+  - name: dept_locations
+    description: 부서 위치에 대한 정보
+    columns:
+    - name: Dnumber
+      description: 부서 번호
+      tests:
+      - unique
+      - not_null
+    - name: Dlocation
+      description: 부서 위치
+      tests:
+      - not_null
+  - name: project
+    description: 프로젝트에 대한 설명
+    columns:
+    - name: Pname
+      description: 프로젝트 이름
+      tests:
+      - not_null
+    - name: Pnumber
+      description: 프로젝트 번호
+      tests:
+      - unique
+      - not_null
+    - name: Plocation
+      description: 프로젝트 위치
+      tests:
+      - not_null
+    - name: Dnum
+      description: 부서 번호
+      tests:
+      - not_null
+  - name: works_on
+    description: 작업에 대한 정보 테이블
+    columns:
+    - name: Essn
+      description: 직원 번호
+      tests:
+      - not_null
+    - name: Pno
+      description: 프로젝트 번호
+      tests:
+      - not_null
+    - name: Hours
+      description: 작업 시간
+      tests:
+      - not_null
+  - name: department
+    description: 부서에 대한 정보
+    columns:
+    - name: Dname
+      description: 부서 이름
+      tests:
+      - not_null
+    - name: Dnumber
+      description: 부서 번호
+      tests:
+      - unique
+      - not_null
+    - name: Mgr_ssn
+      description: 관리자 사회 보장 번호
+      tests:
+      - not_null
+    - name: Mgr_start_date
+      description: 관리자 시작 날짜
+      tests:
+      - not_null
+  - name: employee
+    description: 직원 정보를 저장하는 테이블
+    columns:
+    - name: Fname
+      description: 직원의 이름
+      tests:
+      - unique: false
+      - not_null: true
+    - name: Minit
+      description: 직원의 중간 이름
+      tests:
+      - unique: false
+      - not_null: false
+    - name: Lname
+      description: 직원의 성
+      tests:
+      - unique: false
+      - not_null: true
+    - name: Ssn
+      description: 직원의 사회 보장 번호
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Bdate
+      description: 직원의 생년월일
+      tests:
+      - unique: false
+      - not_null: false
+    - name: Address
+      description: 주소 정보를 담고 있는 객체입니다.
+    - name: Sex
+      description: 성별 정보를 담고 있는 객체입니다.
+    - name: Salary
+      description: 직원의 급여를 나타내는 64비트 정수입니다.
+    - name: Super_ssn
+      description: 직원의 상사의 사회보장번호를 나타내는 64비트 정수입니다.
+    - name: Dno
+      description: 직원이 소속된 부서 번호를 나타내는 64비트 정수입니다.

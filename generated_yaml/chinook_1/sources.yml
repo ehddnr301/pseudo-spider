@@ -1,0 +1,232 @@
+version: 2
+sources:
+- name: chinook_1
+  description: chinook_1 데이터셋의 테이블 모음
+  database: chinook_1
+  tables:
+  - name: Genre
+    description: 장르에 대한 설명
+    columns:
+    - name: GenreId
+      description: 장르의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 장르의 이름
+      tests:
+      - not_null
+  - name: Album
+    description: 앨범에 대한 설명
+    columns:
+    - name: AlbumId
+      description: 앨범 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 앨범 제목
+      tests:
+      - not_null
+    - name: ArtistId
+      description: 아티스트 고유 식별자
+      tests:
+      - not_null
+  - name: Playlist
+    description: 재생 목록에 대한 설명
+    columns:
+    - name: PlaylistId
+      description: 재생 목록의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 재생 목록의 이름
+      tests:
+      - not_null
+  - name: Artist
+    description: 아티스트에 대한 설명
+    columns:
+    - name: ArtistId
+      description: 아티스트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 아티스트의 이름
+      tests:
+      - not_null
+  - name: InvoiceLine
+    description: 인보이스 라인 테이블
+    columns:
+    - name: InvoiceLineId
+      description: 인보이스 라인의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: InvoiceId
+      description: 인보이스의 고유 식별자
+      tests:
+      - not_null
+    - name: TrackId
+      description: 트랙의 고유 식별자
+      tests:
+      - not_null
+    - name: UnitPrice
+      description: 단가
+      tests:
+      - not_null
+    - name: Quantity
+      description: 수량
+      tests:
+      - not_null
+  - name: MediaType
+    description: 미디어 유형에 대한 설명
+    columns:
+    - name: MediaTypeId
+      description: 미디어 유형의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 미디어 유형의 이름
+      tests:
+      - not_null
+  - name: PlaylistTrack
+    description: 재생 목록과 트랙 간의 관계를 나타내는 테이블
+    columns:
+    - name: PlaylistId
+      description: 재생 목록의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: TrackId
+      description: 트랙의 고유 식별자
+      tests:
+      - not_null
+  - name: Customer
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: CustomerId
+      description: 고객의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: FirstName
+      description: 고객의 이름
+    - name: LastName
+      description: 고객의 성
+    - name: Company
+      description: 고객이 소속된 회사
+    - name: Address
+      description: 고객의 주소
+    - name: City
+      description: 고객이 거주하는 도시
+    - name: State
+      description: 주를 나타내는 컬럼입니다.
+    - name: Country
+      description: 국가를 나타내는 컬럼입니다.
+    - name: PostalCode
+      description: 우편번호를 나타내는 컬럼입니다.
+    - name: Phone
+      description: 전화번호를 나타내는 컬럼입니다.
+    - name: Fax
+      description: 팩스번호를 나타내는 컬럼입니다.
+    - name: Email
+      description: 이메일 주소를 나타내는 컬럼입니다.
+    - name: SupportRepId
+      description: 지원 담당자의 ID를 나타내는 컬럼입니다.
+  - name: Invoice
+    description: 청구서 정보를 담고 있는 테이블
+    columns:
+    - name: InvoiceId
+      description: 청구서의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: CustomerId
+      description: 고객의 고유 식별자
+      tests:
+      - not_null: true
+    - name: InvoiceDate
+      description: 청구서 발행 날짜
+      tests:
+      - not_null: true
+    - name: BillingAddress
+      description: 청구서의 청구 주소
+      tests:
+      - not_null: true
+    - name: BillingCity
+      description: 청구 도시
+    - name: BillingState
+      description: 청구 주
+    - name: BillingCountry
+      description: 청구 국가
+    - name: BillingPostalCode
+      description: 청구 우편번호
+    - name: Total
+      description: 총액
+  - name: Employee
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: EmployeeId
+      description: 직원의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: LastName
+      description: 직원의 성
+      tests:
+      - not_null: true
+    - name: FirstName
+      description: 직원의 이름
+      tests:
+      - not_null: true
+    - name: Title
+      description: 직원의 직책
+    - name: ReportsTo
+      description: 직원이 보고하는 상사의 ID
+    - name: BirthDate
+      description: 직원의 생년월일
+    - name: HireDate
+      description: 직원의 고용일
+    - name: Address
+      description: 주소를 나타내는 객체입니다.
+    - name: City
+      description: 도시를 나타내는 객체입니다.
+    - name: State
+      description: 주를 나타내는 객체입니다.
+    - name: Country
+      description: 국가를 나타내는 객체입니다.
+    - name: PostalCode
+      description: 우편번호를 나타내는 정수형 컬럼입니다.
+    - name: Phone
+      description: 전화번호를 나타내는 객체입니다.
+    - name: Fax
+      description: 팩스번호를 나타내는 객체입니다.
+    - name: Email
+      description: 이메일 주소를 나타내는 객체입니다.
+  - name: Track
+    description: 트랙 정보를 저장하는 테이블
+    columns:
+    - name: TrackId
+      description: 트랙의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Name
+      description: 트랙의 이름
+    - name: AlbumId
+      description: 앨범의 고유 식별자
+    - name: MediaTypeId
+      description: 미디어 유형의 고유 식별자
+    - name: GenreId
+      description: 장르의 고유 식별자
+    - name: Composer
+      description: 작곡가에 대한 정보
+    - name: Milliseconds
+      description: 트랙의 길이를 밀리초 단위로 나타��
+    - name: Bytes
+      description: 트랙 파일의 크기(바이트 단위)
+    - name: UnitPrice
+      description: 트랙의 가격

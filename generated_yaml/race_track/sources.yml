@@ -1,0 +1,54 @@
+version: 2
+sources:
+- name: race_track
+  description: race_track 데이터셋의 테이블 모음
+  database: race_track
+  tables:
+  - name: track
+    description: 트랙 테이블에 대한 설명
+    columns:
+    - name: Track_ID
+      description: 트랙의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 트랙의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 트랙의 위치
+      tests:
+      - not_null
+    - name: Seating
+      description: 트랙의 좌석 수
+      tests:
+      - not_null
+    - name: Year_Opened
+      description: 트랙이 개장한 연도
+      tests:
+      - not_null
+  - name: race
+    description: 경주에 대한 정보
+    columns:
+    - name: Race_ID
+      description: 경주 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 경주 이름
+      tests:
+      - not_null
+    - name: Class
+      description: 경주 분류
+      tests:
+      - not_null
+    - name: Date
+      description: 경주 날짜
+      tests:
+      - not_null
+    - name: Track_ID
+      description: 트랙 고유 식별자
+      tests:
+      - not_null

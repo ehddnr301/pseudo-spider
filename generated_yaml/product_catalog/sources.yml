@@ -1,0 +1,119 @@
+version: 2
+sources:
+- name: product_catalog
+  description: product_catalog 데이터셋의 테이블 모음
+  database: product_catalog
+  tables:
+  - name: Catalog_Contents_Additional_Attributes
+    description: 카탈로그 항목 추가 속성에 대한 설명
+    columns:
+    - name: catalog_entry_id
+      description: 카탈로그 항목 ID
+      tests:
+      - unique
+      - not_null
+    - name: catalog_level_number
+      description: 카탈로그 레벨 번호
+      tests:
+      - not_null
+    - name: attribute_id
+      description: 속성 ID
+      tests:
+      - not_null
+    - name: attribute_value
+      description: 속성 값
+      tests:
+      - not_null
+  - name: Catalog_Structure
+    description: 카탈로그 구조에 대한 설명
+    columns:
+    - name: catalog_level_number
+      description: 카탈로그 레벨 번호
+      tests:
+      - unique
+      - not_null
+    - name: catalog_id
+      description: 카탈로그 ID
+      tests:
+      - unique
+      - not_null
+    - name: catalog_level_name
+      description: 카탈로그 레벨 이름
+      tests:
+      - not_null
+  - name: Catalogs
+    description: 카탈로그에 대한 설명
+    columns:
+    - name: catalog_id
+      description: 카탈로그 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: catalog_name
+      description: 카탈로그 이름
+      tests:
+      - not_null
+    - name: catalog_publisher
+      description: 카탈로그 출판사
+      tests:
+      - not_null
+    - name: date_of_publication
+      description: 출판 날짜
+      tests:
+      - not_null
+    - name: date_of_latest_revision
+      description: 최신 수정 날짜
+      tests:
+      - not_null
+  - name: Attribute_Definitions
+    description: 속성 정의 테이블
+    columns:
+    - name: attribute_id
+      description: 속성의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: attribute_name
+      description: 속성의 이름
+      tests:
+      - not_null
+    - name: attribute_data_type
+      description: 속성의 데이터 유형
+      tests:
+      - not_null
+  - name: Catalog_Contents
+    description: 카탈로그 내용에 대한 설명
+    columns:
+    - name: catalog_entry_id
+      description: 카탈로그 항목의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: catalog_level_number
+      description: 카탈로그의 레벨 번호
+      tests:
+      - not_null
+    - name: parent_entry_id
+      description: 부모 항목의 식별자
+    - name: previous_entry_id
+      description: 이전 항목의 식별자
+    - name: next_entry_id
+      description: 다음 항목의 식별자
+    - name: catalog_entry_name
+      description: 카탈로그 항목의 이름
+    - name: product_stock_number
+      description: 제품 재고 번호
+    - name: price_in_dollars
+      description: 상품의 가격을 달러로 나타��니다.
+    - name: price_in_euros
+      description: 상품의 가격을 유로로 나타��니다.
+    - name: price_in_pounds
+      description: 상품의 가격을 파운드로 나타��니다.
+    - name: capacity
+      description: 상품의 용량을 나타��니다.
+    - name: length
+      description: 상품의 길이를 나타��니다.
+    - name: height
+      description: 상품의 높이를 나타��니다.
+    - name: width
+      description: 상품의 너비를 나타��니다.

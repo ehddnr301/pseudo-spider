@@ -1,0 +1,90 @@
+version: 2
+sources:
+- name: battle_death
+  description: battle_death 데이터셋의 테이블 모음
+  database: battle_death
+  tables:
+  - name: battle
+    description: 전투에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 전투 이름
+      tests:
+      - not_null
+    - name: date
+      description: 전투 날짜
+      tests:
+      - not_null
+    - name: bulgarian_commander
+      description: 불가리아 지휘관
+      tests:
+      - not_null
+    - name: latin_commander
+      description: 라틴 지휘관
+      tests:
+      - not_null
+    - name: result
+      description: 전투 결과
+      tests:
+      - not_null
+  - name: ship
+    description: 선박에 대한 정보
+    columns:
+    - name: lost_in_battle
+      description: 전투에서 ��은 수
+      tests:
+      - not_null
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 선박 이름
+      tests:
+      - not_null
+    - name: tonnage
+      description: 선박의 ��수
+      tests:
+      - not_null
+    - name: ship_type
+      description: 선박 종류
+      tests:
+      - not_null
+    - name: location
+      description: 선박 위치
+      tests:
+      - not_null
+    - name: disposition_of_ship
+      description: 선박의 상태
+      tests:
+      - not_null
+  - name: death
+    description: 사망 관련 데이터
+    columns:
+    - name: caused_by_ship_id
+      description: 사망 원인이 된 선박의 ID
+      tests:
+      - not_null
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: note
+      description: 사망에 대한 추가 정보
+      tests:
+      - not_null
+    - name: killed
+      description: 사망자 수
+      tests:
+      - not_null
+    - name: injured
+      description: 부상자 수
+      tests:
+      - not_null

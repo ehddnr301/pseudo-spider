@@ -1,0 +1,40 @@
+version: 2
+sources:
+- name: student_1
+  description: student_1 데이터셋의 테이블 모음
+  database: student_1
+  tables:
+  - name: list
+    description: 학생 목록 테이블
+    columns:
+    - name: LastName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: FirstName
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Grade
+      description: 학생의 학년
+      tests:
+      - not_null
+    - name: Classroom
+      description: 학생이 속한 교실
+      tests:
+      - not_null
+  - name: teachers
+    description: 교사에 대한 정보
+    columns:
+    - name: LastName
+      description: 성
+      tests:
+      - not_null
+    - name: FirstName
+      description: 이름
+      tests:
+      - not_null
+    - name: Classroom
+      description: 교실 번호
+      tests:
+      - not_null

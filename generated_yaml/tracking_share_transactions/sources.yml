@@ -1,0 +1,114 @@
+version: 2
+sources:
+- name: tracking_share_transactions
+  description: tracking_share_transactions 데이터셋의 테이블 모음
+  database: tracking_share_transactions
+  tables:
+  - name: Ref_Transaction_Types
+    description: 거래 유형에 대한 설명
+    columns:
+    - name: transaction_type_code
+      description: 거래 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: transaction_type_description
+      description: 거래 유형 설명
+      tests:
+      - not_null
+  - name: Lots
+    description: 로트에 대한 설명
+    columns:
+    - name: lot_id
+      description: 로트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: investor_id
+      description: 투자자의 고유 식별자
+      tests:
+      - not_null
+    - name: lot_details
+      description: 로트에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Investors
+    description: 투자자에 대한 정보
+    columns:
+    - name: investor_id
+      description: 투자자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Investor_details
+      description: 투자자에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Purchases
+    description: 구매 내역 테이블
+    columns:
+    - name: purchase_transaction_id
+      description: 구매 거래 ID
+      tests:
+      - unique
+      - not_null
+    - name: purchase_details
+      description: 구매 세부 사항
+      tests:
+      - not_null
+  - name: Sales
+    description: 판매 거래에 대한 정보
+    columns:
+    - name: sales_transaction_id
+      description: 판매 거래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: sales_details
+      description: 판매 거래의 세부 사항
+      tests:
+      - not_null
+  - name: Transactions_Lots
+    description: 거래와 로트에 대한 정보
+    columns:
+    - name: transaction_id
+      description: 거래 식별자
+      tests:
+      - unique
+      - not_null
+    - name: lot_id
+      description: 로트 식별자
+      tests:
+      - not_null
+  - name: Transactions
+    description: 거래에 대한 정보
+    columns:
+    - name: transaction_id
+      description: 거래 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: investor_id
+      description: 투자자 고유 식별자
+      tests:
+      - not_null
+    - name: transaction_type_code
+      description: 거래 유형 코드
+      tests:
+      - not_null
+    - name: date_of_transaction
+      description: 거래 날짜 및 시간
+      tests:
+      - not_null
+    - name: amount_of_transaction
+      description: 거래 금액
+      tests:
+      - not_null
+    - name: share_count
+      description: 주식 수
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null

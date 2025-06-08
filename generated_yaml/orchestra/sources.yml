@@ -1,0 +1,114 @@
+version: 2
+sources:
+- name: orchestra
+  description: orchestra 데이터셋의 테이블 모음
+  database: orchestra
+  tables:
+  - name: conductor
+    description: 지휘자에 대한 정보
+    columns:
+    - name: Conductor_ID
+      description: 지휘자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 지휘자의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 지휘자의 나이
+      tests:
+      - not_null
+    - name: Nationality
+      description: 지휘자의 국적
+      tests:
+      - not_null
+    - name: Year_of_Work
+      description: 지휘자의 경력 연수
+      tests:
+      - not_null
+  - name: show
+    description: 쇼에 대한 설명
+    columns:
+    - name: Show_ID
+      description: 쇼의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Performance_ID
+      description: 공연의 고유 식별자
+      tests:
+      - not_null
+    - name: If_first_show
+      description: 첫 번째 쇼 여부
+      tests:
+      - not_null
+    - name: Result
+      description: 결과에 대한 설명
+      tests:
+      - not_null
+    - name: Attendance
+      description: 참석자 수
+      tests:
+      - not_null
+  - name: performance
+    description: 공연에 대한 정보
+    columns:
+    - name: Performance_ID
+      description: 공연의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Orchestra_ID
+      description: 오케스트라의 고유 식별자
+      tests:
+      - not_null
+    - name: Type
+      description: 공연의 유형
+      tests:
+      - not_null
+    - name: Date
+      description: 공연 날짜 및 시간
+      tests:
+      - not_null
+    - name: Official_ratings_(millions)
+      description: 공식 평가(백만 단위)
+      tests:
+      - not_null
+    - name: Weekly_rank
+      description: 주간 순위
+      tests:
+      - not_null
+    - name: Share
+      description: 공유 비율
+      tests:
+      - not_null
+  - name: orchestra
+    description: 오케스트라에 대한 설명
+    columns:
+    - name: Orchestra_ID
+      description: 오케스트라의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Orchestra
+      description: 오케스트라의 이름
+      tests:
+      - not_null
+    - name: Conductor_ID
+      description: 지휘자의 고유 식별자
+      tests:
+      - not_null
+    - name: Record_Company
+      description: 레코드 회사의 이름
+      tests:
+      - not_null
+    - name: Year_of_Founded
+      description: 설립 연도
+      tests:
+      - not_null
+    - name: Major_Record_Format
+      description: 주요 음반 형식
+      tests:
+      - not_null

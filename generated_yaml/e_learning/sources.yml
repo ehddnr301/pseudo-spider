@@ -1,0 +1,160 @@
+version: 2
+sources:
+- name: e_learning
+  description: e_learning 데이터셋의 테이블 모음
+  database: e_learning
+  tables:
+  - name: Courses
+    description: 강좌에 대한 설명
+    columns:
+    - name: course_id
+      description: 강좌 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: author_id
+      description: 저자 고유 식별자
+      tests:
+      - not_null
+    - name: subject_id
+      description: 주제 고유 식별자
+      tests:
+      - not_null
+    - name: course_name
+      description: 강좌 이름
+      tests:
+      - not_null
+    - name: course_description
+      description: 강좌 설명
+      tests:
+      - not_null
+  - name: Subjects
+    description: 과목에 대한 정보
+    columns:
+    - name: subject_id
+      description: 과목의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: subject_name
+      description: 과목의 이름
+      tests:
+      - not_null
+  - name: Student_Course_Enrolment
+    description: 학생 수업 등록 테이블
+    columns:
+    - name: registration_id
+      description: 등록 ID
+      tests:
+      - unique
+      - not_null
+    - name: student_id
+      description: 학생 ID
+      tests:
+      - not_null
+    - name: course_id
+      description: 수업 ID
+      tests:
+      - not_null
+    - name: date_of_enrolment
+      description: 등록 날짜
+      tests:
+      - not_null
+    - name: date_of_completion
+      description: 완료 날짜
+      tests:
+      - not_null
+  - name: Student_Tests_Taken
+    description: 학생들이 응시한 시험에 대한 정보
+    columns:
+    - name: registration_id
+      description: 학생 등록 ID
+      tests:
+      - unique
+      - not_null
+    - name: date_test_taken
+      description: 시험 응시 날짜
+      tests:
+      - not_null
+    - name: test_result
+      description: 시험 결과
+      tests:
+      - not_null
+  - name: Course_Authors_and_Tutors
+    description: 강좌 저자 및 ��터에 대한 정보
+    columns:
+    - name: author_id
+      description: 저자 ID
+      tests:
+      - unique
+      - not_null
+    - name: author_tutor_ATB
+      description: 저자 및 ��터 구분
+      tests:
+      - not_null
+    - name: login_name
+      description: 로그인 이름
+      tests:
+      - unique
+      - not_null
+    - name: password
+      description: 비밀번호
+      tests:
+      - not_null
+    - name: personal_name
+      description: 이름
+      tests:
+      - not_null
+    - name: middle_name
+      description: 중간 이름
+      tests:
+      - not_null
+    - name: family_name
+      description: 성
+      tests:
+      - not_null
+    - name: gender_mf
+      description: 성별
+      tests:
+      - not_null
+    - name: address_line_1
+      description: 주소
+      tests:
+      - not_null
+  - name: Students
+    description: 학생 정보를 저장하는 테이블
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_of_registration
+      description: 등록 날짜
+      tests:
+      - not_null
+    - name: date_of_latest_logon
+      description: 최신 로그인 날짜
+      tests:
+      - not_null
+    - name: login_name
+      description: 로그인 이름
+      tests:
+      - unique
+      - not_null
+    - name: password
+      description: 비밀번호
+      tests:
+      - not_null
+    - name: personal_name
+      description: 이름
+      tests:
+      - not_null
+    - name: middle_name
+      description: 중간 이름
+      tests:
+      - not_null
+    - name: family_name
+      description: 성
+      tests:
+      - not_null

@@ -1,0 +1,102 @@
+version: 2
+sources:
+- name: dorm_1
+  description: dorm_1 데이터셋의 테이블 모음
+  database: dorm_1
+  tables:
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null
+  - name: Has_amenity
+    description: 편의 시설이 있는 기숙사에 대한 정보
+    columns:
+    - name: dormid
+      description: 기숙사 ID
+      tests:
+      - unique
+      - not_null
+    - name: amenid
+      description: 편의 시설 ID
+      tests:
+      - not_null
+  - name: Dorm_amenity
+    description: 기숙사 편의 시설에 대한 설명
+    columns:
+    - name: amenid
+      description: 편의 시설 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: amenity_name
+      description: 편의 시설 이름
+      tests:
+      - not_null
+  - name: Dorm
+    description: 기숙사에 대한 설명
+    columns:
+    - name: dormid
+      description: 기숙사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dorm_name
+      description: 기숙사의 이름
+      tests:
+      - not_null
+    - name: student_capacity
+      description: 학생 수용 인원
+      tests:
+      - not_null
+    - name: gender
+      description: 기숙사의 성별
+      tests:
+      - not_null
+  - name: Lives_in
+    description: 학생이 거주하는 기숙사 및 방에 대한 정보
+    columns:
+    - name: stuid
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dormid
+      description: 기숙사 고유 식별자
+      tests:
+      - not_null
+    - name: room_number
+      description: 방 번호
+      tests:
+      - not_null

@@ -1,0 +1,90 @@
+version: 2
+sources:
+- name: loan_1
+  description: loan_1 데이터셋의 테이블 모음
+  database: loan_1
+  tables:
+  - name: loan
+    description: 대출 정보 테이블
+    columns:
+    - name: loan_ID
+      description: 대출 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: loan_type
+      description: 대출 유형
+      tests:
+      - not_null
+    - name: cust_ID
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: branch_ID
+      description: 지점 고유 식별자
+      tests:
+      - not_null
+    - name: amount
+      description: 대출 금액
+      tests:
+      - not_null
+  - name: customer
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: cust_ID
+      description: 고객 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cust_name
+      description: 고객 이름
+      tests:
+      - not_null
+    - name: acc_type
+      description: 계좌 유형
+      tests:
+      - not_null
+    - name: acc_bal
+      description: 계좌 ��액
+      tests:
+      - not_null
+    - name: no_of_loans
+      description: 대출 수
+      tests:
+      - not_null
+    - name: credit_score
+      description: 신용 점수
+      tests:
+      - not_null
+    - name: branch_ID
+      description: 지점 식별자
+      tests:
+      - not_null
+    - name: state
+      description: 주
+      tests:
+      - not_null
+  - name: bank
+    description: 은행에 대한 정보
+    columns:
+    - name: branch_ID
+      description: 지점 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: bname
+      description: 은행 이름
+      tests:
+      - not_null
+    - name: no_of_customers
+      description: 고객 수
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: state
+      description: 주 이름
+      tests:
+      - not_null

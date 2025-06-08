@@ -1,0 +1,190 @@
+version: 2
+sources:
+- name: cre_Doc_Control_Systems
+  description: cre_Doc_Control_Systems 데이터셋의 테이블 모음
+  database: cre_Doc_Control_Systems
+  tables:
+  - name: Documents_Mailed
+    description: 문서 발송에 대한 정보
+    columns:
+    - name: document_id
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: mailed_to_address_id
+      description: 발송된 주소의 고유 식별자
+      tests:
+      - not_null
+    - name: mailing_date
+      description: 문서 발송 날짜
+      tests:
+      - not_null
+  - name: Employees
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: employee_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: role_code
+      description: 직원의 역할 코드
+      tests:
+      - not_null
+    - name: employee_name
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: other_details
+      description: 직원에 대한 추가 정보
+      tests:
+      - not_null
+  - name: Roles
+    description: 역할에 대한 설명
+    columns:
+    - name: role_code
+      description: 역할 코드
+      tests:
+      - unique
+      - not_null
+    - name: role_description
+      description: 역할 설명
+      tests:
+      - not_null
+  - name: Ref_Document_Types
+    description: 문서 유형에 대한 설명
+    columns:
+    - name: document_type_code
+      description: 문서 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: document_type_description
+      description: 문서 유형 설명
+      tests:
+      - not_null
+  - name: Documents
+    description: 문서에 대한 설명
+    columns:
+    - name: document_id
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: document_status_code
+      description: 문서 상태 코드
+      tests:
+      - not_null
+    - name: document_type_code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: shipping_agent_code
+      description: 배송 대행사 코드
+      tests:
+      - not_null
+    - name: receipt_date
+      description: 영수증 날짜
+      tests:
+      - not_null
+    - name: receipt_number
+      description: 영수증 번호
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Document_Drafts
+    description: 문서 초안 테이블
+    columns:
+    - name: document_id
+      description: 문서 식별자
+      tests:
+      - unique
+      - not_null
+    - name: draft_number
+      description: 초안 번호
+      tests:
+      - not_null
+    - name: draft_details
+      description: 초안 세부사항
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_details
+      description: 주소의 상세 정보
+      tests:
+      - not_null
+  - name: Draft_Copies
+    description: 초안 복사본에 대한 설명
+    columns:
+    - name: document_id
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: draft_number
+      description: 초안 번호
+      tests:
+      - not_null
+    - name: copy_number
+      description: 복사본 번호
+      tests:
+      - not_null
+  - name: Ref_Shipping_Agents
+    description: 배송 대행사에 대한 정보
+    columns:
+    - name: shipping_agent_code
+      description: 배송 대행사 코드
+      tests:
+      - unique
+      - not_null
+    - name: shipping_agent_name
+      description: 배송 대행사 이름
+      tests:
+      - not_null
+    - name: shipping_agent_description
+      description: 배송 대행사 설명
+      tests:
+      - not_null
+  - name: Ref_Document_Status
+    description: 문서 상태에 대한 설명
+    columns:
+    - name: document_status_code
+      description: 문서 상태 코드
+      tests:
+      - unique
+      - not_null
+    - name: document_status_description
+      description: 문서 상태 설명
+      tests:
+      - not_null
+  - name: Circulation_History
+    description: 대출 기록 테이블
+    columns:
+    - name: document_id
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: draft_number
+      description: 초안 번호
+      tests:
+      - not_null
+    - name: copy_number
+      description: 사본 번호
+      tests:
+      - not_null
+    - name: employee_id
+      description: 직원 고유 식별자
+      tests:
+      - not_null

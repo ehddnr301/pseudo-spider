@@ -1,0 +1,110 @@
+version: 2
+sources:
+- name: swimming
+  description: swimming 데이터셋의 테이블 모음
+  database: swimming
+  tables:
+  - name: stadium
+    description: 경기장에 대한 설명
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 경기장 이름
+      tests:
+      - not_null
+    - name: Capacity
+      description: 수용 인원
+      tests:
+      - not_null
+    - name: City
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: Opening_year
+      description: 개장 연도
+      tests:
+      - not_null
+  - name: event
+    description: 이벤트에 대한 설명
+    columns:
+    - name: ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 이벤트의 이름
+      tests:
+      - not_null
+    - name: Stadium_ID
+      description: 이벤트가 열리는 경기장의 고유 식별자
+      tests:
+      - not_null
+    - name: Year
+      description: 이벤트가 열리는 연도
+      tests:
+      - not_null
+  - name: record
+    description: 기록 테이블에 대한 설명
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Result
+      description: 결과 필드
+      tests:
+      - not_null
+    - name: Swimmer_ID
+      description: 수영 선수 식별자
+      tests:
+      - not_null
+    - name: Event_ID
+      description: 이벤트 식별자
+      tests:
+      - not_null
+  - name: swimmer
+    description: 수영 선수에 대한 정보 테이블
+    columns:
+    - name: ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: name
+      description: 선수의 이름
+      tests:
+      - not_null: true
+    - name: Nationality
+      description: 선수의 국적
+      tests:
+      - not_null: true
+    - name: meter_100
+      description: 100미터 수영 기록
+      tests:
+      - not_null: true
+    - name: meter_200
+      description: 200미터 수영 기록
+      tests:
+      - not_null: true
+    - name: meter_300
+      description: 300 미터에 대한 측정값입니다.
+    - name: meter_400
+      description: 400 미터에 대한 측정값입니다.
+    - name: meter_500
+      description: 500 미터에 대한 측정값입니다.
+    - name: meter_600
+      description: 600 미터에 대한 측정값입니다.
+    - name: meter_700
+      description: 700 미터에 대한 측정값입니다.
+    - name: Time
+      description: 측정이 이루어진 시간입니다.

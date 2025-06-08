@@ -1,0 +1,176 @@
+version: 2
+sources:
+- name: customers_and_products_contacts
+  description: customers_and_products_contacts 데이터셋의 테이블 모음
+  database: customers_and_products_contacts
+  tables:
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_type_code
+      description: 제품 유형 코드
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: product_price
+      description: 제품 가격
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: payment_method_code
+      description: 결제 방법 코드
+      tests:
+      - not_null
+    - name: customer_number
+      description: 고객 번호
+      tests:
+      - unique
+      - not_null
+    - name: customer_name
+      description: 고객 이름
+      tests:
+      - not_null
+    - name: customer_address
+      description: 고객 주소
+      tests:
+      - not_null
+    - name: customer_phone
+      description: 고객 전화번호
+      tests:
+      - not_null
+    - name: customer_email
+      description: 고객 이메일
+      tests:
+      - not_null
+  - name: Customer_Address_History
+    description: 고객 주소 이력 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_from
+      description: 주소 이력 시작 날짜
+      tests:
+      - not_null
+    - name: date_to
+      description: 주소 이력 종료 날짜
+      tests:
+      - not_null
+  - name: Order_Items
+    description: 주문 항목에 대한 정보
+    columns:
+    - name: order_item_id
+      description: 주문 항목의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: order_id
+      description: 주문과 연결된 고유 식별자
+      tests:
+      - not_null
+    - name: product_id
+      description: 주문된 제품의 고유 식별자
+      tests:
+      - not_null
+    - name: order_quantity
+      description: 주문된 수량
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1_number_building
+      description: 주소의 첫 번째 줄, 건물 번호
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주, 지방, 카운티
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+  - name: Contacts
+    description: 연락처 정보를 저장하는 테이블
+    columns:
+    - name: contact_id
+      description: 연락처 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: gender
+      description: 성별
+      tests:
+      - not_null
+    - name: first_name
+      description: 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 성
+      tests:
+      - not_null
+    - name: contact_phone
+      description: 연락처 전화번호
+      tests:
+      - not_null
+  - name: Customer_Orders
+    description: 고객 주문에 대한 정보
+    columns:
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: order_date
+      description: 주문 날짜 및 시간
+      tests:
+      - not_null
+    - name: order_status_code
+      description: 주문 상태 코드
+      tests:
+      - not_null

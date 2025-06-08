@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: theme_gallery
+  description: theme_gallery 데이터셋의 테이블 모음
+  database: theme_gallery
+  tables:
+  - name: artist
+    description: 아티스트에 대한 정보
+    columns:
+    - name: Artist_ID
+      description: 아티스트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 아티스트의 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 아티스트의 국가
+      tests:
+      - not_null
+    - name: Year_Join
+      description: 아티스트가 가입한 연도
+      tests:
+      - not_null
+    - name: Age
+      description: 아티스트의 나이
+      tests:
+      - not_null
+  - name: exhibition_record
+    description: 전시 기록에 대한 설명
+    columns:
+    - name: Exhibition_ID
+      description: 전시의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date
+      description: 전시 날짜 및 시간
+      tests:
+      - not_null
+    - name: Attendance
+      description: 전시 참석자 수
+      tests:
+      - not_null
+  - name: exhibition
+    description: 전시회에 대한 정보
+    columns:
+    - name: Exhibition_ID
+      description: 전시회의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 전시가 열린 연도
+      tests:
+      - not_null
+    - name: Theme
+      description: 전시의 주제
+      tests:
+      - not_null
+    - name: Artist_ID
+      description: 작가의 고유 식별자
+      tests:
+      - not_null
+    - name: Ticket_Price
+      description: 티켓 가격
+      tests:
+      - not_null

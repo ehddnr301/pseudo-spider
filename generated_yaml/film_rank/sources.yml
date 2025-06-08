@@ -1,0 +1,78 @@
+version: 2
+sources:
+- name: film_rank
+  description: film_rank 데이터셋의 테이블 모음
+  database: film_rank
+  tables:
+  - name: film
+    description: 영화에 대한 정보
+    columns:
+    - name: Film_ID
+      description: 영화의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 영화 제목
+      tests:
+      - not_null
+    - name: Studio
+      description: 영화 제작사
+      tests:
+      - not_null
+    - name: Director
+      description: 영화 감독
+      tests:
+      - not_null
+    - name: Gross_in_dollar
+      description: 영화의 총 수익(달러)
+      tests:
+      - not_null
+  - name: film_market_estimation
+    description: 영화 시장 추정에 대한 정보
+    columns:
+    - name: Estimation_ID
+      description: 추정 ID
+      tests:
+      - unique
+      - not_null
+    - name: Low_Estimate
+      description: 최저 추정치
+      tests:
+      - not_null
+    - name: High_Estimate
+      description: 최고 추정치
+      tests:
+      - not_null
+    - name: Film_ID
+      description: 영화 ID
+      tests:
+      - not_null
+    - name: Type
+      description: 유형
+      tests:
+      - not_null
+    - name: Market_ID
+      description: 시장 ID
+      tests:
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+  - name: market
+    description: 시장에 대한 설명
+    columns:
+    - name: Market_ID
+      description: 시장 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Country
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: Number_cities
+      description: 도시 수
+      tests:
+      - not_null

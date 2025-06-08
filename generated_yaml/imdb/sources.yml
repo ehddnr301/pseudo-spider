@@ -1,0 +1,334 @@
+version: 2
+sources:
+- name: imdb
+  description: imdb 데이터셋의 테이블 모음
+  database: imdb
+  tables:
+  - name: director
+    description: 감독에 대한 정보
+    columns:
+    - name: did
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender
+      description: 성별
+      tests:
+      - not_null
+    - name: name
+      description: 이름
+      tests:
+      - not_null
+    - name: nationality
+      description: 국적
+      tests:
+      - not_null
+    - name: birth_city
+      description: 출생 도시
+      tests:
+      - not_null
+    - name: birth_year
+      description: 출생 연도
+      tests:
+      - not_null
+  - name: made_by
+    description: 제작 정보를 담고 있는 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 제작자 식별자
+      tests:
+      - not_null
+    - name: pid
+      description: 프로젝트 식별자
+      tests:
+      - not_null
+  - name: producer
+    description: 제작자에 대한 정보
+    columns:
+    - name: pid
+      description: 제작자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender
+      description: 제작자의 성별
+      tests:
+      - not_null
+    - name: name
+      description: 제작자의 이름
+      tests:
+      - not_null
+    - name: nationality
+      description: 제작자의 국적
+      tests:
+      - not_null
+    - name: birth_city
+      description: 제작자의 출생 도시
+      tests:
+      - not_null
+    - name: birth_year
+      description: 제작자의 출생 연도
+      tests:
+      - not_null
+  - name: classification
+    description: 분류 테이블에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: MSID 식별자
+      tests:
+      - not_null
+    - name: gid
+      description: 그룹 식별자
+      tests:
+      - not_null
+  - name: written_by
+    description: 작성자 정보를 담고 있는 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 작성된 문서의 식별자
+      tests:
+      - not_null
+    - name: wid
+      description: 작성자의 식별자
+      tests:
+      - not_null
+  - name: genre
+    description: 장르에 대한 설명
+    columns:
+    - name: gid
+      description: 장르 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: genre
+      description: 장르 이름
+      tests:
+      - not_null
+  - name: copyright
+    description: 저작권 테이블에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 미디어 식별자
+      tests:
+      - not_null
+    - name: cid
+      description: 저작권 식별자
+      tests:
+      - not_null
+  - name: movie
+    description: 영화에 대한 정보
+    columns:
+    - name: mid
+      description: 영화의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 영화 제목
+      tests:
+      - not_null
+    - name: release_year
+      description: 영화 개봉 연도
+      tests:
+      - not_null
+    - name: title_aka
+      description: 영화의 다른 제목
+      tests:
+      - not_null
+    - name: budget
+      description: 영화 예산
+      tests:
+      - not_null
+  - name: keyword
+    description: 키워드 테이블에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: keyword
+      description: 키워드 값
+      tests:
+      - not_null
+  - name: tags
+    description: 태그 정보를 저장하는 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 미디어 식별자
+      tests:
+      - not_null
+    - name: kid
+      description: 키즈 식별자
+      tests:
+      - not_null
+  - name: company
+    description: 회사 정보를 담고 있는 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 회사 이름
+      tests:
+      - not_null
+    - name: country_code
+      description: 국가 코드
+      tests:
+      - not_null
+  - name: writer
+    description: 작가에 대한 정보
+    columns:
+    - name: wid
+      description: 작가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender
+      description: 작가의 성별
+      tests:
+      - not_null
+    - name: name
+      description: 작가의 이름
+      tests:
+      - not_null
+    - name: nationality
+      description: 작가의 국적
+      tests:
+      - not_null
+    - name: num_of_episodes
+      description: 작가가 참여한 에피소드 수
+      tests:
+      - not_null
+    - name: birth_city
+      description: 작가의 출생 도시
+      tests:
+      - not_null
+    - name: birth_year
+      description: 작가의 출생 연도
+      tests:
+      - not_null
+  - name: directed_by
+    description: 감독 정보 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 영화 식별자
+      tests:
+      - not_null
+    - name: did
+      description: 감독 식별자
+      tests:
+      - not_null
+  - name: cast
+    description: 출연진에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: msid
+      description: 미디어 식별자
+      tests:
+      - not_null
+    - name: aid
+      description: 작품 식별자
+      tests:
+      - not_null
+    - name: role
+      description: 역할
+      tests:
+      - not_null
+  - name: actor
+    description: 배우에 대한 정보
+    columns:
+    - name: aid
+      description: 배우의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender
+      description: 배우의 성별
+      tests:
+      - not_null
+    - name: name
+      description: 배우의 이름
+      tests:
+      - not_null
+    - name: nationality
+      description: 배우의 국적
+      tests:
+      - not_null
+    - name: birth_city
+      description: 배우의 출생 도시
+      tests:
+      - not_null
+    - name: birth_year
+      description: 배우의 출생 연도
+      tests:
+      - not_null
+  - name: tv_series
+    description: TV 시리즈에 대한 설명
+    columns:
+    - name: sid
+      description: 시리즈 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 시리즈 제목
+      tests:
+      - not_null
+    - name: release_year
+      description: 출시 연도
+      tests:
+      - not_null
+    - name: num_of_seasons
+      description: 시리즈 시즌 수
+      tests:
+      - not_null
+    - name: num_of_episodes
+      description: 총 에피소드 수
+      tests:
+      - not_null
+    - name: title_aka
+      description: 다른 제목
+      tests:
+      - not_null
+    - name: budget
+      description: 예산
+      tests:
+      - not_null

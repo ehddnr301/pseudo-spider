@@ -1,0 +1,96 @@
+version: 2
+sources:
+- name: culture_company
+  description: culture_company 데이터셋의 테이블 모음
+  database: culture_company
+  tables:
+  - name: book_club
+    description: 책 클럽에 대한 정보
+    columns:
+    - name: book_club_id
+      description: 책 클럽의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 책이 출판된 연도
+      tests:
+      - not_null
+    - name: Author_or_Editor
+      description: 저자 또는 편집자
+      tests:
+      - not_null
+    - name: Book_Title
+      description: 책 제목
+      tests:
+      - not_null
+    - name: Publisher
+      description: 출판사
+      tests:
+      - not_null
+    - name: Category
+      description: 책의 카테고리
+      tests:
+      - not_null
+    - name: Result
+      description: 읽은 결과
+      tests:
+      - not_null
+  - name: movie
+    description: 영화에 대한 정보
+    columns:
+    - name: movie_id
+      description: 영화의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 영화 제목
+      tests:
+      - not_null
+    - name: Year
+      description: 영화 개봉 연도
+      tests:
+      - not_null
+    - name: Director
+      description: 영화 감독
+      tests:
+      - not_null
+    - name: Budget_million
+      description: 영화 예산(백만 달러)
+      tests:
+      - not_null
+    - name: Gross_worldwide
+      description: 전 세계 총 수익
+      tests:
+      - not_null
+  - name: culture_company
+    description: 문화 회사에 대한 설명
+    columns:
+    - name: Company_name
+      description: 회사의 이름
+      tests:
+      - unique
+      - not_null
+    - name: Type
+      description: 회사의 유형
+      tests:
+      - not_null
+    - name: Incorporated_in
+      description: 설립 날짜
+      tests:
+      - not_null
+    - name: Group_Equity_Shareholding
+      description: 주식 보유 비율
+      tests:
+      - not_null
+    - name: book_club_id
+      description: 북 클럽 ID
+      tests:
+      - unique
+      - not_null
+    - name: movie_id
+      description: 영화 ID
+      tests:
+      - unique
+      - not_null

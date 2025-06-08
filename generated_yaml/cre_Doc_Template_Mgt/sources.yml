@@ -1,0 +1,90 @@
+version: 2
+sources:
+- name: cre_Doc_Template_Mgt
+  description: cre_Doc_Template_Mgt 데이터셋의 테이블 모음
+  database: cre_Doc_Template_Mgt
+  tables:
+  - name: Paragraphs
+    description: 단락에 대한 설명
+    columns:
+    - name: Paragraph_ID
+      description: 단락의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - not_null
+    - name: Paragraph_Text
+      description: 단락의 ��스트 내용
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Ref_Template_Types
+    description: 템플릿 유형에 대한 설명
+    columns:
+    - name: Template_Type_Code
+      description: 템플릿 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: Template_Type_Description
+      description: 템플릿 유형 설명
+      tests:
+      - not_null
+  - name: Documents
+    description: 문서에 대한 설명
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Template_ID
+      description: 템플릿의 고유 식별자
+      tests:
+      - not_null
+    - name: Document_Name
+      description: 문서의 이름
+      tests:
+      - not_null
+    - name: Document_Description
+      description: 문서에 대한 설명
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Templates
+    description: 템플릿에 대한 설명
+    columns:
+    - name: Template_ID
+      description: 템플릿의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Version_Number
+      description: 템플릿 버전 번호
+      tests:
+      - not_null
+    - name: Template_Type_Code
+      description: 템플릿 유형 코드
+      tests:
+      - not_null
+    - name: Date_Effective_From
+      description: 유효 시작 날짜
+      tests:
+      - not_null
+    - name: Date_Effective_To
+      description: 유효 종료 날짜
+      tests:
+      - not_null
+    - name: Template_Details
+      description: 템플릿 세부 사항
+      tests:
+      - not_null

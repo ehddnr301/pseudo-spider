@@ -1,0 +1,62 @@
+version: 2
+sources:
+- name: soccer_2
+  description: soccer_2 데이터셋의 테이블 모음
+  database: soccer_2
+  tables:
+  - name: College
+    description: 대학에 대한 정보
+    columns:
+    - name: cName
+      description: 대학 이름
+      tests:
+      - unique
+      - not_null
+    - name: state
+      description: 주
+      tests:
+      - not_null
+    - name: enr
+      description: 등록 학생 수
+      tests:
+      - not_null
+  - name: Tryout
+    description: 시도 테이블에 대한 설명
+    columns:
+    - name: pID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cName
+      description: 이름 필드
+      tests:
+      - not_null
+    - name: pPos
+      description: 포지션 필드
+      tests:
+      - not_null
+    - name: decision
+      description: 결정 필드
+      tests:
+      - not_null
+  - name: Player
+    description: 플레이어에 대한 정보
+    columns:
+    - name: pID
+      description: 플레이어의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: pName
+      description: 플레이어의 이름
+      tests:
+      - not_null
+    - name: yCard
+      description: 플레이어의 카드 유형
+      tests:
+      - not_null
+    - name: HS
+      description: 플레이어의 점수
+      tests:
+      - not_null

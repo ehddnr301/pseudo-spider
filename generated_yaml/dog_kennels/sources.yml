@@ -1,0 +1,182 @@
+version: 2
+sources:
+- name: dog_kennels
+  description: dog_kennels 데이터셋의 테이블 모음
+  database: dog_kennels
+  tables:
+  - name: Treatments
+    description: 치료에 대한 정보
+    columns:
+    - name: treatment_id
+      description: 치료 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dog_id
+      description: 개 고유 식별자
+      tests:
+      - not_null
+    - name: professional_id
+      description: 전문가 고유 식별자
+      tests:
+      - not_null
+    - name: treatment_type_code
+      description: 치료 유형 코드
+      tests:
+      - not_null
+    - name: date_of_treatment
+      description: 치료 날짜
+      tests:
+      - not_null
+    - name: cost_of_treatment
+      description: 치료 비용
+      tests:
+      - not_null
+  - name: Treatment_Types
+    description: 치료 유형에 대한 설명
+    columns:
+    - name: treatment_type_code
+      description: 치료 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: treatment_type_description
+      description: 치료 유형 설명
+      tests:
+      - not_null
+  - name: Breeds
+    description: 품종에 대한 정보
+    columns:
+    - name: breed_code
+      description: 품종 코드
+      tests:
+      - unique
+      - not_null
+    - name: breed_name
+      description: 품종 이름
+      tests:
+      - not_null
+  - name: Charges
+    description: 요금 테이블에 대한 설명
+    columns:
+    - name: charge_id
+      description: 요금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: charge_type
+      description: 요금 유형
+      tests:
+      - not_null
+    - name: charge_amount
+      description: 요금 금액
+      tests:
+      - not_null
+  - name: Sizes
+    description: 사이즈 테이블에 대한 설명
+    columns:
+    - name: size_code
+      description: 사이즈 코드
+      tests:
+      - unique
+      - not_null
+    - name: size_description
+      description: 사이즈 설명
+      tests:
+      - not_null
+  - name: Owners
+    description: 소유자에 대한 정보 테이블
+    columns:
+    - name: owner_id
+      description: 소유자의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: first_name
+      description: 소유자의 이름
+      tests:
+      - not_null: true
+    - name: last_name
+      description: 소유자의 성
+      tests:
+      - not_null: true
+    - name: street
+      description: 소유자의 거리 주소
+    - name: city
+      description: 소유자가 거주하는 도시
+    - name: state
+      description: 소유자가 거주하는 주
+    - name: zip_code
+      description: 소유자의 우편번호
+    - name: email_address
+      description: 소유자의 이메일 주소
+    - name: home_phone
+      description: 소유자의 집 전화번호
+    - name: cell_number
+      description: 소유자의 휴대전화 번호
+  - name: Dogs
+    description: 개에 대한 정보 테이블
+    columns:
+    - name: dog_id
+      description: 개의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: owner_id
+      description: 소유자의 고유 식별자
+      tests:
+      - not_null: true
+    - name: abandoned_yn
+      description: 버려진 개 여부
+    - name: breed_code
+      description: 품종 코드
+    - name: size_code
+      description: 크기 코드
+    - name: name
+      description: 개 이름
+    - name: age
+      description: 나이
+    - name: date_of_birth
+      description: 생년월일
+    - name: gender
+      description: 성별
+    - name: weight
+      description: 체중
+    - name: date_arrived
+      description: 도착일
+    - name: date_adopted
+      description: 입양일
+    - name: date_departed
+      description: 퇴소일
+  - name: Professionals
+    description: 전문가에 대한 정보가 포함된 테이블
+    columns:
+    - name: professional_id
+      description: 전문가의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: role_code
+      description: 전문가의 역할 코드
+      tests:
+      - not_null: true
+    - name: first_name
+      description: 전문가의 이름
+      tests:
+      - not_null: true
+    - name: street
+      description: 전문가의 거리 주소
+    - name: city
+      description: 전문가가 거주하는 도시
+    - name: state
+      description: 거주하는 주를 나타��니다.
+    - name: zip_code
+      description: 우편번호를 나타내며, 정수형입니다.
+    - name: last_name
+      description: 사용자의 성을 나타��니다.
+    - name: email_address
+      description: 사용자의 이메일 주소를 나타��니다.
+    - name: home_phone
+      description: 사용자의 집 전화번호를 나타��니다.
+    - name: cell_number
+      description: 사용자의 휴대전화 번호를 나타��니다.

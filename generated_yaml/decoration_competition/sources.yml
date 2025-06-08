@@ -1,0 +1,66 @@
+version: 2
+sources:
+- name: decoration_competition
+  description: decoration_competition 데이터셋의 테이블 모음
+  database: decoration_competition
+  tables:
+  - name: round
+    description: 라운드에 대한 설명
+    columns:
+    - name: Round_ID
+      description: 라운드의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Member_ID
+      description: 회원의 고유 식별자
+      tests:
+      - not_null
+    - name: Decoration_Theme
+      description: 장식 테마
+      tests:
+      - not_null
+    - name: Rank_in_Round
+      description: 라운드 내 순위
+      tests:
+      - not_null
+  - name: member
+    description: 회원 정보를 저장하는 테이블
+    columns:
+    - name: Member_ID
+      description: 회원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 회원 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 회원의 국가
+      tests:
+      - not_null
+    - name: College_ID
+      description: 소속 대학의 고유 식별자
+      tests:
+      - not_null
+  - name: college
+    description: 대학에 대한 정보
+    columns:
+    - name: College_ID
+      description: 대학의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 대학의 이름
+      tests:
+      - not_null
+    - name: Leader_Name
+      description: 대학의 리더 이름
+      tests:
+      - not_null
+    - name: College_Location
+      description: 대학의 위치
+      tests:
+      - not_null

@@ -1,0 +1,91 @@
+version: 2
+sources:
+- name: employee_hire_evaluation
+  description: employee_hire_evaluation 데이터셋의 테이블 모음
+  database: employee_hire_evaluation
+  tables:
+  - name: hiring
+    description: 채용 관련 정보 테이블
+    columns:
+    - name: Shop_ID
+      description: 상점 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Employee_ID
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Start_from
+      description: 시작 날짜 및 시간
+      tests:
+      - not_null
+    - name: Is_full_time
+      description: 정규직 여부
+      tests:
+      - not_null
+  - name: shop
+    description: 상점에 대한 정보
+    columns:
+    - name: Shop_ID
+      description: 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 상점의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 상점의 위치
+      tests:
+      - not_null
+    - name: District
+      description: 상점이 위치한 지역
+      tests:
+      - not_null
+    - name: Number_products
+      description: 상점에서 판매하는 제품의 수
+      tests:
+      - not_null
+    - name: Manager_name
+      description: 상점의 관리자 이름
+      tests:
+      - not_null
+  - name: evaluation
+    description: 직원 평가 테이블
+    columns:
+    - name: Employee_ID
+      description: 직원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year_awarded
+      description: 상여금이 수여된 연도
+      tests:
+      - not_null
+    - name: Bonus
+      description: 수여된 상여금 금액
+      tests:
+      - not_null
+  - name: employee
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: Employee_ID
+      description: 직원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 직원의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 직원의 나이
+      tests:
+      - not_null
+    - name: City
+      description: 직원이 거주하는 도시
+      tests:
+      - not_null

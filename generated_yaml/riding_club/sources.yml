@@ -1,0 +1,135 @@
+version: 2
+sources:
+- name: riding_club
+  description: riding_club 데이터셋의 테이블 모음
+  database: riding_club
+  tables:
+  - name: coach
+    description: 코치에 대한 정보
+    columns:
+    - name: Coach_ID
+      description: 코치의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Coach_name
+      description: 코치의 이름
+      tests:
+      - not_null
+    - name: Gender
+      description: 코치의 성별
+      tests:
+      - not_null
+    - name: Club_ID
+      description: 소속 클럽의 고유 식별자
+      tests:
+      - not_null
+    - name: Rank
+      description: 코치의 순위
+      tests:
+      - not_null
+  - name: player_coach
+    description: 선수와 코치 간의 관계를 나타내는 테이블
+    columns:
+    - name: Player_ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Coach_ID
+      description: 코치의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Starting_year
+      description: 선수와 코치의 관계 시작 연도
+      tests:
+      - not_null
+  - name: match_result
+    description: 경기 결과 테이블
+    columns:
+    - name: Rank
+      description: 순위
+      tests:
+      - unique
+      - not_null
+    - name: Club_ID
+      description: 클럽 식별자
+      tests:
+      - not_null
+    - name: Gold
+      description: 금메달 수
+      tests:
+      - not_null
+    - name: Big_Silver
+      description: 대은메달 수
+      tests:
+      - not_null
+    - name: Small_Silver
+      description: 소은메달 수
+      tests:
+      - not_null
+    - name: Bronze
+      description: 동메달 수
+      tests:
+      - not_null
+    - name: Points
+      description: 총 점수
+      tests:
+      - not_null
+  - name: club
+    description: 클럽에 대한 정보
+    columns:
+    - name: Club_ID
+      description: 클럽의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Club_name
+      description: 클럽의 이름
+      tests:
+      - not_null
+    - name: Region
+      description: 클럽이 위치한 지역
+      tests:
+      - not_null
+    - name: Start_year
+      description: 클럽이 시작된 연도
+      tests:
+      - not_null
+  - name: player
+    description: 선수에 대한 정보 테이블
+    columns:
+    - name: Player_ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Sponsor_name
+      description: 선수의 후원자 이름
+      tests:
+      - not_null
+    - name: Player_name
+      description: 선수의 이름
+      tests:
+      - not_null
+    - name: Gender
+      description: 선수의 성별
+      tests:
+      - not_null
+    - name: Residence
+      description: 선수의 거주지
+      tests:
+      - not_null
+    - name: Occupation
+      description: 선수의 직업
+      tests:
+      - not_null
+    - name: Votes
+      description: 선수의 투표 수
+      tests:
+      - not_null
+    - name: Rank
+      description: 선수의 순위
+      tests:
+      - not_null

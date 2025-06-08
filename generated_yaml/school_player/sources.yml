@@ -1,0 +1,110 @@
+version: 2
+sources:
+- name: school_player
+  description: school_player 데이터셋의 테이블 모음
+  database: school_player
+  tables:
+  - name: school_details
+    description: 학교 세부 정보에 대한 설명
+    columns:
+    - name: School_ID
+      description: 학교의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Nickname
+      description: 학교의 별명
+      tests:
+      - not_null
+    - name: Colors
+      description: 학교의 색상
+      tests:
+      - not_null
+    - name: League
+      description: 학교가 속한 리그
+      tests:
+      - not_null
+    - name: Class
+      description: 학교의 학급
+      tests:
+      - not_null
+    - name: Division
+      description: 학교의 구분
+      tests:
+      - not_null
+  - name: school_performance
+    description: 학교 성과에 대한 데이터
+    columns:
+    - name: School_Id
+      description: 학교의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: School_Year
+      description: 학교 연도
+      tests:
+      - not_null
+    - name: Class_A
+      description: 수업 A의 교사
+      tests:
+      - not_null
+    - name: Class_AA
+      description: 수업 AA의 인구
+      tests:
+      - not_null
+  - name: player
+    description: 선수에 대한 정보
+    columns:
+    - name: Player_ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Player
+      description: 선수의 이름
+      tests:
+      - not_null
+    - name: Team
+      description: 선수가 소속된 팀
+      tests:
+      - not_null
+    - name: Age
+      description: 선수의 나이
+      tests:
+      - not_null
+    - name: Position
+      description: 선수의 포지션
+      tests:
+      - not_null
+    - name: School_ID
+      description: 선수가 다니는 학교의 고유 식별자
+      tests:
+      - not_null
+  - name: school
+    description: 학교에 대한 정보 테이블
+    columns:
+    - name: School_ID
+      description: 학교의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: School
+      description: 학교의 이름
+      tests:
+      - not_null: true
+    - name: Location
+      description: 학교의 위치
+    - name: Enrollment
+      description: 학교의 등록 학생 수
+    - name: Founded
+      description: 학교가 설립된 연도
+    - name: Denomination
+      description: 학교의 종파 또는 종교적 소속을 나타��니다.
+    - name: Boys_or_Girls
+      description: 학교가 남학교인지 여학교인지 또는 공학인지 나타��니다.
+    - name: Day_or_Boarding
+      description: 학교가 주간학교인지 기숙학교인지를 나타��니다.
+    - name: Year_Entered_Competition
+      description: 학교가 대회에 참가한 연도를 나타��니다.
+    - name: School_Colors
+      description: 학교의 공식 색상을 나타��니다.

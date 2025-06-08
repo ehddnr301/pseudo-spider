@@ -1,0 +1,54 @@
+version: 2
+sources:
+- name: singer
+  description: singer 데이터셋의 테이블 모음
+  database: singer
+  tables:
+  - name: song
+    description: 노래에 대한 정보
+    columns:
+    - name: Song_ID
+      description: 노래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 노래 제목
+      tests:
+      - not_null
+    - name: Singer_ID
+      description: 가수의 고유 식별자
+      tests:
+      - not_null
+    - name: Sales
+      description: 판매량
+      tests:
+      - not_null
+    - name: Highest_Position
+      description: 최고 순위
+      tests:
+      - not_null
+  - name: singer
+    description: 가수에 대한 정보
+    columns:
+    - name: Singer_ID
+      description: 가수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 가수의 이름
+      tests:
+      - not_null
+    - name: Birth_Year
+      description: 가수의 출생 연도
+      tests:
+      - not_null
+    - name: Net_Worth_Millions
+      description: 가수의 순자산(백만 달러)
+      tests:
+      - not_null
+    - name: Citizenship
+      description: 가수의 국적
+      tests:
+      - not_null

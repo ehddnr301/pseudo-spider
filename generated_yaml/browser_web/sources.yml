@@ -1,0 +1,62 @@
+version: 2
+sources:
+- name: browser_web
+  description: browser_web 데이터셋의 테이블 모음
+  database: browser_web
+  tables:
+  - name: accelerator_compatible_browser
+    description: 가속기와 호환되는 브라우저에 대한 정보
+    columns:
+    - name: accelerator_id
+      description: 가속기 식별자
+      tests:
+      - unique
+      - not_null
+    - name: browser_id
+      description: 브라우저 식별자
+      tests:
+      - not_null
+    - name: compatible_since_year
+      description: 호환 시작 연도
+      tests:
+      - not_null
+  - name: Web_client_accelerator
+    description: 웹 클라이언트 가속기 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 사용자 이름
+      tests:
+      - not_null
+    - name: Operating_system
+      description: 운영 체제
+      tests:
+      - not_null
+    - name: Client
+      description: 클라이언트 이름
+      tests:
+      - not_null
+    - name: Connection
+      description: 연결 유형
+      tests:
+      - not_null
+  - name: browser
+    description: 브라우저에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 브라우저 이름
+      tests:
+      - not_null
+    - name: market_share
+      description: 시장 점유율
+      tests:
+      - not_null

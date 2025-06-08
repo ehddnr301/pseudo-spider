@@ -1,0 +1,106 @@
+version: 2
+sources:
+- name: music_1
+  description: music_1 데이터셋의 테이블 모음
+  database: music_1
+  tables:
+  - name: song
+    description: 노래에 대한 정보
+    columns:
+    - name: song_name
+      description: 노래 제목
+      tests:
+      - not_null
+    - name: artist_name
+      description: 아티스트 이름
+      tests:
+      - not_null
+    - name: country
+      description: 국가
+      tests:
+      - not_null
+    - name: f_id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: genre_is
+      description: 장르
+      tests:
+      - not_null
+    - name: rating
+      description: 평점
+      tests:
+      - not_null
+    - name: languages
+      description: 언어
+      tests:
+      - not_null
+    - name: releasedate
+      description: 발매일
+      tests:
+      - not_null
+    - name: resolution
+      description: 해상도
+      tests:
+      - not_null
+  - name: artist
+    description: 아티스트에 대한 설명
+    columns:
+    - name: artist_name
+      description: 아티스트의 이름
+      tests:
+      - unique
+      - not_null
+    - name: country
+      description: 아티스트의 국가
+      tests:
+      - not_null
+    - name: gender
+      description: 아티스트의 성별
+      tests:
+      - not_null
+    - name: preferred_genre
+      description: 아티스트가 선호하는 장르
+      tests:
+      - not_null
+  - name: genre
+    description: 장르에 대한 설명
+    columns:
+    - name: g_name
+      description: 장르 이름
+      tests:
+      - unique
+      - not_null
+    - name: rating
+      description: 평가 등급
+      tests:
+      - not_null
+    - name: most_popular_in
+      description: 가장 인기 있는 지역
+      tests:
+      - not_null
+  - name: files
+    description: 파일에 대한 정보
+    columns:
+    - name: f_id
+      description: 파일의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: artist_name
+      description: 아티스트의 이름
+      tests:
+      - not_null
+    - name: file_size
+      description: 파일의 크기
+      tests:
+      - not_null
+    - name: duration
+      description: 파일의 재생 시간
+      tests:
+      - not_null
+    - name: formats
+      description: 파일의 형식
+      tests:
+      - not_null

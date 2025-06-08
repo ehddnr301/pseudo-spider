@@ -1,0 +1,115 @@
+version: 2
+sources:
+- name: store_product
+  description: store_product 데이터셋의 테이블 모음
+  database: store_product
+  tables:
+  - name: store
+    description: 상점에 대한 정보
+    columns:
+    - name: Store_ID
+      description: 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Store_Name
+      description: 상점의 이름
+      tests:
+      - not_null
+    - name: Type
+      description: 상점의 유형
+      tests:
+      - not_null
+    - name: Area_size
+      description: 상점의 면적 크기
+      tests:
+      - not_null
+    - name: Number_of_product_category
+      description: 상점의 제품 카테고리 수
+      tests:
+      - not_null
+    - name: Ranking
+      description: 상점의 순위
+      tests:
+      - not_null
+  - name: product
+    description: 제품에 대한 설명
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: dimensions
+      description: 제품의 크기
+      tests:
+      - not_null
+    - name: dpi
+      description: 해상도
+      tests:
+      - not_null
+    - name: pages_per_minute_color
+      description: 컬러 인쇄 속도
+      tests:
+      - not_null
+    - name: max_page_size
+      description: 최대 페이지 크기
+      tests:
+      - not_null
+    - name: interface
+      description: 인터페이스 유형
+      tests:
+      - not_null
+  - name: district
+    description: 구역에 대한 정보
+    columns:
+    - name: District_ID
+      description: 구역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: District_name
+      description: 구역의 이름
+      tests:
+      - not_null
+    - name: Headquartered_City
+      description: 구역의 본사가 위치한 도시
+      tests:
+      - not_null
+    - name: City_Population
+      description: 도시의 인구 수
+      tests:
+      - not_null
+    - name: City_Area
+      description: 도시의 면적
+      tests:
+      - not_null
+  - name: store_product
+    description: 상점 제품에 대한 정보
+    columns:
+    - name: Store_ID
+      description: 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Product_ID
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: store_district
+    description: 매장과 구역 간의 관계를 나타내는 테이블
+    columns:
+    - name: Store_ID
+      description: 매장 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: District_ID
+      description: 구역 고유 식별자
+      tests:
+      - not_null

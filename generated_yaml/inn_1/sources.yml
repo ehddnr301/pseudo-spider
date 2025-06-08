@@ -1,0 +1,78 @@
+version: 2
+sources:
+- name: inn_1
+  description: inn_1 데이터셋의 테이블 모음
+  database: inn_1
+  tables:
+  - name: Rooms
+    description: 객실에 대한 정보
+    columns:
+    - name: RoomId
+      description: 객실의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: roomName
+      description: 객실 이름
+      tests:
+      - not_null
+    - name: beds
+      description: 침대 수
+      tests:
+      - not_null
+    - name: bedType
+      description: 침대 종류
+      tests:
+      - not_null
+    - name: maxOccupancy
+      description: 최대 수용 인원
+      tests:
+      - not_null
+    - name: basePrice
+      description: 기본 가격
+      tests:
+      - not_null
+    - name: decor
+      description: 장식
+      tests:
+      - not_null
+  - name: Reservations
+    description: 예약 정보를 저장하는 테이블
+    columns:
+    - name: Code
+      description: 예약 코드
+      tests:
+      - unique
+      - not_null
+    - name: Room
+      description: 객실 정보
+      tests:
+      - not_null
+    - name: CheckIn
+      description: 체크인 날짜
+      tests:
+      - not_null
+    - name: CheckOut
+      description: 체크아웃 날짜
+      tests:
+      - not_null
+    - name: Rate
+      description: 요금
+      tests:
+      - not_null
+    - name: LastName
+      description: 성
+      tests:
+      - not_null
+    - name: FirstName
+      description: 이름
+      tests:
+      - not_null
+    - name: Adults
+      description: 성인 수
+      tests:
+      - not_null
+    - name: Kids
+      description: 어린이 수
+      tests:
+      - not_null

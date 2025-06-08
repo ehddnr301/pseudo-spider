@@ -1,0 +1,154 @@
+version: 2
+sources:
+- name: insurance_and_eClaims
+  description: insurance_and_eClaims 데이터셋의 테이블 모음
+  database: insurance_and_eClaims
+  tables:
+  - name: Claims_Documents
+    description: 청구 문서에 대한 정보
+    columns:
+    - name: Claim_ID
+      description: 청구 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Document_Type_Code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: Created_by_Staff_ID
+      description: 작성한 직원의 식별자
+      tests:
+      - not_null
+    - name: Created_Date
+      description: 작성 날짜
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: Customer_ID
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_Details
+      description: 고객의 세부 정보
+      tests:
+      - not_null
+  - name: Claims_Processing
+    description: 청구 처리에 대한 정보
+    columns:
+    - name: Claim_Processing_ID
+      description: 청구 처리 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Claim_ID
+      description: 청구 고유 식별자
+      tests:
+      - not_null
+    - name: Claim_Outcome_Code
+      description: 청구 결과 코드
+      tests:
+      - not_null
+    - name: Claim_Stage_ID
+      description: 청구 단계 고유 식별자
+      tests:
+      - not_null
+    - name: Staff_ID
+      description: 직원 고유 식별자
+      tests:
+      - not_null
+  - name: Policies
+    description: 정책에 대한 정보
+    columns:
+    - name: Policy_ID
+      description: 정책의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_ID
+      description: 고객의 고유 식별자
+      tests:
+      - not_null
+    - name: Policy_Type_Code
+      description: 정책 유형 코드
+      tests:
+      - not_null
+    - name: Start_Date
+      description: 정책 시작 날짜
+      tests:
+      - not_null
+    - name: End_Date
+      description: 정책 종료 날짜
+      tests:
+      - not_null
+  - name: Staff
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: Staff_ID
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Staff_Details
+      description: 직원 세부 정보
+      tests:
+      - not_null
+  - name: Claim_Headers
+    description: 청구 헤더에 대한 설명
+    columns:
+    - name: Claim_Header_ID
+      description: 청구 헤더의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Claim_Status_Code
+      description: 청구 상태 코드
+      tests:
+      - not_null
+    - name: Claim_Type_Code
+      description: 청구 유형 코드
+      tests:
+      - not_null
+    - name: Policy_ID
+      description: 정책의 고유 식별자
+      tests:
+      - not_null
+    - name: Date_of_Claim
+      description: 청구 날짜
+      tests:
+      - not_null
+    - name: Date_of_Settlement
+      description: 정산 날짜
+      tests:
+      - not_null
+    - name: Amount_Claimed
+      description: 청구된 금액
+      tests:
+      - not_null
+    - name: Amount_Piad
+      description: 지급된 금액
+      tests:
+      - not_null
+  - name: Claims_Processing_Stages
+    description: 청구 처리 단계에 대한 설명
+    columns:
+    - name: Claim_Stage_ID
+      description: 청구 단계 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Next_Claim_Stage_ID
+      description: 다음 청구 단계 식별자
+      tests:
+      - not_null
+    - name: Claim_Status_Name
+      description: 청구 상태 이름
+      tests:
+      - not_null
+    - name: Claim_Status_Description
+      description: 청구 상태 설명
+      tests:
+      - not_null

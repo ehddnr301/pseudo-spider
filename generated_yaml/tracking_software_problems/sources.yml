@@ -1,0 +1,132 @@
+version: 2
+sources:
+- name: tracking_software_problems
+  description: tracking_software_problems 데이터셋의 테이블 모음
+  database: tracking_software_problems
+  tables:
+  - name: Problem_Status_Codes
+    description: 문제 상태 코드에 대한 설명
+    columns:
+    - name: problem_status_code
+      description: 문제 상태 코드
+      tests:
+      - unique
+      - not_null
+    - name: problem_status_description
+      description: 문제 상태 설명
+      tests:
+      - not_null
+  - name: Problem_Category_Codes
+    description: 문제 카테고리 코드에 대한 설명
+    columns:
+    - name: problem_category_code
+      description: 문제 카테고리 코드
+      tests:
+      - unique
+      - not_null
+    - name: problem_category_description
+      description: 문제 카테고리 설명
+      tests:
+      - not_null
+  - name: Problems
+    description: 문제에 대한 설명
+    columns:
+    - name: problem_id
+      description: 문제의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - not_null
+    - name: closure_authorised_by_staff_id
+      description: 문제를 종료할 수 있는 직원의 고유 식별자
+      tests:
+      - not_null
+    - name: reported_by_staff_id
+      description: 문제를 보고한 직원의 고유 식별자
+      tests:
+      - not_null
+    - name: date_problem_reported
+      description: 문제가 보고된 날짜
+      tests:
+      - not_null
+    - name: date_problem_closed
+      description: 문제가 종료된 날짜
+      tests:
+      - not_null
+    - name: problem_description
+      description: 문제에 대한 설명
+      tests:
+      - not_null
+    - name: other_problem_details
+      description: 기타 문제 세부 사항
+      tests:
+      - not_null
+  - name: Staff
+    description: 직원에 대한 정보 테이블
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: staff_first_name
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: staff_last_name
+      description: 직원 성
+      tests:
+      - not_null
+    - name: other_staff_details
+      description: 기타 직원 세부 정보
+      tests:
+      - not_null
+  - name: Product
+    description: 제품에 대한 설명
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_name
+      description: 제품의 이름
+      tests:
+      - not_null
+    - name: product_details
+      description: 제품에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Problem_Log
+    description: 문제 로그 테이블
+    columns:
+    - name: problem_log_id
+      description: 문제 로그의 고유 ID
+      tests:
+      - unique: true
+      - not_null: true
+    - name: assigned_to_staff_id
+      description: 문제를 담당하는 직원의 ID
+      tests:
+      - not_null: true
+    - name: problem_id
+      description: 문제의 고유 ID
+      tests:
+      - not_null: true
+    - name: problem_category_code
+      description: 문제의 카테고리 코드
+    - name: problem_status_code
+      description: 문제의 상태 코드
+    - name: log_entry_date
+      description: 로그 입력 날짜
+      tests:
+      - not_null: true
+    - name: log_entry_description
+      description: 로그 입력 설명
+    - name: log_entry_fix
+      description: 로그 입력 수정 사항
+    - name: other_log_details
+      description: 기타 로그 세부 사항

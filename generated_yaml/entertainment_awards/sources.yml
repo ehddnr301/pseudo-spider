@@ -1,0 +1,67 @@
+version: 2
+sources:
+- name: entertainment_awards
+  description: entertainment_awards 데이터셋의 테이블 모음
+  database: entertainment_awards
+  tables:
+  - name: artwork
+    description: 예술 작품에 대한 설명
+    columns:
+    - name: Artwork_ID
+      description: 작품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Type
+      description: 작품의 유형
+      tests:
+      - not_null
+    - name: Name
+      description: 작품의 이름
+      tests:
+      - not_null
+  - name: nomination
+    description: 노미네이션 테이블에 대한 설명
+    columns:
+    - name: Artwork_ID
+      description: 작품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Festival_ID
+      description: 축제의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Result
+      description: 결과 필드
+      tests:
+      - not_null
+  - name: festival_detail
+    description: 축제 세부 정보 테이블
+    columns:
+    - name: Festival_ID
+      description: 축제의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Festival_Name
+      description: 축제의 이름
+      tests:
+      - not_null
+    - name: Chair_Name
+      description: 축제 의장의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 축제가 열리는 장소
+      tests:
+      - not_null
+    - name: Year
+      description: 축제가 열리는 연도
+      tests:
+      - not_null
+    - name: Num_of_Audience
+      description: 관객 수
+      tests:
+      - not_null

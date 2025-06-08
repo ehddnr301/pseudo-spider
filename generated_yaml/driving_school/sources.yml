@@ -1,0 +1,166 @@
+version: 2
+sources:
+- name: driving_school
+  description: driving_school 데이터셋의 테이블 모음
+  database: driving_school
+  tables:
+  - name: Vehicles
+    description: 차량에 대한 정보 테이블
+    columns:
+    - name: vehicle_id
+      description: 차량의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: vehicle_details
+      description: 차량에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Lessons
+    description: 수업에 대한 정보
+    columns:
+    - name: lesson_id
+      description: 수업 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: lesson_status_code
+      description: 수업 상태 코드
+      tests:
+      - not_null
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - not_null
+    - name: vehicle_id
+      description: 차량 고유 식별자
+      tests:
+      - not_null
+    - name: lesson_date
+      description: 수업 날짜
+      tests:
+      - not_null
+    - name: lesson_time
+      description: 수업 시간
+      tests:
+      - not_null
+    - name: price
+      description: 수업 가격
+      tests:
+      - not_null
+  - name: Customer_Payments
+    description: 고객 결제 정보 테이블
+    columns:
+    - name: customer_id
+      description: 고객 식별자
+      tests:
+      - unique
+      - not_null
+    - name: datetime_payment
+      description: 결제 일시
+      tests:
+      - not_null
+    - name: payment_method_code
+      description: 결제 방법 코드
+      tests:
+      - not_null
+    - name: amount_payment
+      description: 결제 금액
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1_number_building
+      description: 주소의 첫 번째 줄, 건물 번호
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주, 지방, 카운티
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: customer_address_id
+      description: 고객의 주소 식별자
+      tests:
+      - not_null: true
+    - name: customer_status_code
+      description: 고객의 상태 코드
+      tests:
+      - not_null: true
+    - name: date_became_customer
+      description: 고객이 된 날짜
+      tests:
+      - not_null: true
+    - name: date_of_birth
+      description: 고객의 생년월일
+    - name: first_name
+      description: 사용자의 이름
+    - name: last_name
+      description: 사용자의 성
+    - name: amount_outstanding
+      description: 미지급 금액
+    - name: email_address
+      description: 사용자의 이메일 주소
+    - name: phone_number
+      description: 사용자의 전화번호
+    - name: cell_mobile_phone_number
+      description: 사용자의 휴대전화 번호
+  - name: Staff
+    description: 직원 정보를 저장하는 테이블
+    columns:
+    - name: staff_id
+      description: 직원의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: staff_address_id
+      description: 직원의 주소 고유 식별자
+      tests:
+      - not_null: true
+    - name: nickname
+      description: 직원의 별명
+    - name: first_name
+      description: 직원의 이름
+      tests:
+      - not_null: true
+    - name: middle_name
+      description: 직원의 중간 이름
+    - name: last_name
+      description: 직원의 성
+      tests:
+      - not_null: true
+    - name: date_of_birth
+      description: 직원의 생년월일
+    - name: date_joined_staff
+      description: 직원이 입사한 날짜
+    - name: date_left_staff
+      description: 직원이 ���사한 날짜

@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: icfp_1
+  description: icfp_1 데이터셋의 테이블 모음
+  database: icfp_1
+  tables:
+  - name: Papers
+    description: 논문 테이블에 대한 설명
+    columns:
+    - name: paperID
+      description: 논문의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 논문의 제목
+      tests:
+      - not_null
+  - name: Inst
+    description: 인스턴스 테이블에 대한 설명
+    columns:
+    - name: instID
+      description: 인스턴스 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 이름 필드
+      tests:
+      - not_null
+    - name: country
+      description: 국가 필드
+      tests:
+      - not_null
+  - name: Authors
+    description: 저자에 대한 정보
+    columns:
+    - name: authID
+      description: 저자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: lname
+      description: 저자의 성
+      tests:
+      - not_null
+    - name: fname
+      description: 저자의 이름
+      tests:
+      - not_null
+  - name: Authorship
+    description: 저자 정보 테이블
+    columns:
+    - name: authID
+      description: 저자 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: instID
+      description: 기관 고유 식별자
+      tests:
+      - not_null
+    - name: paperID
+      description: 논문 고유 식별자
+      tests:
+      - not_null
+    - name: authOrder
+      description: 저자 순서
+      tests:
+      - not_null

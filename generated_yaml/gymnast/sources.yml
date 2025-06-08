@@ -1,0 +1,66 @@
+version: 2
+sources:
+- name: gymnast
+  description: gymnast 데이터셋의 테이블 모음
+  database: gymnast
+  tables:
+  - name: people
+    description: 사람들에 대한 정보
+    columns:
+    - name: People_ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 나이
+      tests:
+      - not_null
+    - name: Height
+      description: 키
+      tests:
+      - not_null
+    - name: Hometown
+      description: 고향
+      tests:
+      - not_null
+  - name: gymnast
+    description: 체조 선수에 대한 정보
+    columns:
+    - name: Gymnast_ID
+      description: 선수 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Floor_Exercise_Points
+      description: 바닥 운동 점수
+      tests:
+      - not_null
+    - name: Pommel_Horse_Points
+      description: 안장 말 점수
+      tests:
+      - not_null
+    - name: Rings_Points
+      description: 링 점수
+      tests:
+      - not_null
+    - name: Vault_Points
+      description: 도약 점수
+      tests:
+      - not_null
+    - name: Parallel_Bars_Points
+      description: 평행봉 점수
+      tests:
+      - not_null
+    - name: Horizontal_Bar_Points
+      description: 수평봉 점수
+      tests:
+      - not_null
+    - name: Total_Points
+      description: 총 점수
+      tests:
+      - not_null

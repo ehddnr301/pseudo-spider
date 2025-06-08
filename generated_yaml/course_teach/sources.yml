@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: course_teach
+  description: course_teach 데이터셋의 테이블 모음
+  database: course_teach
+  tables:
+  - name: course
+    description: 강좌에 대한 정보
+    columns:
+    - name: Course_ID
+      description: 강좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Staring_Date
+      description: 강좌 시작 날짜
+      tests:
+      - not_null
+    - name: Course
+      description: 강좌 이름
+      tests:
+      - not_null
+  - name: teacher
+    description: 교사에 대한 정보
+    columns:
+    - name: Teacher_ID
+      description: 교사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 교사의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 교사의 나이
+      tests:
+      - not_null
+    - name: Hometown
+      description: 교사의 고향
+      tests:
+      - not_null
+  - name: course_arrange
+    description: 강좌 배치에 대한 설명
+    columns:
+    - name: Course_ID
+      description: 강좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Teacher_ID
+      description: 교사의 고유 식별자
+      tests:
+      - not_null
+    - name: Grade
+      description: 학년
+      tests:
+      - not_null

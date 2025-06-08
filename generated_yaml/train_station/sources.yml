@@ -1,0 +1,75 @@
+version: 2
+sources:
+- name: train_station
+  description: train_station 데이터셋의 테이블 모음
+  database: train_station
+  tables:
+  - name: station
+    description: 역에 대한 정보
+    columns:
+    - name: Station_ID
+      description: 역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 역의 이름
+      tests:
+      - not_null
+    - name: Annual_entry_exit
+      description: 연간 출입 및 ���장 수
+      tests:
+      - not_null
+    - name: Annual_interchanges
+      description: 연간 환승 수
+      tests:
+      - not_null
+    - name: Total_Passengers
+      description: 총 승객 수
+      tests:
+      - not_null
+    - name: Location
+      description: 역의 위치
+      tests:
+      - not_null
+    - name: Main_Services
+      description: 주요 서비스
+      tests:
+      - not_null
+    - name: Number_of_Platforms
+      description: 플랫폼 수
+      tests:
+      - not_null
+  - name: train_station
+    description: 기차역에 대한 정보
+    columns:
+    - name: Train_ID
+      description: 기차의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Station_ID
+      description: 기차역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: train
+    description: 기차 정보 테이블
+    columns:
+    - name: Train_ID
+      description: 기차의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 기차의 이름
+      tests:
+      - not_null
+    - name: Time
+      description: 기차의 출발 시간
+      tests:
+      - not_null
+    - name: Service
+      description: 기차 서비스 정보
+      tests:
+      - not_null

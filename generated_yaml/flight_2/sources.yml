@@ -1,0 +1,71 @@
+version: 2
+sources:
+- name: flight_2
+  description: flight_2 데이터셋의 테이블 모음
+  database: flight_2
+  tables:
+  - name: flights
+    description: 항공편에 대한 정보
+    columns:
+    - name: Airline
+      description: 항공사 식별자
+      tests:
+      - unique
+      - not_null
+    - name: FlightNo
+      description: 항공편 번호
+      tests:
+      - unique
+      - not_null
+    - name: SourceAirport
+      description: 출발 공항
+      tests:
+      - not_null
+    - name: DestAirport
+      description: 도착 공항
+      tests:
+      - not_null
+  - name: airports
+    description: 공항 정보를 담고 있는 테이블
+    columns:
+    - name: City
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: AirportCode
+      description: 공항 코드
+      tests:
+      - unique
+      - not_null
+    - name: AirportName
+      description: 공항 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: CountryAbbrev
+      description: 국가 약어
+      tests:
+      - not_null
+  - name: airlines
+    description: 항공사에 대한 정보
+    columns:
+    - name: uid
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Airline
+      description: 항공사 이름
+      tests:
+      - not_null
+    - name: Abbreviation
+      description: 항공사 약어
+      tests:
+      - not_null
+    - name: Country
+      description: 항공사가 위치한 국가
+      tests:
+      - not_null

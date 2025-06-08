@@ -1,0 +1,86 @@
+version: 2
+sources:
+- name: music_4
+  description: music_4 데이터셋의 테이블 모음
+  database: music_4
+  tables:
+  - name: artist
+    description: 아티스트에 대한 정보
+    columns:
+    - name: Artist_ID
+      description: 아티스트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Artist
+      description: 아티스트의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 아티스트의 나이
+      tests:
+      - not_null
+    - name: Famous_Title
+      description: 아티스트의 유명한 작품 제목
+      tests:
+      - not_null
+    - name: Famous_Release_date
+      description: 아티스트의 유명한 작품 출시일
+      tests:
+      - not_null
+  - name: volume
+    description: 볼�� 테이블에 대한 설명
+    columns:
+    - name: Volume_ID
+      description: 볼��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Volume_Issue
+      description: 발행물의 종류
+      tests:
+      - not_null
+    - name: Issue_Date
+      description: 발행 날짜
+      tests:
+      - not_null
+    - name: Weeks_on_Top
+      description: 차트 1위 유지 주 수
+      tests:
+      - not_null
+    - name: Song
+      description: 노래 제목
+      tests:
+      - not_null
+    - name: Artist_ID
+      description: 아티스트의 고유 식별자
+      tests:
+      - not_null
+  - name: music_festival
+    description: 음악 축제에 대한 정보
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Music_Festival
+      description: 음악 축제의 이름
+      tests:
+      - not_null
+    - name: Date_of_ceremony
+      description: 행사의 날짜
+      tests:
+      - not_null
+    - name: Category
+      description: 축제의 카테고리
+      tests:
+      - not_null
+    - name: Volume
+      description: 축제의 볼��
+      tests:
+      - not_null
+    - name: Result
+      description: 행사의 결과
+      tests:
+      - not_null

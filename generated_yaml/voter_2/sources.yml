@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: voter_2
+  description: voter_2 데이터셋의 테이블 모음
+  database: voter_2
+  tables:
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null
+  - name: Voting_record
+    description: 투표 기록에 대한 테이블
+    columns:
+    - name: StuID
+      description: 학생의 고유 ID
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Registration_Date
+      description: 학생의 등록 날짜
+      tests:
+      - not_null: true
+    - name: Election_Cycle
+      description: 선거 주기
+      tests:
+      - not_null: true
+    - name: President_Vote
+      description: 대통령 투표 수
+    - name: Vice_President_Vote
+      description: 부통령 투표 수
+    - name: Secretary_Vote
+      description: 비서 투표 수
+    - name: Treasurer_Vote
+      description: 재무 담당자 투표 수
+    - name: Class_President_Vote
+      description: 반장 투표 수
+    - name: Class_Senator_Vote
+      description: 학급 상원의원 투표 수

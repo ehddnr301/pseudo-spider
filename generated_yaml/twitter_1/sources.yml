@@ -1,0 +1,61 @@
+version: 2
+sources:
+- name: twitter_1
+  description: twitter_1 데이터셋의 테이블 모음
+  database: twitter_1
+  tables:
+  - name: user_profiles
+    description: 사용자 프로필에 대한 설명
+    columns:
+    - name: uid
+      description: 사용자 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 사용자 이름
+      tests:
+      - not_null
+    - name: email
+      description: 사용자 이메일
+      tests:
+      - not_null
+    - name: partitionid
+      description: 파티션 ID
+      tests:
+      - not_null
+    - name: followers
+      description: 팔로워 수
+      tests:
+      - not_null
+  - name: follows
+    description: 사용자 간의 팔로우 관계를 나타내는 테이블
+    columns:
+    - name: f1
+      description: 팔로우하는 사용자 ID
+      tests:
+      - not_null
+    - name: f2
+      description: 팔로우되는 사용자 ID
+      tests:
+      - not_null
+  - name: tweets
+    description: 트�� 정보를 저장하는 테이블
+    columns:
+    - name: id
+      description: 트��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: uid
+      description: 사용자의 고유 식별자
+      tests:
+      - not_null
+    - name: text
+      description: 트��의 내용
+      tests:
+      - not_null
+    - name: createdate
+      description: 트��이 생성된 날짜와 시간
+      tests:
+      - not_null

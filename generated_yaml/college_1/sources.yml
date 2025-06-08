@@ -1,0 +1,191 @@
+version: 2
+sources:
+- name: college_1
+  description: college_1 데이터셋의 테이블 모음
+  database: college_1
+  tables:
+  - name: EMPLOYEE
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: EMP_NUM
+      description: 직원 번호
+      tests:
+      - unique
+      - not_null
+    - name: EMP_LNAME
+      description: 직원 성
+      tests:
+      - not_null
+    - name: EMP_FNAME
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: EMP_INITIAL
+      description: 직원 이니셜
+      tests:
+      - not_null
+    - name: EMP_JOBCODE
+      description: 직원 직무 코드
+      tests:
+      - not_null
+    - name: EMP_HIREDATE
+      description: 직원 채용 날짜
+      tests:
+      - not_null
+    - name: EMP_DOB
+      description: 직원 생년월일
+      tests:
+      - not_null
+  - name: COURSE
+    description: 강좌에 대한 설명
+    columns:
+    - name: CRS_CODE
+      description: 강좌 코드
+      tests:
+      - unique
+      - not_null
+    - name: DEPT_CODE
+      description: 학과 코드
+      tests:
+      - not_null
+    - name: CRS_DESCRIPTION
+      description: 강좌 설명
+      tests:
+      - not_null
+    - name: CRS_CREDIT
+      description: 학점
+      tests:
+      - not_null
+  - name: PROFESSOR
+    description: 교수에 대한 정보
+    columns:
+    - name: EMP_NUM
+      description: 교수의 고유 번호
+      tests:
+      - unique
+      - not_null
+    - name: DEPT_CODE
+      description: 교수가 소속된 학과 코드
+      tests:
+      - not_null
+    - name: PROF_OFFICE
+      description: 교수의 사무실 주소
+      tests:
+      - not_null
+    - name: PROF_EXTENSION
+      description: 교수의 내선 번호
+      tests:
+      - not_null
+    - name: PROF_HIGH_DEGREE
+      description: 교수의 최고 학위
+      tests:
+      - not_null
+  - name: DEPARTMENT
+    description: 부서에 대한 설명
+    columns:
+    - name: DEPT_CODE
+      description: 부서 코드
+      tests:
+      - unique
+      - not_null
+    - name: DEPT_NAME
+      description: 부서 이름
+      tests:
+      - not_null
+    - name: SCHOOL_CODE
+      description: 학교 코드
+      tests:
+      - not_null
+    - name: EMP_NUM
+      description: 직원 번호
+      tests:
+      - not_null
+    - name: DEPT_ADDRESS
+      description: 부서 주소
+      tests:
+      - not_null
+    - name: DEPT_EXTENSION
+      description: 부서 내선 번호
+      tests:
+      - not_null
+  - name: CLASS
+    description: 수업 정보를 담고 있는 테이블
+    columns:
+    - name: CLASS_CODE
+      description: 수업 코드
+      tests:
+      - unique
+      - not_null
+    - name: CRS_CODE
+      description: 강좌 코드
+      tests:
+      - unique
+      - not_null
+    - name: CLASS_SECTION
+      description: 수업 ��션
+      tests:
+      - not_null
+    - name: CLASS_TIME
+      description: 수업 시간
+      tests:
+      - not_null
+    - name: CLASS_ROOM
+      description: 수업 강의실
+      tests:
+      - not_null
+    - name: PROF_NUM
+      description: 교수 번호
+      tests:
+      - not_null
+  - name: ENROLL
+    description: 학생 등록 정보를 담고 있는 테이블
+    columns:
+    - name: CLASS_CODE
+      description: 수업 코드
+      tests:
+      - not_null
+    - name: STU_NUM
+      description: 학생 번호
+      tests:
+      - unique
+      - not_null
+    - name: ENROLL_GRADE
+      description: 등록 성적
+      tests:
+      - not_null
+  - name: STUDENT
+    description: 학생 정보를 저장하는 테이블
+    columns:
+    - name: STU_NUM
+      description: 학생 번호
+      tests:
+      - unique: true
+      - not_null: true
+    - name: STU_LNAME
+      description: 학생 성
+      tests:
+      - not_null: true
+    - name: STU_FNAME
+      description: 학생 이름
+      tests:
+      - not_null: true
+    - name: STU_INIT
+      description: 학생 이니셜
+    - name: STU_DOB
+      description: 학생 생년월일
+    - name: STU_HRS
+      description: 학생 학점 수
+      tests:
+      - not_null: true
+    - name: STU_CLASS
+      description: 학생의 학급을 나타��니다.
+    - name: STU_GPA
+      description: 학생의 평균 학점입니다.
+    - name: STU_TRANSFER
+      description: 학생의 편입학 여부를 나타��니다.
+    - name: DEPT_CODE
+      description: 학과 코드를 나타��니다.
+    - name: STU_PHONE
+      description: 학생의 전화번호입니다.
+    - name: PROF_NUM
+      description: 교수 번호를 나타��니다.

@@ -1,0 +1,50 @@
+version: 2
+sources:
+- name: book_2
+  description: book_2 데이터셋의 테이블 모음
+  database: book_2
+  tables:
+  - name: book
+    description: 책에 대한 정보
+    columns:
+    - name: Book_ID
+      description: 책의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 책 제목
+      tests:
+      - not_null
+    - name: Issues
+      description: 문제 수
+      tests:
+      - not_null
+    - name: Writer
+      description: 저자
+      tests:
+      - not_null
+  - name: publication
+    description: 출판물에 대한 정보
+    columns:
+    - name: Publication_ID
+      description: 출판물 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Book_ID
+      description: 책 고유 식별자
+      tests:
+      - not_null
+    - name: Publisher
+      description: 출판사 이름
+      tests:
+      - not_null
+    - name: Publication_Date
+      description: 출판 날짜
+      tests:
+      - not_null
+    - name: Price
+      description: 출판물 가격
+      tests:
+      - not_null

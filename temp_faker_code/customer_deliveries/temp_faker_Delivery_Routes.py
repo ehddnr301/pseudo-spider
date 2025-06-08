@@ -1,0 +1,18 @@
+
+
+
+import random
+from faker import Faker
+
+fake = Faker()
+
+def generate_fake_data(num_records):
+    data = []
+    for _ in range(num_records):
+        record = {
+            "route_id": random.randint(1, 1000),
+            "route_name": fake.text(max_nb_chars=50),
+            "other_route_details": fake.text(max_nb_chars=255)
+        }
+        data.append(record)
+    return data

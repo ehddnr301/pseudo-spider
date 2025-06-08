@@ -1,0 +1,102 @@
+version: 2
+sources:
+- name: party_people
+  description: party_people 데이터셋의 테이블 모음
+  database: party_people
+  tables:
+  - name: party_events
+    description: 파티 이벤트에 대한 설명
+    columns:
+    - name: Event_ID
+      description: 이벤트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_Name
+      description: 이벤트 이름
+      tests:
+      - not_null
+    - name: Party_ID
+      description: 파티 고유 식별자
+      tests:
+      - not_null
+    - name: Member_in_charge_ID
+      description: 담당자 고유 식별자
+      tests:
+      - not_null
+  - name: member
+    description: 회원 정보를 담고 있는 테이블
+    columns:
+    - name: Member_ID
+      description: 회원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Member_Name
+      description: 회원 이름
+      tests:
+      - not_null
+    - name: Party_ID
+      description: 정당 식별자
+      tests:
+      - not_null
+    - name: In_office
+      description: 재직 상태
+      tests:
+      - not_null
+  - name: region
+    description: 지역에 대한 설명
+    columns:
+    - name: Region_ID
+      description: 지역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Region_name
+      description: 지역의 이름
+      tests:
+      - not_null
+    - name: Date
+      description: 날짜 및 시간 정보
+      tests:
+      - not_null
+    - name: Label
+      description: 라벨 정보
+      tests:
+      - not_null
+    - name: Format
+      description: 형식 정보
+      tests:
+      - not_null
+    - name: Catalogue
+      description: 카탈로그 정보
+      tests:
+      - not_null
+  - name: party
+    description: 정당에 대한 정보
+    columns:
+    - name: Party_ID
+      description: 정당의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Minister
+      description: 정당의 장관 이름
+      tests:
+      - not_null
+    - name: Took_office
+      description: 장관이 취임한 날짜
+      tests:
+      - not_null
+    - name: Left_office
+      description: 장관이 ���임한 날짜
+      tests:
+      - not_null
+    - name: Region_ID
+      description: 정당이 속한 지역의 고유 식별자
+      tests:
+      - not_null
+    - name: Party_name
+      description: 정당의 이름
+      tests:
+      - not_null

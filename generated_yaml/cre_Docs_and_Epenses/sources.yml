@@ -1,0 +1,123 @@
+version: 2
+sources:
+- name: cre_Docs_and_Epenses
+  description: cre_Docs_and_Epenses 데이터셋의 테이블 모음
+  database: cre_Docs_and_Epenses
+  tables:
+  - name: Projects
+    description: 프로젝트에 대한 정보
+    columns:
+    - name: Project_ID
+      description: 프로젝트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Project_Details
+      description: 프로젝트 세부 사항
+      tests:
+      - not_null
+  - name: Documents_with_Expenses
+    description: 비용이 포함된 문서에 대한 설명
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Budget_Type_Code
+      description: 예산 유형 코드
+      tests:
+      - not_null
+    - name: Document_Details
+      description: 문서 세부 사항
+      tests:
+      - not_null
+  - name: Accounts
+    description: 계좌 정보를 저장하는 테이블
+    columns:
+    - name: Account_ID
+      description: 계좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Statement_ID
+      description: 계좌 명세서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Account_Details
+      description: 계좌에 대한 상세 정보
+      tests:
+      - not_null
+  - name: Ref_Budget_Codes
+    description: 예산 코드에 대한 설명
+    columns:
+    - name: Budget_Type_Code
+      description: 예산 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: Budget_Type_Description
+      description: 예산 유형 설명
+      tests:
+      - not_null
+  - name: Statements
+    description: 진술 테이블에 대한 설명
+    columns:
+    - name: Statement_ID
+      description: 진술의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Statement_Details
+      description: 진술의 세부 사항
+      tests:
+      - not_null
+  - name: Ref_Document_Types
+    description: 문서 유형에 대한 참조 테이블
+    columns:
+    - name: Document_Type_Code
+      description: 문서 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: Document_Type_Name
+      description: 문서 유형 이름
+      tests:
+      - not_null
+    - name: Document_Type_Description
+      description: 문서 유형 설명
+      tests:
+      - not_null
+  - name: Documents
+    description: 문서에 대한 설명
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Document_Type_Code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: Project_ID
+      description: 프로젝트 식별자
+      tests:
+      - not_null
+    - name: Document_Date
+      description: 문서 날짜
+      tests:
+      - not_null
+    - name: Document_Name
+      description: 문서 이름
+      tests:
+      - not_null
+    - name: Document_Description
+      description: 문서 설명
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null

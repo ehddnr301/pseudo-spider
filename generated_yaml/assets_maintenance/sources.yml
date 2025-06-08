@@ -1,0 +1,317 @@
+version: 2
+sources:
+- name: assets_maintenance
+  description: assets_maintenance 데이터셋의 테이블 모음
+  database: assets_maintenance
+  tables:
+  - name: Parts
+    description: 부품에 대한 정보
+    columns:
+    - name: part_id
+      description: 부품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: part_name
+      description: 부품 이름
+      tests:
+      - not_null
+    - name: chargeable_yn
+      description: 부과 가능 여부
+      tests:
+      - not_null
+    - name: chargeable_amount
+      description: 부과 금액
+      tests:
+      - not_null
+    - name: other_part_details
+      description: 기타 부품 세부 정보
+      tests:
+      - not_null
+  - name: Part_Faults
+    description: 부품 결함에 대한 정보
+    columns:
+    - name: part_fault_id
+      description: 부품 결함 식별자
+      tests:
+      - unique
+      - not_null
+    - name: part_id
+      description: 부품 식별자
+      tests:
+      - not_null
+    - name: fault_short_name
+      description: 결함 ��은 이름
+      tests:
+      - not_null
+    - name: fault_description
+      description: 결함 설명
+      tests:
+      - not_null
+    - name: other_fault_details
+      description: 기타 결함 세부사항
+      tests:
+      - not_null
+  - name: Skills
+    description: 기술 테이블에 대한 설명
+    columns:
+    - name: skill_id
+      description: 기술 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: skill_code
+      description: 기술 코드
+      tests:
+      - not_null
+    - name: skill_description
+      description: 기술 설명
+      tests:
+      - not_null
+  - name: Third_Party_Companies
+    description: 제3자 회사에 대한 정보
+    columns:
+    - name: company_id
+      description: 회사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: company_type
+      description: 회사의 유형
+      tests:
+      - not_null
+    - name: company_name
+      description: 회사의 이름
+      tests:
+      - not_null
+    - name: company_address
+      description: 회사의 주소
+      tests:
+      - not_null
+    - name: other_company_details
+      description: 기타 회사 세부정보
+      tests:
+      - not_null
+  - name: Maintenance_Engineers
+    description: 유지보수 엔지니어에 대한 정보
+    columns:
+    - name: engineer_id
+      description: 엔지니어 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: company_id
+      description: 회사의 고유 식별자
+      tests:
+      - not_null
+    - name: first_name
+      description: 엔지니어의 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 엔지니어의 성
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 정보
+      tests:
+      - not_null
+  - name: Engineer_Skills
+    description: 엔지니어의 기술에 대한 정보
+    columns:
+    - name: engineer_id
+      description: 엔지니어의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: skill_id
+      description: 기술의 고유 식별자
+      tests:
+      - not_null
+  - name: Skills_Required_To_Fix
+    description: 수리하는 데 필요한 기술
+    columns:
+    - name: part_fault_id
+      description: 부품 결함 식별자
+      tests:
+      - unique
+      - not_null
+    - name: skill_id
+      description: 기술 식별자
+      tests:
+      - not_null
+  - name: Maintenance_Contracts
+    description: 유지보수 계약에 대한 정보
+    columns:
+    - name: maintenance_contract_id
+      description: 유지보수 계약 ID
+      tests:
+      - unique
+      - not_null
+    - name: maintenance_contract_company_id
+      description: 유지보수 계약 회사 ID
+      tests:
+      - not_null
+    - name: contract_start_date
+      description: 계약 시작 날짜
+      tests:
+      - not_null
+    - name: contract_end_date
+      description: 계약 종료 날짜
+      tests:
+      - not_null
+    - name: other_contract_details
+      description: 기타 계약 세부사항
+      tests:
+      - not_null
+  - name: Staff
+    description: 직원에 대한 정보 테이블
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: staff_name
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: gender
+      description: 직원 성별
+      tests:
+      - not_null
+    - name: other_staff_details
+      description: 기타 직원 세부 정보
+      tests:
+      - not_null
+  - name: Asset_Parts
+    description: 자산 부품에 대한 테이블
+    columns:
+    - name: asset_id
+      description: 자산의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: part_id
+      description: 부품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: Engineer_Visits
+    description: 엔지니어 방문 기록 테이블
+    columns:
+    - name: engineer_visit_id
+      description: 엔지니어 방문 ID
+      tests:
+      - unique
+      - not_null
+    - name: contact_staff_id
+      description: 연락 직원 ID
+      tests:
+      - not_null
+    - name: engineer_id
+      description: 엔지니어 ID
+      tests:
+      - not_null
+    - name: fault_log_entry_id
+      description: 고장 로그 항목 ID
+      tests:
+      - not_null
+    - name: fault_status
+      description: 고장 상태
+      tests:
+      - not_null
+    - name: visit_start_datetime
+      description: 방문 시작 날짜 및 시간
+      tests:
+      - not_null
+    - name: visit_end_datetime
+      description: 방문 종료 날짜 및 시간
+      tests:
+      - not_null
+    - name: other_visit_details
+      description: 기타 방문 세부 사항
+      tests:
+      - not_null
+  - name: Fault_Log
+    description: 고장 로그 테이블
+    columns:
+    - name: fault_log_entry_id
+      description: 고장 로그 항목 ID
+      tests:
+      - unique
+      - not_null
+    - name: asset_id
+      description: 자산 ID
+      tests:
+      - not_null
+    - name: recorded_by_staff_id
+      description: 기록한 직원 ID
+      tests:
+      - not_null
+    - name: fault_log_entry_datetime
+      description: 고장 로그 항목 날짜 및 시간
+      tests:
+      - not_null
+    - name: fault_description
+      description: 고장 설명
+      tests:
+      - not_null
+    - name: other_fault_details
+      description: 기타 고장 세부사항
+      tests:
+      - not_null
+  - name: Fault_Log_Parts
+    description: 결함 로그 부품에 대한 설명
+    columns:
+    - name: fault_log_entry_id
+      description: 결함 로그 항목 ID
+      tests:
+      - unique
+      - not_null
+    - name: part_fault_id
+      description: 부품 결함 ID
+      tests:
+      - not_null
+    - name: fault_status
+      description: 결함 상태
+      tests:
+      - not_null
+  - name: Assets
+    description: 자산 테이블에 대한 설명
+    columns:
+    - name: asset_id
+      description: 자산 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: maintenance_contract_id
+      description: 유지보수 계약 식별자
+      tests:
+      - not_null
+    - name: supplier_company_id
+      description: 공급업체 회사 식별자
+      tests:
+      - not_null
+    - name: asset_details
+      description: 자산 세부 정보
+      tests:
+      - not_null
+    - name: asset_make
+      description: 자산 제조사
+      tests:
+      - not_null
+    - name: asset_model
+      description: 자산 모델
+      tests:
+      - not_null
+    - name: asset_acquired_date
+      description: 자산 취득 날짜
+      tests:
+      - not_null
+    - name: asset_disposed_date
+      description: 자산 처분 날짜
+      tests:
+      - not_null
+    - name: other_asset_details
+      description: 기타 자산 세부 정보

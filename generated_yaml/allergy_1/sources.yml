@@ -1,0 +1,65 @@
+version: 2
+sources:
+- name: allergy_1
+  description: allergy_1 데이터셋의 테이블 모음
+  database: allergy_1
+  tables:
+  - name: Has_Allergy
+    description: 학생의 알레르기 정보를 포함하는 테이블
+    columns:
+    - name: StuID
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Allergy
+      description: 학생의 알레르기 상태
+      tests:
+      - not_null
+  - name: Allergy_Type
+    description: 알레르기 유형에 대한 설명
+    columns:
+    - name: Allergy
+      description: 알레르기 관련 정보
+      tests:
+      - not_null
+    - name: AllergyType
+      description: 알레르기 유형 정보
+      tests:
+      - not_null
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 전공 코드
+      tests:
+      - not_null
+    - name: Advisor
+      description: 지도 교수 코드
+      tests:
+      - not_null
+    - name: city_code
+      description: 도시 코드
+      tests:
+      - not_null

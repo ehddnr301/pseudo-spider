@@ -1,0 +1,62 @@
+version: 2
+sources:
+- name: ship_mission
+  description: ship_mission 데이터셋의 테이블 모음
+  database: ship_mission
+  tables:
+  - name: mission
+    description: 미션 테이블에 대한 설명
+    columns:
+    - name: Mission_ID
+      description: 미션의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Ship_ID
+      description: 선박의 고유 식별자
+      tests:
+      - not_null
+    - name: Code
+      description: 미션 코드
+      tests:
+      - not_null
+    - name: Launched_Year
+      description: 발사 연도
+      tests:
+      - not_null
+    - name: Location
+      description: 미션 위치
+      tests:
+      - not_null
+    - name: Speed_knots
+      description: 선박 속도 (노트 단위)
+      tests:
+      - not_null
+    - name: Fate
+      description: 미션의 운명
+      tests:
+      - not_null
+  - name: ship
+    description: 선박에 대한 정보
+    columns:
+    - name: Ship_ID
+      description: 선박의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 선박의 이름
+      tests:
+      - not_null
+    - name: Type
+      description: 선박의 종류
+      tests:
+      - not_null
+    - name: Nationality
+      description: 선박의 국적
+      tests:
+      - not_null
+    - name: Tonnage
+      description: 선박의 ��수
+      tests:
+      - not_null

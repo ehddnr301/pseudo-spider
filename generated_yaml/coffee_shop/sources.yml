@@ -1,0 +1,99 @@
+version: 2
+sources:
+- name: coffee_shop
+  description: coffee_shop 데이터셋의 테이블 모음
+  database: coffee_shop
+  tables:
+  - name: shop
+    description: 상점에 대한 정보
+    columns:
+    - name: Shop_ID
+      description: 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Address
+      description: 상점의 주소
+      tests:
+      - not_null
+    - name: Num_of_staff
+      description: 상점의 직원 수
+      tests:
+      - not_null
+    - name: Score
+      description: 상점의 평점
+      tests:
+      - not_null
+    - name: Open_Year
+      description: 상점의 개업 연도
+      tests:
+      - not_null
+  - name: happy_hour
+    description: 해피 아워에 대한 설명
+    columns:
+    - name: HH_ID
+      description: 해피 아워 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Shop_ID
+      description: 상점 고유 식별자
+      tests:
+      - not_null
+    - name: Month
+      description: 해피 아워이 있는 월
+      tests:
+      - not_null
+    - name: Num_of_shaff_in_charge
+      description: 담당 직원 수
+      tests:
+      - not_null
+  - name: member
+    description: 회원 정보를 저장하는 테이블
+    columns:
+    - name: Member_ID
+      description: 회원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 회원 이름
+      tests:
+      - not_null
+    - name: Membership_card
+      description: 회원 카드 번호
+      tests:
+      - not_null
+    - name: Age
+      description: 회원 나이
+      tests:
+      - not_null
+    - name: Time_of_purchase
+      description: 구매 시간
+      tests:
+      - not_null
+    - name: Level_of_membership
+      description: 회원 등급
+      tests:
+      - not_null
+    - name: Address
+      description: 회원 주소
+      tests:
+      - not_null
+  - name: happy_hour_member
+    description: 해피 아워 회원 테이블
+    columns:
+    - name: HH_ID
+      description: 해피 아워 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Member_ID
+      description: 회원 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Total_amount
+      description: 총 금액
+      tests:
+      - not_null

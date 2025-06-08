@@ -1,0 +1,170 @@
+version: 2
+sources:
+- name: yelp
+  description: yelp 데이터셋의 테이블 모음
+  database: yelp
+  tables:
+  - name: checkin
+    description: 체크인 테이블에 대한 설명
+    columns:
+    - name: cid
+      description: 체크인 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: business_id
+      description: 비즈니스 고유 식별자
+      tests:
+      - not_null
+    - name: count
+      description: 체크인 수
+      tests:
+      - not_null
+    - name: day
+      description: 체크인 요일
+      tests:
+      - not_null
+  - name: review
+    description: 리뷰 테이블에 대한 설명
+    columns:
+    - name: rid
+      description: 리뷰 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: business_id
+      description: 비즈니스 고유 식별자
+      tests:
+      - not_null
+    - name: user_id
+      description: 사용자 고유 식별자
+      tests:
+      - not_null
+    - name: rating
+      description: 리뷰 평점
+      tests:
+      - not_null
+    - name: text
+      description: 리뷰 내용
+      tests:
+      - not_null
+    - name: year
+      description: 리뷰 작성 연도
+      tests:
+      - not_null
+    - name: month
+      description: 리뷰 작성 월
+      tests:
+      - not_null
+  - name: tip
+    description: �� 테이블에 대한 설명
+    columns:
+    - name: tip_id
+      description: ��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: business_id
+      description: 비즈니스의 고유 식별자
+      tests:
+      - not_null
+    - name: text
+      description: 사용자가 남긴 �� 내용
+      tests:
+      - not_null
+    - name: user_id
+      description: 사용자의 고유 식별자
+      tests:
+      - not_null
+    - name: likes
+      description: 좋아요 수
+      tests:
+      - not_null
+    - name: year
+      description: ��이 작성된 연도
+      tests:
+      - not_null
+    - name: month
+      description: ��이 작성된 월
+      tests:
+      - not_null
+  - name: category
+    description: 카테고리 테이블에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: business_id
+      description: 비즈니스 식별자
+      tests:
+      - not_null
+    - name: category_name
+      description: 카테고리 이름
+      tests:
+      - not_null
+  - name: user
+    description: 사용자 정보를 저장하는 테이블
+    columns:
+    - name: uid
+      description: 사용자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: user_id
+      description: 사용자의 ID
+      tests:
+      - not_null
+    - name: name
+      description: 사용자의 이름
+      tests:
+      - not_null
+  - name: neighbourhood
+    description: 이 테이블은 이웃에 대한 정보를 저장합니다
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: business_id
+      description: 비즈니스의 고유 식별자
+      tests:
+      - not_null
+    - name: neighbourhood_name
+      description: 이웃의 이름
+      tests:
+      - not_null
+  - name: business
+    description: 비즈니스 관련 정보를 담고 있는 테이블
+    columns:
+    - name: bid
+      description: 비즈니스의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: business_id
+      description: 비즈니스의 ID
+      tests:
+      - not_null: true
+    - name: name
+      description: 비즈니스의 이름
+      tests:
+      - not_null: true
+    - name: full_address
+      description: 비즈니스의 전체 주소
+    - name: city
+      description: 비즈니스가 위치한 도시
+    - name: latitude
+      description: 위도 정보
+    - name: longitude
+      description: 경도 정보
+    - name: review_count
+      description: 리뷰 수
+    - name: is_open
+      description: 영업 중 여부
+    - name: rating
+      description: 평점
+    - name: state
+      description: 주 정보

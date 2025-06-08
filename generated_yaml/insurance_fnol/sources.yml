@@ -1,0 +1,124 @@
+version: 2
+sources:
+- name: insurance_fnol
+  description: insurance_fnol 데이터셋의 테이블 모음
+  database: insurance_fnol
+  tables:
+  - name: Settlements
+    description: 정산 테이블
+    columns:
+    - name: Settlement_ID
+      description: 정산 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Claim_ID
+      description: 청구 고유 식별자
+      tests:
+      - not_null
+    - name: Effective_Date
+      description: 유효 날짜
+      tests:
+      - not_null
+    - name: Settlement_Amount
+      description: 정산 금액
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: Customer_ID
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_name
+      description: 고객의 이름
+      tests:
+      - not_null
+  - name: Claims
+    description: 청구에 대한 정보
+    columns:
+    - name: Claim_ID
+      description: 청구 식별자
+      tests:
+      - unique
+      - not_null
+    - name: FNOL_ID
+      description: 첫 번째 통지 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Effective_Date
+      description: 유효 날짜
+      tests:
+      - not_null
+  - name: Customers_Policies
+    description: 고객과 정책에 대한 정보
+    columns:
+    - name: Customer_ID
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Policy_ID
+      description: 정책의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date_Opened
+      description: 정책이 개설된 날짜
+      tests:
+      - not_null
+    - name: Date_Closed
+      description: 정책이 종료된 날짜
+      tests:
+      - not_null
+  - name: Services
+    description: 서비스에 대한 설명
+    columns:
+    - name: Service_ID
+      description: 서비스 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Service_name
+      description: 서비스 이름
+      tests:
+      - not_null
+  - name: Available_Policies
+    description: 사용 가능한 정책에 대한 정보
+    columns:
+    - name: Policy_ID
+      description: 정책의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: policy_type_code
+      description: 정책 유형 코드
+      tests:
+      - not_null
+    - name: Customer_Phone
+      description: 고객 전화번호
+      tests:
+      - not_null
+  - name: First_Notification_of_Loss
+    description: 손실 통지의 첫 번째 기록
+    columns:
+    - name: FNOL_ID
+      description: 손실 통지 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_ID
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: Policy_ID
+      description: 정책 고유 식별자
+      tests:
+      - not_null
+    - name: Service_ID
+      description: 서비스 고유 식별자
+      tests:
+      - not_null

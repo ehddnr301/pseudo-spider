@@ -1,0 +1,248 @@
+version: 2
+sources:
+- name: e_government
+  description: e_government 데이터셋의 테이블 모음
+  database: e_government
+  tables:
+  - name: Forms
+    description: 양식에 대한 설명
+    columns:
+    - name: form_id
+      description: 양식의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: form_type_code
+      description: 양식 유형 코드
+      tests:
+      - not_null
+    - name: service_id
+      description: 서비스의 고유 식별자
+      tests:
+      - not_null
+    - name: form_number
+      description: 양식 번호
+      tests:
+      - not_null
+    - name: form_name
+      description: 양식 이름
+      tests:
+      - not_null
+    - name: form_description
+      description: 양식에 대한 설명
+      tests:
+      - not_null
+  - name: Services
+    description: 서비스에 대한 설명
+    columns:
+    - name: service_id
+      description: 서비스 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: service_type_code
+      description: 서비스 유형 코드
+      tests:
+      - not_null
+    - name: service_name
+      description: 서비스 이름
+      tests:
+      - not_null
+    - name: service_descriptio
+      description: 서비스 설명
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 담고 있는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1_number_building
+      description: 주소의 첫 번째 줄, 건물 번호
+      tests:
+      - not_null
+    - name: town_city
+      description: 도시 또는 마을 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주, 지방 또는 카운티 이름
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+  - name: Individuals
+    description: 개인에 대한 정보 테이블
+    columns:
+    - name: individual_id
+      description: 개인 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: individual_first_name
+      description: 개인의 이름
+      tests:
+      - not_null
+    - name: individual_middle_name
+      description: 개인의 중간 이름
+      tests:
+      - not_null
+    - name: inidividual_phone
+      description: 개인의 전화번호
+      tests:
+      - not_null
+    - name: individual_email
+      description: 개인의 이메일 주소
+      tests:
+      - not_null
+    - name: individual_address
+      description: 개인의 주소
+      tests:
+      - not_null
+    - name: individual_last_name
+      description: 개인의 성
+      tests:
+      - not_null
+  - name: Organizations
+    description: 조직에 대한 정보
+    columns:
+    - name: organization_id
+      description: 조직의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_formed
+      description: 조직이 설립된 날짜
+      tests:
+      - not_null
+    - name: organization_name
+      description: 조직의 이름
+      tests:
+      - not_null
+    - name: uk_vat_number
+      description: 영국 부가가치세 번호
+      tests:
+      - not_null
+  - name: Organization_Contact_Individuals
+    description: 조직 연락 개인에 대한 정보
+    columns:
+    - name: individual_id
+      description: 개인 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organization_id
+      description: 조직 식별자
+      tests:
+      - not_null
+    - name: date_contact_from
+      description: 연락 시작 날짜
+      tests:
+      - not_null
+    - name: date_contact_to
+      description: 연락 종료 날짜
+      tests:
+      - not_null
+  - name: Party_Services
+    description: 파티 서비스 예약 정보를 담고 있는 테이블
+    columns:
+    - name: booking_id
+      description: 예약 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: service_id
+      description: 서비스 고유 식별자
+      tests:
+      - not_null
+    - name: service_datetime
+      description: 서비스 날짜 및 시간
+      tests:
+      - not_null
+    - name: booking_made_date
+      description: 예약 생성 날짜 및 시간
+      tests:
+      - not_null
+  - name: Party_Forms
+    description: 파티 양식에 대한 설명
+    columns:
+    - name: party_id
+      description: 파티의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: form_id
+      description: 양식의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_completion_started
+      description: 양식 작성 시작 날짜
+      tests:
+      - not_null
+    - name: form_status_code
+      description: 양식 상태 코드
+      tests:
+      - not_null
+    - name: date_fully_completed
+      description: 양식이 완전히 완료된 날짜
+      tests:
+      - not_null
+  - name: Party_Addresses
+    description: 당사자 주소에 대한 정보
+    columns:
+    - name: party_id
+      description: 당사자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_address_from
+      description: 주소 시작 날짜
+      tests:
+      - not_null
+    - name: address_type_code
+      description: 주소 유형 코드
+      tests:
+      - not_null
+    - name: date_address_to
+      description: 주소 종료 날짜
+      tests:
+      - not_null
+  - name: Parties
+    description: 파티에 대한 정보
+    columns:
+    - name: party_id
+      description: 파티의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: payment_method_code
+      description: 결제 방법 코드
+      tests:
+      - not_null
+    - name: party_phone
+      description: 파티 전화번호
+      tests:
+      - not_null
+    - name: party_email
+      description: 파티 이메일 주소
+      tests:
+      - not_null

@@ -1,0 +1,154 @@
+version: 2
+sources:
+- name: hr_1
+  description: hr_1 데이터셋의 테이블 모음
+  database: hr_1
+  tables:
+  - name: regions
+    description: 지역에 대한 정보
+    columns:
+    - name: REGION_ID
+      description: 지역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: REGION_NAME
+      description: 지역의 이름
+      tests:
+      - not_null
+  - name: job_history
+    description: 직원 직무 이력에 대한 정보
+    columns:
+    - name: EMPLOYEE_ID
+      description: 직원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: START_DATE
+      description: 직무 시작 날짜
+      tests:
+      - not_null
+    - name: END_DATE
+      description: 직무 종료 날짜
+      tests:
+      - not_null
+    - name: JOB_ID
+      description: 직무 식별자
+      tests:
+      - not_null
+    - name: DEPARTMENT_ID
+      description: 부서 식별자
+      tests:
+      - not_null
+  - name: countries
+    description: 국가에 대한 정보 테이블
+    columns:
+    - name: COUNTRY_ID
+      description: 국가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: COUNTRY_NAME
+      description: 국가의 이름
+      tests:
+      - not_null
+    - name: REGION_ID
+      description: 국가가 속한 지역의 식별자
+      tests:
+      - not_null
+  - name: jobs
+    description: 직업에 대한 정보
+    columns:
+    - name: JOB_ID
+      description: 직업의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: JOB_TITLE
+      description: 직업의 제목
+      tests:
+      - not_null
+    - name: MIN_SALARY
+      description: 최소 급여
+      tests:
+      - not_null
+    - name: MAX_SALARY
+      description: 최대 급여
+      tests:
+      - not_null
+  - name: departments
+    description: 부서에 대한 정보
+    columns:
+    - name: DEPARTMENT_ID
+      description: 부서 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: DEPARTMENT_NAME
+      description: 부서 이름
+      tests:
+      - not_null
+    - name: MANAGER_ID
+      description: 부서 관리자 ID
+      tests:
+      - not_null
+    - name: LOCATION_ID
+      description: 부서 위치 ID
+      tests:
+      - not_null
+  - name: locations
+    description: 위치 정보를 저장하는 테이블
+    columns:
+    - name: LOCATION_ID
+      description: 위치의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: STREET_ADDRESS
+      description: 거리 주소
+      tests:
+      - not_null
+    - name: POSTAL_CODE
+      description: 우편 번호
+      tests:
+      - not_null
+    - name: CITY
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: STATE_PROVINCE
+      description: 주 또는 지방 이름
+      tests:
+      - not_null
+    - name: COUNTRY_ID
+      description: 국가 코드
+      tests:
+      - not_null
+  - name: employees
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: EMPLOYEE_ID
+      description: 직원의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: FIRST_NAME
+      description: 직원의 이름
+    - name: LAST_NAME
+      description: 직원의 성
+    - name: EMAIL
+      description: 직원의 이메일 주소
+    - name: PHONE_NUMBER
+      description: 직원의 전화번호
+    - name: HIRE_DATE
+      description: 직원이 고용된 날짜
+    - name: JOB_ID
+      description: 직원의 직무 ID
+    - name: SALARY
+      description: 직원의 연봉
+    - name: COMMISSION_PCT
+      description: 직원의 커미션 비율
+    - name: MANAGER_ID
+      description: 직원의 관리자 ID
+    - name: DEPARTMENT_ID
+      description: 직원이 소속된 부서 ID

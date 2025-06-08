@@ -1,0 +1,6 @@
+spider_data/
+__pycache__/
+__MACOSX/
+clickhouse_ddl/
+generated_data/**/*.csv
+.env

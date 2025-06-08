@@ -1,0 +1,74 @@
+version: 2
+sources:
+- name: pets_1
+  description: pets_1 데이터셋의 테이블 모음
+  database: pets_1
+  tables:
+  - name: Has_Pet
+    description: 학생과 애완동물의 관계를 나타내는 테이블
+    columns:
+    - name: StuID
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: PetID
+      description: 애완동물의 고유 식별자
+      tests:
+      - not_null
+  - name: Pets
+    description: 애완동물에 대한 정보
+    columns:
+    - name: PetID
+      description: 애완동물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: PetType
+      description: 애완동물의 종류
+      tests:
+      - not_null
+    - name: pet_age
+      description: 애완동물의 나이
+      tests:
+      - not_null
+    - name: weight
+      description: 애완동물의 무게
+      tests:
+      - not_null
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null

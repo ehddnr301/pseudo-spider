@@ -1,0 +1,94 @@
+version: 2
+sources:
+- name: pilot_record
+  description: pilot_record 데이터셋의 테이블 모음
+  database: pilot_record
+  tables:
+  - name: aircraft
+    description: 항공기 테이블에 대한 설명
+    columns:
+    - name: Aircraft_ID
+      description: 항공기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Order_Year
+      description: 주문 연도
+      tests:
+      - not_null
+    - name: Manufacturer
+      description: 제조사
+      tests:
+      - not_null
+    - name: Model
+      description: 모델
+      tests:
+      - not_null
+    - name: Fleet_Series
+      description: 함대 시리즈
+      tests:
+      - not_null
+    - name: Powertrain
+      description: 파워트레인
+      tests:
+      - not_null
+    - name: Fuel_Propulsion
+      description: 연료 추진 방식
+      tests:
+      - not_null
+  - name: pilot_record
+    description: 파일�� 기록에 대한 테이블
+    columns:
+    - name: Record_ID
+      description: 기록의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Pilot_ID
+      description: 파일��의 고유 식별자
+      tests:
+      - not_null
+    - name: Aircraft_ID
+      description: 항공기의 고유 식별자
+      tests:
+      - not_null
+    - name: Date
+      description: 기록 날짜 및 시간
+      tests:
+      - not_null
+  - name: pilot
+    description: 파일��에 대한 설명
+    columns:
+    - name: Pilot_ID
+      description: 파일��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Pilot_name
+      description: 파일��의 이름
+      tests:
+      - not_null
+    - name: Rank
+      description: 파일��의 계급
+      tests:
+      - not_null
+    - name: Age
+      description: 파일��의 나이
+      tests:
+      - not_null
+    - name: Nationality
+      description: 파일��의 국적
+      tests:
+      - not_null
+    - name: Position
+      description: 파일��의 직위
+      tests:
+      - not_null
+    - name: Join_Year
+      description: 파일��의 가입 연도
+      tests:
+      - not_null
+    - name: Team
+      description: 파일��의 팀
+      tests:
+      - not_null

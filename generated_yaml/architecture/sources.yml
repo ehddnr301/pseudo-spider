@@ -1,0 +1,87 @@
+version: 2
+sources:
+- name: architecture
+  description: architecture 데이터셋의 테이블 모음
+  database: architecture
+  tables:
+  - name: architect
+    description: 건축가에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 이름
+      tests:
+      - not_null
+    - name: nationality
+      description: 국적
+      tests:
+      - not_null
+    - name: gender
+      description: 성별
+      tests:
+      - not_null
+  - name: mill
+    description: 밀에 대한 설명
+    columns:
+    - name: architect_id
+      description: 건축가 식별자
+      tests:
+      - unique
+      - not_null
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: location
+      description: 위치
+      tests:
+      - not_null
+    - name: name
+      description: 밀 이름
+      tests:
+      - not_null
+    - name: type
+      description: 밀 유형
+      tests:
+      - not_null
+    - name: built_year
+      description: 건축 연도
+      tests:
+      - not_null
+    - name: notes
+      description: 비고
+      tests:
+      - not_null
+  - name: bridge
+    description: 다리 테이블에 대한 설명
+    columns:
+    - name: architect_id
+      description: 건축가 식별자
+      tests:
+      - not_null
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 다리 이름
+      tests:
+      - not_null
+    - name: location
+      description: 위치
+      tests:
+      - not_null
+    - name: length_meters
+      description: 길이(미터)
+      tests:
+      - not_null
+    - name: length_feet
+      description: 길이(피트)
+      tests:
+      - not_null

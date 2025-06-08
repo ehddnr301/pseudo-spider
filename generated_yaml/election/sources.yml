@@ -1,0 +1,94 @@
+version: 2
+sources:
+- name: election
+  description: election 데이터셋의 테이블 모음
+  database: election
+  tables:
+  - name: county
+    description: 카운티에 대한 설명
+    columns:
+    - name: County_Id
+      description: 카운티의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: County_name
+      description: 카운티의 이름
+      tests:
+      - not_null
+    - name: Population
+      description: 인구 수
+      tests:
+      - not_null
+    - name: Zip_code
+      description: 우편번호
+      tests:
+      - not_null
+  - name: election
+    description: 선거에 대한 정보
+    columns:
+    - name: Election_ID
+      description: 선거의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Counties_Represented
+      description: 대표되는 카운티
+      tests:
+      - not_null
+    - name: District
+      description: 선거구 번호
+      tests:
+      - not_null
+    - name: Delegate
+      description: 대표자 이름
+      tests:
+      - not_null
+    - name: Party
+      description: 정당 번호
+      tests:
+      - not_null
+    - name: First_Elected
+      description: 최초 선출된 날짜
+      tests:
+      - not_null
+    - name: Committee
+      description: 위원회 정보
+      tests:
+      - not_null
+  - name: party
+    description: 정당에 대한 정보
+    columns:
+    - name: Party_ID
+      description: 정당의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 정당이 활동한 연도
+      tests:
+      - not_null
+    - name: Party
+      description: 정당의 이름
+      tests:
+      - not_null
+    - name: Governor
+      description: 주지사의 이름
+      tests:
+      - not_null
+    - name: Lieutenant_Governor
+      description: 부주지사의 이름
+      tests:
+      - not_null
+    - name: Comptroller
+      description: 회계 감사관의 이름
+      tests:
+      - not_null
+    - name: Attorney_General
+      description: 법무장관의 이름
+      tests:
+      - not_null
+    - name: US_Senate
+      description: 미국 상원의원의 이름
+      tests:
+      - not_null

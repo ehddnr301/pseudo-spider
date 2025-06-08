@@ -1,0 +1,82 @@
+version: 2
+sources:
+- name: mountain_photos
+  description: mountain_photos 데이터셋의 테이블 모음
+  database: mountain_photos
+  tables:
+  - name: camera_lens
+    description: 카메라 ��즈에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: brand
+      description: 브랜드 이름
+      tests:
+      - not_null
+    - name: name
+      description: 렌즈 이름
+      tests:
+      - not_null
+    - name: focal_length_mm
+      description: 초점 거리 (mm)
+      tests:
+      - not_null
+    - name: max_aperture
+      description: 최대 조리개
+      tests:
+      - not_null
+  - name: photos
+    description: 사진 테이블에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: camera_lens_id
+      description: 카메라 ��즈 식별자
+      tests:
+      - not_null
+    - name: mountain_id
+      description: 산 식별자
+      tests:
+      - not_null
+    - name: color
+      description: 색상
+      tests:
+      - not_null
+    - name: name
+      description: 사진 이름
+      tests:
+      - not_null
+  - name: mountain
+    description: 산에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 산의 이름
+      tests:
+      - not_null
+    - name: Height
+      description: 산의 높이
+      tests:
+      - not_null
+    - name: Prominence
+      description: 산의 두드러짐
+      tests:
+      - not_null
+    - name: Range
+      description: 산맥
+      tests:
+      - not_null
+    - name: Country
+      description: 국가
+      tests:
+      - not_null

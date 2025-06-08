@@ -1,0 +1,110 @@
+version: 2
+sources:
+- name: railway
+  description: railway 데이터셋의 테이블 모음
+  database: railway
+  tables:
+  - name: manager
+    description: 관리자에 대한 정보
+    columns:
+    - name: Manager_ID
+      description: 관리자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 관리자의 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 관리자가 속한 국가
+      tests:
+      - not_null
+    - name: Working_year_starts
+      description: 관리자가 근무를 시작한 연도
+      tests:
+      - not_null
+    - name: Age
+      description: 관리자의 나이
+      tests:
+      - not_null
+    - name: Level
+      description: 관리자의 직급
+      tests:
+      - not_null
+  - name: railway_manage
+    description: 철도 관리에 대한 정보
+    columns:
+    - name: Railway_ID
+      description: 철도 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Manager_ID
+      description: 관리자 고유 식별자
+      tests:
+      - not_null
+    - name: From_Year
+      description: 시작 연도
+      tests:
+      - not_null
+  - name: railway
+    description: 철도에 대한 정보
+    columns:
+    - name: Railway_ID
+      description: 철도 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Railway
+      description: 철도 이름
+      tests:
+      - not_null
+    - name: Builder
+      description: 건설자 이름
+      tests:
+      - not_null
+    - name: Built
+      description: 건설 날짜
+      tests:
+      - not_null
+    - name: Wheels
+      description: 바�� 수
+      tests:
+      - not_null
+    - name: Location
+      description: 위치
+      tests:
+      - not_null
+    - name: ObjectNumber
+      description: 객체 번호
+      tests:
+      - not_null
+  - name: train
+    description: 기차에 대한 정보
+    columns:
+    - name: Train_ID
+      description: 기차의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Train_Num
+      description: 기차 번호
+      tests:
+      - not_null
+    - name: Name
+      description: 기차의 이름
+      tests:
+      - not_null
+    - name: From
+      description: 출발지
+      tests:
+      - not_null
+    - name: Arrival
+      description: 도착 시간
+      tests:
+      - not_null
+    - name: Railway_ID
+      description: 철도 고유 식별자
+      tests:
+      - not_null

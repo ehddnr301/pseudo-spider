@@ -1,0 +1,106 @@
+version: 2
+sources:
+- name: local_govt_mdm
+  description: local_govt_mdm 데이터셋의 테이블 모음
+  database: local_govt_mdm
+  tables:
+  - name: CMI_Cross_References
+    description: CMI 교차 참조 테이블
+    columns:
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 ID
+      tests:
+      - unique
+      - not_null
+    - name: master_customer_id
+      description: 주 고객 ID
+      tests:
+      - not_null
+    - name: source_system_code
+      description: 소스 시스템 코드
+      tests:
+      - not_null
+  - name: Rent_Arrears
+    description: 임대료 체납 테이블
+    columns:
+    - name: council_tax_id
+      description: 지방세 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 식별자
+      tests:
+      - not_null
+  - name: Business_Rates
+    description: 사업 세금에 대한 정보
+    columns:
+    - name: business_rates_id
+      description: 사업 세금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 식별자
+      tests:
+      - not_null
+  - name: Customer_Master_Index
+    description: 고객 마스터 인��스 테이블
+    columns:
+    - name: master_customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cmi_details
+      description: 고객에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Council_Tax
+    description: 지방세 테이블
+    columns:
+    - name: council_tax_id
+      description: 지방세 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 식별자
+      tests:
+      - not_null
+  - name: Parking_Fines
+    description: 주차 위반에 대한 벌금 정보를 저장하는 테이블
+    columns:
+    - name: council_tax_id
+      description: 의회 세금 ID
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 ID
+      tests:
+      - not_null
+  - name: Benefits_Overpayments
+    description: 혜택 초과 지급에 대한 테이블
+    columns:
+    - name: council_tax_id
+      description: 의회 세금 ID
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 ID
+      tests:
+      - not_null
+  - name: Electoral_Register
+    description: 선거 등록 테이블
+    columns:
+    - name: electoral_register_id
+      description: 선거 등록 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: cmi_cross_ref_id
+      description: CMI 교차 참조 식별자
+      tests:
+      - not_null

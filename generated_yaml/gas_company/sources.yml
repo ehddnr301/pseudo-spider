@@ -1,0 +1,91 @@
+version: 2
+sources:
+- name: gas_company
+  description: gas_company 데이터셋의 테이블 모음
+  database: gas_company
+  tables:
+  - name: station_company
+    description: 역과 회사 간의 관계를 나타내는 테이블
+    columns:
+    - name: Station_ID
+      description: 역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Company_ID
+      description: 회사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Rank_of_the_Year
+      description: 해당 연도의 순위
+      tests:
+      - not_null
+  - name: company
+    description: 회사에 대한 정보
+    columns:
+    - name: Company_ID
+      description: 회사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Rank
+      description: 회사의 순위
+      tests:
+      - not_null
+    - name: Company
+      description: 회사 이름
+      tests:
+      - not_null
+    - name: Headquarters
+      description: 본사 위치
+      tests:
+      - not_null
+    - name: Main_Industry
+      description: 주요 산업
+      tests:
+      - not_null
+    - name: Sales_billion
+      description: 매출 (10억 단위)
+      tests:
+      - not_null
+    - name: Profits_billion
+      description: 이익 (10억 단위)
+      tests:
+      - not_null
+    - name: Assets_billion
+      description: 자산 (10억 단위)
+      tests:
+      - not_null
+    - name: Market_Value
+      description: 시장 가치
+      tests:
+      - not_null
+  - name: gas_station
+    description: 주유소에 대한 정보
+    columns:
+    - name: Station_ID
+      description: 주유소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Open_Year
+      description: 주유소가 개장한 연도
+      tests:
+      - not_null
+    - name: Location
+      description: 주유소의 위치
+      tests:
+      - not_null
+    - name: Manager_Name
+      description: 주유소의 관리자 이름
+      tests:
+      - not_null
+    - name: Vice_Manager_Name
+      description: 주유소의 부관리자 이름
+      tests:
+      - not_null
+    - name: Representative_Name
+      description: 주유소의 대표자 이름
+      tests:
+      - not_null

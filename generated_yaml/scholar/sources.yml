@@ -1,0 +1,147 @@
+version: 2
+sources:
+- name: scholar
+  description: scholar 데이터셋의 테이블 모음
+  database: scholar
+  tables:
+  - name: paperDataset
+    description: 논문 데이터��에 대한 설명
+    columns:
+    - name: paperId
+      description: 논문의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: datasetId
+      description: 데이터��의 고유 식별자
+      tests:
+      - not_null
+  - name: paperKeyphrase
+    description: 논문과 키워프 간의 관계를 나타내는 테이블
+    columns:
+    - name: paperId
+      description: 논문의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: keyphraseId
+      description: 키워드의 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: journal
+    description: 저널 테이블에 대한 설명
+    columns:
+    - name: journalId
+      description: 저널의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: journalName
+      description: 저널의 이름
+      tests:
+      - not_null
+  - name: cite
+    description: 인용 정보를 저장하는 테이블
+    columns:
+    - name: citingPaperId
+      description: 인용하는 논문의 ID
+      tests:
+      - unique
+      - not_null
+    - name: citedPaperId
+      description: 인용된 논문의 ID
+      tests:
+      - not_null
+  - name: author
+    description: 저자에 대한 정보
+    columns:
+    - name: authorId
+      description: 저자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: authorName
+      description: 저자의 이름
+      tests:
+      - not_null
+  - name: paper
+    description: 논문에 대한 정보
+    columns:
+    - name: paperId
+      description: 논문의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 논문의 제목
+      tests:
+      - not_null
+    - name: venueId
+      description: 논문이 발표된 장소의 고유 식별자
+      tests:
+      - not_null
+    - name: year
+      description: 논문이 발표된 연도
+      tests:
+      - not_null
+    - name: numCiting
+      description: 논문이 인용한 수
+      tests:
+      - not_null
+    - name: numCitedBy
+      description: 논문이 인용된 수
+      tests:
+      - not_null
+    - name: journalId
+      description: 논문이 게재된 저널의 고유 식별자
+      tests:
+      - not_null
+  - name: venue
+    description: 장소에 대한 설명
+    columns:
+    - name: venueId
+      description: 장소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: venueName
+      description: 장소의 이름
+      tests:
+      - not_null
+  - name: writes
+    description: 논문 작성 정보를 저장하는 테이블
+    columns:
+    - name: paperId
+      description: 논문의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: authorId
+      description: 저자의 고유 식별자
+      tests:
+      - not_null
+  - name: dataset
+    description: 데이터��에 대한 설명
+    columns:
+    - name: datasetId
+      description: 데이터��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: datasetName
+      description: 데이터��의 이름
+      tests:
+      - not_null
+  - name: keyphrase
+    description: 키워드 테이블에 대한 설명
+    columns:
+    - name: keyphraseId
+      description: 키워드 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: keyphraseName
+      description: 키워드 이름
+      tests:
+      - not_null

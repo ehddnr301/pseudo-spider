@@ -1,0 +1,106 @@
+version: 2
+sources:
+- name: protein_institute
+  description: protein_institute 데이터셋의 테이블 모음
+  database: protein_institute
+  tables:
+  - name: protein
+    description: 단백질에 대한 설명
+    columns:
+    - name: common_name
+      description: 일반 이름
+      tests:
+      - not_null
+    - name: protein_name
+      description: 단백질 이름
+      tests:
+      - not_null
+    - name: divergence_from_human_lineage
+      description: 인간 계통과의 차이
+      tests:
+      - not_null
+    - name: accession_number
+      description: 접근 번호
+      tests:
+      - unique
+      - not_null
+    - name: sequence_length
+      description: 서열 길이
+      tests:
+      - not_null
+    - name: sequence_identity_to_human_protein
+      description: 인간 단백질과의 서열 유사성
+      tests:
+      - not_null
+    - name: Institution_id
+      description: 기관 식별자
+      tests:
+      - not_null
+  - name: Institution
+    description: 기관에 대한 설명
+    columns:
+    - name: Institution_id
+      description: 기관의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Institution
+      description: 기관의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 기관의 위치
+      tests:
+      - not_null
+    - name: Founded
+      description: 기관이 설립된 연도
+      tests:
+      - not_null
+    - name: Type
+      description: 기관의 유형
+      tests:
+      - not_null
+    - name: Enrollment
+      description: 기관의 등록 학생 수
+      tests:
+      - not_null
+    - name: Team
+      description: 기관의 팀
+      tests:
+      - not_null
+    - name: Primary_Conference
+      description: 기관의 주요 회의
+      tests:
+      - not_null
+    - name: building_id
+      description: 건물의 고유 식별자
+      tests:
+      - not_null
+  - name: building
+    description: 건물에 대한 정보
+    columns:
+    - name: building_id
+      description: 건물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 건물의 이름
+      tests:
+      - not_null
+    - name: Street_address
+      description: 건물의 주소
+      tests:
+      - not_null
+    - name: Years_as_tallest
+      description: 가장 높은 건물로 있는 년수
+      tests:
+      - not_null
+    - name: Height_feet
+      description: 건물의 높이(피트)
+      tests:
+      - not_null
+    - name: Floors
+      description: 건물의 �� 수
+      tests:
+      - not_null

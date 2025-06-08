@@ -1,0 +1,100 @@
+version: 2
+sources:
+- name: phone_1
+  description: phone_1 데이터셋의 테이블 모음
+  database: phone_1
+  tables:
+  - name: screen_mode
+    description: 화면 모드에 대한 설명
+    columns:
+    - name: Graphics_mode
+      description: 그래픽 모드 값
+      tests:
+      - not_null
+    - name: Char_cells
+      description: 문자 ��
+      tests:
+      - not_null
+    - name: Pixels
+      description: 픽셀
+      tests:
+      - not_null
+    - name: Hardware_colours
+      description: 하드웨어 색상
+      tests:
+      - not_null
+    - name: used_kb
+      description: 사용된 ���로바이트
+      tests:
+      - not_null
+    - name: map
+      description: ��
+      tests:
+      - not_null
+    - name: Type
+      description: 유형
+      tests:
+      - not_null
+  - name: phone
+    description: 전화기 테이블에 대한 설명
+    columns:
+    - name: Company_name
+      description: 제조사 이름
+      tests:
+      - not_null
+    - name: Hardware_Model_name
+      description: 하드웨어 모델 이름
+      tests:
+      - not_null
+    - name: Accreditation_type
+      description: 인증 유형
+      tests:
+      - not_null
+    - name: Accreditation_level
+      description: 인증 수준
+      tests:
+      - not_null
+    - name: Date
+      description: 날짜
+      tests:
+      - not_null
+    - name: chip_model
+      description: �� 모델
+      tests:
+      - not_null
+    - name: screen_mode
+      description: 스크린 모드
+      tests:
+      - not_null
+  - name: chip_model
+    description: �� 모델에 대한 설명
+    columns:
+    - name: Model_name
+      description: 모델 이름
+      tests:
+      - unique
+      - not_null
+    - name: Launch_year
+      description: 출시 연도
+      tests:
+      - not_null
+    - name: RAM_MiB
+      description: 램 용량 (MiB)
+      tests:
+      - not_null
+    - name: ROM_MiB
+      description: �� 용량 (MiB)
+      tests:
+      - not_null
+    - name: Slots
+      description: 슬롯 수
+      tests:
+      - not_null
+    - name: WiFi
+      description: 와이파이 표준
+      tests:
+      - not_null
+    - name: Bluetooth
+      description: 블루투스 버전
+      tests:
+      - not_null

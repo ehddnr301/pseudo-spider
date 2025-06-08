@@ -1,0 +1,86 @@
+version: 2
+sources:
+- name: wine_1
+  description: wine_1 데이터셋의 테이블 모음
+  database: wine_1
+  tables:
+  - name: grapes
+    description: 포도에 대한 설명
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Grape
+      description: 포도 종류
+      tests:
+      - not_null
+    - name: Color
+      description: 포도 색상
+      tests:
+      - not_null
+  - name: appellations
+    description: ��엘레이션에 대한 설명
+    columns:
+    - name: 'No'
+      description: 고유 번호
+      tests:
+      - unique
+      - not_null
+    - name: Appelation
+      description: ��엘레이션 이름
+      tests:
+      - not_null
+    - name: County
+      description: 카운티 이름
+      tests:
+      - not_null
+    - name: State
+      description: 주 이름
+      tests:
+      - not_null
+    - name: Area
+      description: 지역
+      tests:
+      - not_null
+    - name: isAVA
+      description: AVA 여부
+      tests:
+      - not_null
+  - name: wine
+    description: 와인에 대한 정보 테이블
+    columns:
+    - name: 'No'
+      description: 와인의 고유 번호
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Grape
+      description: 와인에 사용된 포도 품종
+      tests:
+      - not_null: true
+    - name: Winery
+      description: 와인을 생산한 와이너리
+      tests:
+      - not_null: true
+    - name: Appelation
+      description: 와인이 생산된 지역
+      tests:
+      - not_null: true
+    - name: State
+      description: 와인이 생산된 주
+      tests:
+      - not_null: true
+    - name: Name
+      description: 제품의 이름을 나타��니다.
+    - name: Year
+      description: 제품이 출시된 연도를 나타��니다.
+    - name: Price
+      description: 제품의 가격을 나타��니다.
+    - name: Score
+      description: 제품에 대한 평가 점수를 나타��니다.
+    - name: Cases
+      description: 판매된 ��이스 수를 나타��니다.
+    - name: Drink
+      description: 음료의 종류를 나타��니다.

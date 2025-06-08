@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: movie_1
+  description: movie_1 데이터셋의 테이블 모음
+  database: movie_1
+  tables:
+  - name: Reviewer
+    description: 리뷰어에 대한 설명
+    columns:
+    - name: rID
+      description: 리뷰어 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 리뷰어 이름
+      tests:
+      - not_null
+  - name: Rating
+    description: 영화에 대한 평가 정보를 담고 있는 테이블
+    columns:
+    - name: rID
+      description: 평가 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: mID
+      description: 영화 고유 식별자
+      tests:
+      - not_null
+    - name: stars
+      description: 별점
+      tests:
+      - not_null
+    - name: ratingDate
+      description: 평가 날짜
+      tests:
+      - not_null
+  - name: Movie
+    description: 영화에 대한 정보
+    columns:
+    - name: mID
+      description: 영화의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 영화 제목
+      tests:
+      - not_null
+    - name: year
+      description: 영화 개봉 연도
+      tests:
+      - not_null
+    - name: director
+      description: 영화 감독
+      tests:
+      - not_null

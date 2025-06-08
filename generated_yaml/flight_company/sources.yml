@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: flight_company
+  description: flight_company 데이터셋의 테이블 모음
+  database: flight_company
+  tables:
+  - name: flight
+    description: 비행 정보 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Vehicle_Flight_number
+      description: 비행기 번호
+      tests:
+      - not_null
+    - name: Date
+      description: 비행 날짜 및 시간
+      tests:
+      - not_null
+    - name: Pilot
+      description: 조종사 이름
+      tests:
+      - not_null
+    - name: Velocity
+      description: 비행 속도
+      tests:
+      - not_null
+    - name: Altitude
+      description: 비행 고도
+      tests:
+      - not_null
+    - name: airport_id
+      description: 공항 식별자
+      tests:
+      - not_null
+    - name: company_id
+      description: 항공사 식별자
+      tests:
+      - not_null
+  - name: operate_company
+    description: 운영 회사에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 회사 이름
+      tests:
+      - not_null
+    - name: Type
+      description: 회사 유형
+      tests:
+      - not_null
+    - name: Principal_activities
+      description: 주요 활동
+      tests:
+      - not_null
+    - name: Incorporated_in
+      description: 설립 장소
+      tests:
+      - not_null
+    - name: Group_Equity_Shareholding
+      description: 주식 보유 비율
+      tests:
+      - not_null

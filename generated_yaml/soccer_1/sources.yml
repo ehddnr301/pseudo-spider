@@ -1,0 +1,102 @@
+version: 2
+sources:
+- name: soccer_1
+  description: soccer_1 데이터셋의 테이블 모음
+  database: soccer_1
+  tables:
+  - name: Country
+    description: 국가에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 국가 이름
+      tests:
+      - not_null
+  - name: Team
+    description: 팀에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: team_api_id
+      description: 팀 API 식별자
+      tests:
+      - not_null
+    - name: team_fifa_api_id
+      description: 팀 FIFA API 식별자
+      tests:
+      - not_null
+    - name: team_long_name
+      description: 팀의 전체 이름
+      tests:
+      - not_null
+    - name: team_short_name
+      description: 팀의 약어
+      tests:
+      - not_null
+  - name: sqlite_sequence
+    description: sqlite_sequence 테이블은 자동 증가하는 시��스를 저장합니다.
+    columns:
+    - name: name
+      description: 시��스 이름
+      tests:
+      - unique
+      - not_null
+    - name: seq
+      description: 시��스 번호
+      tests:
+      - not_null
+  - name: League
+    description: 리그에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: country_id
+      description: 국가 식별자
+      tests:
+      - not_null
+    - name: name
+      description: 리그 이름
+      tests:
+      - not_null
+  - name: Player
+    description: 선수에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: player_api_id
+      description: 선수 API 식별자
+      tests:
+      - not_null
+    - name: player_name
+      description: 선수 이름
+      tests:
+      - not_null
+    - name: player_fifa_api_id
+      description: 선수 FIFA API 식별자
+      tests:
+      - not_null
+    - name: birthday
+      description: 생일
+      tests:
+      - not_null
+    - name: height
+      description: 신장
+      tests:
+      - not_null
+    - name: weight
+      description: 체중
+      tests:
+      - not_null

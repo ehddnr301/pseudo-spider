@@ -1,0 +1,167 @@
+version: 2
+sources:
+- name: document_management
+  description: document_management 데이터셋의 테이블 모음
+  database: document_management
+  tables:
+  - name: Document_Sections
+    description: 문서 ��션에 대한 설명
+    columns:
+    - name: section_id
+      description: ��션 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: document_code
+      description: 문서 코드
+      tests:
+      - not_null
+    - name: section_sequence
+      description: ��션 순서
+      tests:
+      - not_null
+    - name: section_code
+      description: ��션 코드
+      tests:
+      - not_null
+    - name: section_title
+      description: ��션 제목
+      tests:
+      - not_null
+  - name: Roles
+    description: 역할에 대한 설명
+    columns:
+    - name: role_code
+      description: 역할 코드
+      tests:
+      - unique
+      - not_null
+    - name: role_description
+      description: 역할 설명
+      tests:
+      - not_null
+  - name: Functional_Areas
+    description: 기능 영역에 대한 설명
+    columns:
+    - name: functional_area_code
+      description: 기능 영역 코드
+      tests:
+      - unique
+      - not_null
+    - name: parent_functional_area_code
+      description: 상위 기능 영역 코드
+      tests:
+      - not_null
+    - name: functional_area_description
+      description: 기능 영역 설명
+      tests:
+      - not_null
+  - name: Documents
+    description: 문서에 대한 설명
+    columns:
+    - name: document_code
+      description: 문서 코드
+      tests:
+      - unique
+      - not_null
+    - name: document_structure_code
+      description: 문서 구조 코드
+      tests:
+      - not_null
+    - name: document_type_code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: access_count
+      description: 접근 ��수
+      tests:
+      - not_null
+    - name: document_name
+      description: 문서 이름
+      tests:
+      - not_null
+  - name: Users
+    description: 사용자 정보를 저장하는 테이블
+    columns:
+    - name: user_id
+      description: 사용자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: role_code
+      description: 사용자의 역할 코드
+      tests:
+      - not_null
+    - name: user_name
+      description: 사용자의 이름
+      tests:
+      - not_null
+    - name: user_login
+      description: 사용자의 로그인 아이디
+      tests:
+      - unique
+      - not_null
+    - name: password
+      description: 사용자의 비밀번호
+      tests:
+      - not_null
+  - name: Document_Structures
+    description: 문서 구조에 대한 설명
+    columns:
+    - name: document_structure_code
+      description: 문서 구조 코드
+      tests:
+      - unique
+      - not_null
+    - name: parent_document_structure_code
+      description: 부모 문서 구조 코드
+      tests:
+      - not_null
+    - name: document_structure_description
+      description: 문서 구조 설명
+      tests:
+      - not_null
+  - name: Images
+    description: 이미지에 대한 정보
+    columns:
+    - name: image_id
+      description: 이미지의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: image_alt_text
+      description: 이미지의 대체 ��스트
+      tests:
+      - not_null
+    - name: image_name
+      description: 이미지의 이름
+      tests:
+      - not_null
+    - name: image_url
+      description: 이미지의 URL
+      tests:
+      - not_null
+  - name: Document_Sections_Images
+    description: 문서 ��션 이미지에 대한 설명
+    columns:
+    - name: section_id
+      description: ��션의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: image_id
+      description: 이미지의 고유 식별자
+      tests:
+      - not_null
+  - name: Document_Functional_Areas
+    description: 문서 기능 영역에 대한 설명
+    columns:
+    - name: document_code
+      description: 문서 코드
+      tests:
+      - unique
+      - not_null
+    - name: functional_area_code
+      description: 기능 영역 코드
+      tests:
+      - not_null

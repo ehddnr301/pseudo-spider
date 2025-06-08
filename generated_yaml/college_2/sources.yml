@@ -1,0 +1,236 @@
+version: 2
+sources:
+- name: college_2
+  description: college_2 데이터셋의 테이블 모음
+  database: college_2
+  tables:
+  - name: takes
+    description: 학생이 수강한 과목에 대한 정보
+    columns:
+    - name: ID
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 수강 과목의 고유 식별자
+      tests:
+      - not_null
+    - name: sec_id
+      description: 수업 ��션의 고유 식별자
+      tests:
+      - not_null
+    - name: semester
+      description: 학기가 속한 학기
+      tests:
+      - not_null
+    - name: year
+      description: 수강 연도
+      tests:
+      - not_null
+    - name: grade
+      description: 학생의 성적
+      tests:
+      - not_null
+  - name: time_slot
+    description: 시간 슬롯에 대한 설명
+    columns:
+    - name: time_slot_id
+      description: 시간 슬롯의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: day
+      description: 요일
+      tests:
+      - not_null
+    - name: start_hr
+      description: 시작 시간(시)
+      tests:
+      - not_null
+    - name: start_min
+      description: 시작 시간(분)
+      tests:
+      - not_null
+    - name: end_hr
+      description: 종료 시간(시)
+      tests:
+      - not_null
+    - name: end_min
+      description: 종료 시간(분)
+      tests:
+      - not_null
+  - name: course
+    description: 강좌에 대한 설명
+    columns:
+    - name: course_id
+      description: 강좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 강좌 제목
+      tests:
+      - not_null
+    - name: dept_name
+      description: 학과 이름
+      tests:
+      - not_null
+    - name: credits
+      description: 학점 수
+      tests:
+      - not_null
+  - name: teaches
+    description: 강의 정보를 저장하는 테이블
+    columns:
+    - name: ID
+      description: 강의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 강의의 과정 ID
+      tests:
+      - not_null
+    - name: sec_id
+      description: 강의 ��션 ID
+      tests:
+      - not_null
+    - name: semester
+      description: 강의가 진행되는 학기
+      tests:
+      - not_null
+    - name: year
+      description: 강의가 진행되는 연도
+      tests:
+      - not_null
+  - name: prereq
+    description: 선수 과목에 대한 정보
+    columns:
+    - name: course_id
+      description: 과목의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: prereq_id
+      description: 선수 과목의 고유 식별자
+      tests:
+      - not_null
+  - name: student
+    description: 학생 테이블에 대한 설명
+    columns:
+    - name: ID
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: dept_name
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: tot_cred
+      description: 학생의 총 학점
+      tests:
+      - not_null
+  - name: advisor
+    description: 고문 테이블에 대한 설명
+    columns:
+    - name: s_ID
+      description: 학생 식별자
+      tests:
+      - unique
+      - not_null
+    - name: i_ID
+      description: 강사 식별자
+      tests:
+      - unique
+      - not_null
+  - name: section
+    description: 수업 ��션에 대한 정보
+    columns:
+    - name: course_id
+      description: 과목 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: sec_id
+      description: ��션 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: semester
+      description: 학기
+      tests:
+      - not_null
+    - name: year
+      description: 년도
+      tests:
+      - not_null
+    - name: building
+      description: 건물 이름
+      tests:
+      - not_null
+    - name: room_number
+      description: 강의실 번호
+      tests:
+      - not_null
+    - name: time_slot_id
+      description: 시간대 고유 식별자
+      tests:
+      - not_null
+  - name: instructor
+    description: 강사에 대한 정보
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 강사의 이름
+      tests:
+      - not_null
+    - name: dept_name
+      description: 강사가 소속된 학과
+      tests:
+      - not_null
+    - name: salary
+      description: 강사의 연봉
+      tests:
+      - not_null
+  - name: department
+    description: 부서에 대한 설명
+    columns:
+    - name: dept_name
+      description: 부서 이름
+      tests:
+      - unique
+      - not_null
+    - name: building
+      description: 건물 이름
+      tests:
+      - not_null
+    - name: budget
+      description: 예산
+      tests:
+      - not_null
+  - name: classroom
+    description: 교실에 대한 설명
+    columns:
+    - name: building
+      description: 건물 이름
+      tests:
+      - not_null
+    - name: room_number
+      description: 교실 번호
+      tests:
+      - unique
+      - not_null
+    - name: capacity
+      description: 수용 인원
+      tests:
+      - not_null

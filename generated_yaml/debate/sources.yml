@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: debate
+  description: debate 데이터셋의 테이블 모음
+  database: debate
+  tables:
+  - name: debate_people
+    description: 토론 참가자에 대한 정보
+    columns:
+    - name: Debate_ID
+      description: 토론의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Affirmative
+      description: 찬성 측의 참가자 수
+      tests:
+      - not_null
+    - name: Negative
+      description: 반대 측의 참가자 수
+      tests:
+      - not_null
+    - name: If_Affirmative_Win
+      description: 찬성 측이 승리했는지 여부
+      tests:
+      - not_null
+  - name: people
+    description: 사람들에 대한 정보
+    columns:
+    - name: People_ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: District
+      description: 거주 지역
+      tests:
+      - not_null
+    - name: Name
+      description: 이름
+      tests:
+      - not_null
+    - name: Party
+      description: 정당
+      tests:
+      - not_null
+    - name: Age
+      description: 나이
+      tests:
+      - not_null
+  - name: debate
+    description: 토론에 대한 정보
+    columns:
+    - name: Debate_ID
+      description: 토론의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date
+      description: 토론이 열린 날짜와 시간
+      tests:
+      - not_null
+    - name: Venue
+      description: 토론이 열린 장소
+      tests:
+      - not_null
+    - name: Num_of_Audience
+      description: 관중 수
+      tests:
+      - not_null

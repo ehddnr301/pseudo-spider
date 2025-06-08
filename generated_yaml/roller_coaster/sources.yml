@@ -1,0 +1,68 @@
+version: 2
+sources:
+- name: roller_coaster
+  description: roller_coaster 데이터셋의 테이블 모음
+  database: roller_coaster
+  tables:
+  - name: country
+    description: 국가에 대한 정보
+    columns:
+    - name: Country_ID
+      description: 국가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 국가의 이름
+      tests:
+      - not_null
+    - name: Population
+      description: 인구 수
+      tests:
+      - not_null
+    - name: Area
+      description: 면적
+      tests:
+      - not_null
+    - name: Languages
+      description: 사용되는 언어
+      tests:
+      - not_null
+  - name: roller_coaster
+    description: 롤러코스터에 대한 설명
+    columns:
+    - name: Roller_Coaster_ID
+      description: 롤러코스터 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 롤러코스터 이름
+      tests:
+      - not_null
+    - name: Park
+      description: ��이공원 이름
+      tests:
+      - not_null
+    - name: Country_ID
+      description: 국가 고유 식별자
+      tests:
+      - not_null
+    - name: Length
+      description: 롤러코스터 길이
+      tests:
+      - not_null
+    - name: Height
+      description: 롤러코스터 높이
+      tests:
+      - not_null
+    - name: Speed
+      description: 롤러코스터 속도
+      tests:
+      - not_null
+    - name: Opened
+      description: 개장일
+      tests:
+      - not_null
+    - name: Status
+      description: 운영 상태

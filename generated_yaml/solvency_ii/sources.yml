@@ -1,0 +1,182 @@
+version: 2
+sources:
+- name: solvency_ii
+  description: solvency_ii 데이터셋의 테이블 모음
+  database: solvency_ii
+  tables:
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: Product_ID
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Product_Type_Code
+      description: 제품 유형 코드
+      tests:
+      - not_null
+    - name: Product_Name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: Product_Price
+      description: 제품 가격
+      tests:
+      - not_null
+  - name: Channels
+    description: 채널에 대한 설명
+    columns:
+    - name: Channel_ID
+      description: 채널의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Locations
+    description: 위치 정보를 저장하는 테이블
+    columns:
+    - name: Location_ID
+      description: 위치의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Other_Details
+      description: 위치에 대한 추가 정보
+      tests:
+      - not_null
+  - name: Parties_in_Events
+    description: 이벤트에 참여하는 파티에 대한 정보
+    columns:
+    - name: Party_ID
+      description: 파티의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - not_null
+    - name: Role_Code
+      description: 파티의 역할 코드
+      tests:
+      - not_null
+  - name: Events
+    description: 이벤트에 대한 설명
+    columns:
+    - name: Event_ID
+      description: 이벤트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Address_ID
+      description: 주소 고유 식별자
+      tests:
+      - not_null
+    - name: Channel_ID
+      description: 채널 고유 식별자
+      tests:
+      - not_null
+    - name: Event_Type_Code
+      description: 이벤트 유형 코드
+      tests:
+      - not_null
+    - name: Finance_ID
+      description: 재무 고유 식별자
+      tests:
+      - not_null
+    - name: Location_ID
+      description: 위치 고유 식별자
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: Address_ID
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_details
+      description: 주소 세부 정보
+      tests:
+      - not_null
+  - name: Assets_in_Events
+    description: 이벤트에 자산에 대한 정보
+    columns:
+    - name: Asset_ID
+      description: 자산의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - not_null
+  - name: Finances
+    description: 재정 관련 정보 테이블
+    columns:
+    - name: Finance_ID
+      description: 재정 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Other_Details
+      description: 기타 세부사항
+      tests:
+      - not_null
+  - name: Assets
+    description: 자산에 대한 정보
+    columns:
+    - name: Asset_ID
+      description: 자산의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Other_Details
+      description: 자산에 대한 추가 세부 정보
+      tests:
+      - not_null
+  - name: Agreements
+    description: 계약에 대한 정보
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - not_null
+  - name: Parties
+    description: 정당에 대한 정보
+    columns:
+    - name: Party_ID
+      description: 정당의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Party_Details
+      description: 정당에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Products_in_Events
+    description: 이벤트에 포함된 제품에 대한 정보
+    columns:
+    - name: Product_in_Event_ID
+      description: 이벤트 내 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - not_null
+    - name: Product_ID
+      description: 제품의 고유 식별자
+      tests:
+      - not_null

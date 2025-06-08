@@ -1,0 +1,196 @@
+version: 2
+sources:
+- name: student_assessment
+  description: student_assessment 데이터셋의 테이블 모음
+  database: student_assessment
+  tables:
+  - name: Courses
+    description: 강좌에 대한 설명
+    columns:
+    - name: course_id
+      description: 강좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_name
+      description: 강좌의 이름
+      tests:
+      - not_null
+    - name: course_description
+      description: 강좌에 대한 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Candidate_Assessments
+    description: 후보자 평가에 대한 정보
+    columns:
+    - name: candidate_id
+      description: 후보자 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: qualification
+      description: 후보자의 자격
+      tests:
+      - not_null
+    - name: assessment_date
+      description: 평가 날짜
+      tests:
+      - not_null
+    - name: asessment_outcome_code
+      description: 평가 결과 코드
+      tests:
+      - not_null
+  - name: Candidates
+    description: 후보자에 대한 정보
+    columns:
+    - name: candidate_id
+      description: 후보자 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: candidate_details
+      description: 후보자 세부 정보
+      tests:
+      - not_null
+  - name: People
+    description: 사람들에 대한 정보 테이블
+    columns:
+    - name: person_id
+      description: 사람의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: first_name
+      description: 이름
+      tests:
+      - not_null
+    - name: middle_name
+      description: 중간 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 성
+      tests:
+      - not_null
+    - name: cell_mobile_number
+      description: 휴대폰 번호
+      tests:
+      - not_null
+    - name: email_address
+      description: 이메일 주소
+      tests:
+      - not_null
+    - name: login_name
+      description: 로그인 이름
+      tests:
+      - not_null
+    - name: password
+      description: 비밀번호
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1
+      description: 주소의 첫 번째 줄
+      tests:
+      - not_null
+    - name: line_2
+      description: 주소의 두 번째 줄
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주 또는 지방
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+  - name: People_Addresses
+    description: 사람과 주소 간의 관계를 나타내는 테이블
+    columns:
+    - name: person_address_id
+      description: 사람 주소 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: person_id
+      description: 사람의 고유 식별자
+      tests:
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - not_null
+    - name: date_from
+      description: 주소 사용 시작 날짜
+      tests:
+      - not_null
+    - name: date_to
+      description: 주소 사용 종료 날짜
+      tests:
+      - not_null
+  - name: Students
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: student_details
+      description: 학생의 세부 정보
+      tests:
+      - not_null
+  - name: Student_Course_Attendance
+    description: 학생 수업 출석 기록 테이블
+    columns:
+    - name: student_id
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 수업 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_of_attendance
+      description: 출석 날짜 및 시간
+      tests:
+      - not_null
+  - name: Student_Course_Registrations
+    description: 학생 수업 등록에 대한 정보
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 수업의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: registration_date
+      description: 등록 날짜 및 시간
+      tests:
+      - not_null

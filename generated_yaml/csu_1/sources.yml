@@ -1,0 +1,96 @@
+version: 2
+sources:
+- name: csu_1
+  description: csu_1 데이터셋의 테이블 모음
+  database: csu_1
+  tables:
+  - name: faculty
+    description: 교수진에 대한 정보
+    columns:
+    - name: Campus
+      description: ��퍼스 번호
+      tests:
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+    - name: Faculty
+      description: 교수 수
+      tests:
+      - not_null
+  - name: csu_fees
+    description: ��퍼스 수수료에 대한 정보
+    columns:
+    - name: Campus
+      description: ��퍼스 번호
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+    - name: CampusFee
+      description: ��퍼스 수수료
+      tests:
+      - not_null
+  - name: degrees
+    description: 학위 정보를 담고 있는 테이블
+    columns:
+    - name: Year
+      description: 연도
+      tests:
+      - unique
+      - not_null
+    - name: Campus
+      description: ��퍼스
+      tests:
+      - not_null
+    - name: Degrees
+      description: 학위 수
+      tests:
+      - not_null
+  - name: enrollments
+    description: 등록 정보 테이블
+    columns:
+    - name: Campus
+      description: ��퍼스 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+    - name: TotalEnrollment_AY
+      description: 총 등록 인원
+      tests:
+      - not_null
+    - name: FTE_AY
+      description: 정원 기준 등록 인원
+      tests:
+      - not_null
+  - name: discipline_enrollments
+    description: 학문 등록에 대한 정보
+    columns:
+    - name: Campus
+      description: ��퍼스 번호
+      tests:
+      - not_null
+    - name: Discipline
+      description: 학문 번호
+      tests:
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+    - name: Undergraduate
+      description: 학부생 수
+      tests:
+      - not_null
+    - name: Graduate
+      description: 대학원생 수
+      tests:
+      - not_null

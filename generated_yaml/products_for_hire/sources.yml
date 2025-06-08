@@ -1,0 +1,196 @@
+version: 2
+sources:
+- name: products_for_hire
+  description: products_for_hire 데이터셋의 테이블 모음
+  database: products_for_hire
+  tables:
+  - name: Payments
+    description: 결제 정보를 저장하는 테이블
+    columns:
+    - name: payment_id
+      description: 결제 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: booking_id
+      description: 예약 고유 식별자
+      tests:
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: payment_type_code
+      description: 결제 유형 코드
+      tests:
+      - not_null
+    - name: amount_paid_in_full_yn
+      description: 전체 결제 여부
+      tests:
+      - not_null
+    - name: payment_date
+      description: 결제 날짜
+      tests:
+      - not_null
+    - name: amount_due
+      description: 지불해야 할 금액
+      tests:
+      - not_null
+    - name: amount_paid
+      description: 지불한 금액
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 담고 있는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: coupon_id
+      description: 쿠폰의 고유 식별자
+      tests:
+      - not_null
+    - name: good_or_bad_customer
+      description: 고객의 유형 (좋은 고객 또는 나쁜 고객)
+      tests:
+      - not_null
+    - name: first_name
+      description: 고객의 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 고객의 성
+      tests:
+      - not_null
+    - name: gender_mf
+      description: 고객의 성별 (남성 또는 여성)
+      tests:
+      - not_null
+    - name: date_became_customer
+      description: 고객이 된 날짜
+      tests:
+      - not_null
+    - name: date_last_hire
+      description: 마지막 고용 날짜
+      tests:
+      - not_null
+  - name: Products_for_Hire
+    description: 대여 가능한 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_type_code
+      description: 제품 유형 코드
+      tests:
+      - not_null
+    - name: daily_hire_cost
+      description: 일일 대여 비용
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: product_description
+      description: 제품 설명
+      tests:
+      - not_null
+  - name: Products_Booked
+    description: 예약된 제품에 대한 정보
+    columns:
+    - name: booking_id
+      description: 예약 ID
+      tests:
+      - unique
+      - not_null
+    - name: product_id
+      description: 제품 ID
+      tests:
+      - not_null
+    - name: returned_yn
+      description: 반환 여부
+      tests:
+      - not_null
+    - name: returned_late_yn
+      description: 지연 반환 여부
+      tests:
+      - not_null
+    - name: booked_count
+      description: 예약 수량
+      tests:
+      - not_null
+    - name: booked_amount
+      description: 예약 금액
+      tests:
+      - not_null
+  - name: Discount_Coupons
+    description: 할인 쿠폰에 대한 정보
+    columns:
+    - name: coupon_id
+      description: 쿠폰 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_issued
+      description: 쿠폰 발급 날짜
+      tests:
+      - not_null
+    - name: coupon_amount
+      description: 쿠폰 금액
+      tests:
+      - not_null
+  - name: View_Product_Availability
+    description: 제품 가용성 조회 테이블
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: booking_id
+      description: 예약 고유 식별자
+      tests:
+      - not_null
+    - name: status_date
+      description: 상태 날짜 및 시간
+      tests:
+      - not_null
+    - name: available_yn
+      description: 가용 여부
+      tests:
+      - not_null
+  - name: Bookings
+    description: 예약 정보를 저장하는 테이블
+    columns:
+    - name: booking_id
+      description: 예약의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - not_null: true
+    - name: booking_status_code
+      description: 예약 상태 코드
+    - name: returned_damaged_yn
+      description: 반환 시 손상 여부
+    - name: booking_start_date
+      description: 예약 시작 날짜
+    - name: booking_end_date
+      description: 예약 종료 날짜
+    - name: count_hired
+      description: 대여된 수량
+    - name: amount_payable
+      description: 지불해야 할 금액
+    - name: amount_of_discount
+      description: 할인 금액
+    - name: amount_outstanding
+      description: 미지급 금액
+    - name: amount_of_refund
+      description: 환불 금액

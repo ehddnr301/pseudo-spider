@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: school_finance
+  description: school_finance 데이터셋의 테이블 모음
+  database: school_finance
+  tables:
+  - name: endowment
+    description: 기부금 테이블
+    columns:
+    - name: endowment_id
+      description: 기부금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: School_id
+      description: 학교 고유 식별자
+      tests:
+      - not_null
+    - name: donator_name
+      description: 기부자 이름
+      tests:
+      - not_null
+    - name: amount
+      description: 기부 금액
+      tests:
+      - not_null
+  - name: budget
+    description: 예산 테이블에 대한 설명
+    columns:
+    - name: School_id
+      description: 학교 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 연도
+      tests:
+      - not_null
+    - name: Budgeted
+      description: 예산 금액
+      tests:
+      - not_null
+    - name: total_budget_percent_budgeted
+      description: 예산 대비 총 예산 비율
+      tests:
+      - not_null
+    - name: Invested
+      description: 투자 금액
+      tests:
+      - not_null
+    - name: total_budget_percent_invested
+      description: 투자 대비 총 예산 비율
+      tests:
+      - not_null
+    - name: Budget_invested_percent
+      description: 투자된 예산 비율
+      tests:
+      - not_null

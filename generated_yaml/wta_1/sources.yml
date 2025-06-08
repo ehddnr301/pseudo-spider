@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: wta_1
+  description: wta_1 데이터셋의 테이블 모음
+  database: wta_1
+  tables:
+  - name: rankings
+    description: 선수 순위 정보를 담고 있는 테이블
+    columns:
+    - name: ranking_date
+      description: 순위 날짜
+      tests:
+      - not_null
+    - name: ranking
+      description: 선수 순위
+      tests:
+      - not_null
+    - name: player_id
+      description: 선수 고유 ID
+      tests:
+      - unique
+      - not_null
+    - name: ranking_points
+      description: 순위 포인트
+      tests:
+      - not_null
+    - name: tours
+      description: 참여한 투어 수
+      tests:
+      - not_null
+  - name: players
+    description: 선수에 대한 정보 테이블
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: first_name
+      description: 선수의 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 선수의 성
+      tests:
+      - not_null
+    - name: hand
+      description: 선수의 주 손
+      tests:
+      - not_null
+    - name: birth_date
+      description: 선수의 생년월일
+      tests:
+      - not_null
+    - name: country_code
+      description: 선수의 국가 코드
+      tests:
+      - not_null

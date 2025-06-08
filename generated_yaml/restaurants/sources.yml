@@ -1,0 +1,50 @@
+version: 2
+sources:
+- name: restaurants
+  description: restaurants 데이터셋의 테이블 모음
+  database: restaurants
+  tables:
+  - name: RESTAURANT
+    description: 레스토랑에 대한 정보
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: NAME
+      description: 레스토랑 이름
+      tests:
+      - not_null
+    - name: FOOD_TYPE
+      description: 음식 종류
+      tests:
+      - not_null
+    - name: CITY_NAME
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: RATING
+      description: 평점
+      tests:
+      - not_null
+  - name: LOCATION
+    description: 위치 정보를 담고 있는 테이블
+    columns:
+    - name: RESTAURANT_ID
+      description: 레스토랑의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: HOUSE_NUMBER
+      description: 집 번호
+      tests:
+      - not_null
+    - name: STREET_NAME
+      description: 거리 이름
+      tests:
+      - not_null
+    - name: CITY_NAME
+      description: 도시 이름
+      tests:
+      - not_null

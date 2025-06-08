@@ -1,0 +1,77 @@
+version: 2
+sources:
+- name: university_basketball
+  description: university_basketball 데이터셋의 테이블 모음
+  database: university_basketball
+  tables:
+  - name: university
+    description: 대학에 대한 정보
+    columns:
+    - name: School_ID
+      description: 학교 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: School
+      description: 학교 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 학교 위치
+      tests:
+      - not_null
+    - name: Founded
+      description: 설립 연도
+      tests:
+      - not_null
+    - name: Affiliation
+      description: 학교 소속
+      tests:
+      - not_null
+    - name: Enrollment
+      description: 학생 수
+      tests:
+      - not_null
+    - name: Nickname
+      description: 학교 별명
+      tests:
+      - not_null
+    - name: Primary_conference
+      description: 주요 학회
+      tests:
+      - not_null
+  - name: basketball_match
+    description: 농구 경기 데이터에 대한 테이블
+    columns:
+    - name: Team_ID
+      description: 팀의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: School_ID
+      description: 학교의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Team_Name
+      description: 팀의 이름
+      tests:
+      - not_null: true
+    - name: ACC_Regular_Season
+      description: ACC 정규 시즌 성적
+    - name: ACC_Percent
+      description: ACC 승률
+    - name: ACC_Home
+      description: ACC 홈 경기 성적
+    - name: ACC_Road
+      description: ACC_Road에 대한 설명
+    - name: All_Games
+      description: All_Games에 대한 설명
+    - name: All_Games_Percent
+      description: All_Games_Percent에 대한 설명
+    - name: All_Home
+      description: All_Home에 대한 설명
+    - name: All_Road
+      description: All_Road에 대한 설명
+    - name: All_Neutral
+      description: All_Neutral에 대한 설명

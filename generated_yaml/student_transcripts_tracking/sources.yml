@@ -1,0 +1,261 @@
+version: 2
+sources:
+- name: student_transcripts_tracking
+  description: student_transcripts_tracking 데이터셋의 테이블 모음
+  database: student_transcripts_tracking
+  tables:
+  - name: Courses
+    description: 강좌에 대한 설명
+    columns:
+    - name: course_id
+      description: 강좌의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_name
+      description: 강좌의 이름
+      tests:
+      - not_null
+    - name: course_description
+      description: 강좌에 대한 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Transcripts
+    description: 성적 증명서에 대한 정보
+    columns:
+    - name: transcript_id
+      description: 성적 증명서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: transcript_date
+      description: 성적 증명서의 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Sections
+    description: ��션에 대한 설명
+    columns:
+    - name: section_id
+      description: ��션 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 코스 고유 식별자
+      tests:
+      - not_null
+    - name: section_name
+      description: ��션 이름
+      tests:
+      - not_null
+    - name: section_description
+      description: ��션 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부사항
+      tests:
+      - not_null
+  - name: Degree_Programs
+    description: 학위 프로그램에 대한 설명
+    columns:
+    - name: degree_program_id
+      description: 학위 프로그램의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: department_id
+      description: 학과의 고유 식별자
+      tests:
+      - not_null
+    - name: degree_summary_name
+      description: 학위 요약 이름
+      tests:
+      - not_null
+    - name: degree_summary_description
+      description: 학위 요약 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Student_Enrolment_Courses
+    description: 학생 수강 과정에 대한 정보
+    columns:
+    - name: student_course_id
+      description: 학생 수강 ID
+      tests:
+      - unique
+      - not_null
+    - name: course_id
+      description: 과정 ID
+      tests:
+      - not_null
+    - name: student_enrolment_id
+      description: 학생 등록 ID
+      tests:
+      - not_null
+  - name: Departments
+    description: 부서에 대한 설명
+    columns:
+    - name: department_id
+      description: 부서 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: department_name
+      description: 부서 이름
+      tests:
+      - not_null
+    - name: department_description
+      description: 부서 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Transcript_Contents
+    description: 성적 내용 테이블
+    columns:
+    - name: student_course_id
+      description: 학생 수업 ID
+      tests:
+      - unique
+      - not_null
+    - name: transcript_id
+      description: 성적 ID
+      tests:
+      - unique
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1
+      description: 주소의 첫 번째 줄
+      tests:
+      - not_null
+    - name: line_2
+      description: 주소의 두 번째 줄
+      tests:
+      - not_null
+    - name: line_3
+      description: 주소의 세 번째 줄
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주, 지방, 카운티
+      tests:
+      - not_null
+    - name: country
+      description: 국가
+      tests:
+      - not_null
+    - name: other_address_details
+      description: 기타 주소 세부사항
+      tests:
+      - not_null
+  - name: Semesters
+    description: 학기 정보를 담고 있는 테이블
+    columns:
+    - name: semester_id
+      description: 학기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: semester_name
+      description: 학기 이름
+      tests:
+      - not_null
+    - name: semester_description
+      description: 학기 설명
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부사항
+      tests:
+      - not_null
+  - name: Student_Enrolment
+    description: 학생 등록 테이블
+    columns:
+    - name: student_enrolment_id
+      description: 학생 등록 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: degree_program_id
+      description: 학위 프로그램 고유 식별자
+      tests:
+      - not_null
+    - name: semester_id
+      description: 학기 고유 식별자
+      tests:
+      - not_null
+    - name: student_id
+      description: 학생 고유 식별자
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Students
+    description: 학생 정보를 저장하는 테이블
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: current_address_id
+      description: 학생의 현재 주소 ID
+      tests:
+      - not_null: true
+    - name: permanent_address_id
+      description: 학생의 영구 주소 ID
+      tests:
+      - not_null: true
+    - name: first_name
+      description: 학생의 이름
+      tests:
+      - not_null: true
+    - name: middle_name
+      description: 학생의 중간 이름
+    - name: last_name
+      description: 학생의 성
+      tests:
+      - not_null: true
+    - name: cell_mobile_number
+      description: 학생의 휴대폰 번호
+    - name: email_address
+      description: 학생의 이메일 주소
+    - name: ssn
+      description: 학생의 사회 보장 번호
+    - name: date_first_registered
+      description: 학생이 처음 등록한 날짜
+    - name: date_left
+      description: 학생이 ���학한 날짜
+    - name: other_student_details
+      description: 학생에 대한 기타 세부 정보

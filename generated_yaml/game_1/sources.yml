@@ -1,0 +1,99 @@
+version: 2
+sources:
+- name: game_1
+  description: game_1 데이터셋의 테이블 모음
+  database: game_1
+  tables:
+  - name: Plays_Games
+    description: 학생들이 게임을 플레이한 기록
+    columns:
+    - name: StuID
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: GameID
+      description: 게임의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Hours_Played
+      description: 플레이한 시간
+      tests:
+      - not_null
+  - name: Video_Games
+    description: 비디오 게임에 대한 정보
+    columns:
+    - name: GameID
+      description: 게임의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: GName
+      description: 게임의 이름
+      tests:
+      - not_null
+    - name: GType
+      description: 게임의 유형
+      tests:
+      - not_null
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null
+  - name: SportsInfo
+    description: 스포츠 정보 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: SportName
+      description: 스포츠 이름
+      tests:
+      - not_null
+    - name: HoursPerWeek
+      description: 주당 운동 시간
+      tests:
+      - not_null
+    - name: GamesPlayed
+      description: 참여한 게임 수
+      tests:
+      - not_null
+    - name: OnScholarship
+      description: 장학금 여부
+      tests:
+      - not_null

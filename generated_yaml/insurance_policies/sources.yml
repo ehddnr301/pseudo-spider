@@ -1,0 +1,126 @@
+version: 2
+sources:
+- name: insurance_policies
+  description: insurance_policies 데이터셋의 테이블 모음
+  database: insurance_policies
+  tables:
+  - name: Payments
+    description: 지불 내역을 기록하는 테이블
+    columns:
+    - name: Payment_ID
+      description: 지불 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Settlement_ID
+      description: 정산 고유 식별자
+      tests:
+      - not_null
+    - name: Payment_Method_Code
+      description: 지불 방법 코드
+      tests:
+      - not_null
+    - name: Date_Payment_Made
+      description: 지불이 이루어진 날짜
+      tests:
+      - not_null
+    - name: Amount_Payment
+      description: 지불 금액
+      tests:
+      - not_null
+  - name: Customer_Policies
+    description: 고객 정책에 대한 정보
+    columns:
+    - name: Policy_ID
+      description: 정책 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_ID
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: Policy_Type_Code
+      description: 정책 유형 코드
+      tests:
+      - not_null
+    - name: Start_Date
+      description: 정책 시작 날짜
+      tests:
+      - not_null
+    - name: End_Date
+      description: 정책 종료 날짜
+      tests:
+      - not_null
+  - name: Settlements
+    description: 정산 테이블
+    columns:
+    - name: Settlement_ID
+      description: 정산 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Claim_ID
+      description: 청구 고유 식별자
+      tests:
+      - not_null
+    - name: Date_Claim_Made
+      description: 청구가 이루어진 날짜
+      tests:
+      - not_null
+    - name: Date_Claim_Settled
+      description: 청구가 정산된 날짜
+      tests:
+      - not_null
+    - name: Amount_Claimed
+      description: 청구된 금액
+      tests:
+      - not_null
+    - name: Amount_Settled
+      description: 정산된 금액
+      tests:
+      - not_null
+    - name: Customer_Policy_ID
+      description: 고객 정책 고유 식별자
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: Customer_ID
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_Details
+      description: 고객의 세부 정보
+      tests:
+      - not_null
+  - name: Claims
+    description: 청구에 대한 정보
+    columns:
+    - name: Claim_ID
+      description: 청구 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Policy_ID
+      description: 정책 고유 식별자
+      tests:
+      - not_null
+    - name: Date_Claim_Made
+      description: 청구가 이루어진 날짜
+      tests:
+      - not_null
+    - name: Date_Claim_Settled
+      description: 청구가 해결된 날짜
+      tests:
+      - not_null
+    - name: Amount_Claimed
+      description: 청구된 금액
+      tests:
+      - not_null
+    - name: Amount_Settled
+      description: 해결된 금액
+      tests:
+      - not_null

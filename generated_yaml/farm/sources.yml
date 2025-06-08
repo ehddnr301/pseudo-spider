@@ -1,0 +1,102 @@
+version: 2
+sources:
+- name: farm
+  description: farm 데이터셋의 테이블 모음
+  database: farm
+  tables:
+  - name: competition_record
+    description: 경쟁 기록 테이블
+    columns:
+    - name: Competition_ID
+      description: 경쟁 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Farm_ID
+      description: 농장 식별자
+      tests:
+      - not_null
+    - name: Rank
+      description: 순위
+      tests:
+      - not_null
+  - name: city
+    description: 도시 테이블에 대한 설명
+    columns:
+    - name: City_ID
+      description: 도시의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Official_Name
+      description: 도시의 공식 이름
+      tests:
+      - not_null
+    - name: Status
+      description: 도시의 상태
+      tests:
+      - not_null
+    - name: Area_km_2
+      description: 도시의 면적 (제��킬로미터)
+      tests:
+      - not_null
+    - name: Population
+      description: 도시의 인구 수
+      tests:
+      - not_null
+    - name: Census_Ranking
+      description: 인구 조사 순위
+      tests:
+      - not_null
+  - name: farm_competition
+    description: 농장 대회에 대한 설명
+    columns:
+    - name: Competition_ID
+      description: 대회의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 대회가 열리는 연도
+      tests:
+      - not_null
+    - name: Theme
+      description: 대회의 주제
+      tests:
+      - not_null
+    - name: Host_city_ID
+      description: 대회가 열리는 도시의 고유 식별자
+      tests:
+      - not_null
+    - name: Hosts
+      description: 대회를 주최하는 회사
+      tests:
+      - not_null
+  - name: farm
+    description: 농장에 대한 정보 테이블
+    columns:
+    - name: Farm_ID
+      description: 농장의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Year
+      description: 농장 데이터가 기록된 연도
+      tests:
+      - not_null: true
+    - name: Total_Horses
+      description: 농장에서 기르는 총 말의 수
+    - name: Working_Horses
+      description: 농장에서 일하는 말의 수
+    - name: Total_Cattle
+      description: 농장에서 기르는 총 소의 수
+    - name: Oxen
+      description: 소의 수를 나타��니다.
+    - name: Bulls
+      description: 수소의 수를 나타��니다.
+    - name: Cows
+      description: 암소의 수를 나타��니다.
+    - name: Pigs
+      description: 돼지의 수를 나타��니다.
+    - name: Sheep_and_Goats
+      description: 양과 ��소의 수를 나타��니다.

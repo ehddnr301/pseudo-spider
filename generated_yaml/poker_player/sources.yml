@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: poker_player
+  description: poker_player 데이터셋의 테이블 모음
+  database: poker_player
+  tables:
+  - name: poker_player
+    description: 포커 플레이어에 대한 정보
+    columns:
+    - name: Poker_Player_ID
+      description: 포커 플레이어의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - not_null
+    - name: Final_Table_Made
+      description: 최종 테이블에 도달한 비율
+      tests:
+      - not_null
+    - name: Best_Finish
+      description: 최고 성적 비율
+      tests:
+      - not_null
+    - name: Money_Rank
+      description: 돈 순위
+      tests:
+      - not_null
+    - name: Earnings
+      description: 총 수익
+      tests:
+      - not_null
+  - name: people
+    description: 사람들에 대한 정보 테이블
+    columns:
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Nationality
+      description: 국적
+      tests:
+      - not_null
+    - name: Name
+      description: 이름
+      tests:
+      - not_null
+    - name: Birth_Date
+      description: 생년월일
+      tests:
+      - not_null
+    - name: Height
+      description: 신장
+      tests:
+      - not_null

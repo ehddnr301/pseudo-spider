@@ -1,0 +1,194 @@
+version: 2
+sources:
+- name: college_3
+  description: college_3 데이터셋의 테이블 모음
+  database: college_3
+  tables:
+  - name: Gradeconversion
+    description: 성적 변환 테이블
+    columns:
+    - name: lettergrade
+      description: 학점
+      tests:
+      - unique
+      - not_null
+    - name: gradepoint
+      description: 학점 점수
+      tests:
+      - not_null
+  - name: Enrolled_in
+    description: 학생 등록 정보 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: CID
+      description: 강좌 식별자
+      tests:
+      - not_null
+    - name: Grade
+      description: 학생 성적
+      tests:
+      - not_null
+  - name: Member_of
+    description: 회원 정보 테이블
+    columns:
+    - name: FacID
+      description: 시설 식별자
+      tests:
+      - unique
+      - not_null
+    - name: DNO
+      description: 부서 번호
+      tests:
+      - not_null
+    - name: Appt_Type
+      description: 약속 유형
+      tests:
+      - not_null
+  - name: Department
+    description: 부서에 대한 정보
+    columns:
+    - name: DNO
+      description: 부서 번호
+      tests:
+      - unique
+      - not_null
+    - name: Division
+      description: 부서 구분
+      tests:
+      - not_null
+    - name: DName
+      description: 부서 이름
+      tests:
+      - not_null
+    - name: Room
+      description: 회의실 번호
+      tests:
+      - not_null
+    - name: Building
+      description: 건물 이름
+      tests:
+      - not_null
+    - name: DPhone
+      description: 부서 전화번호
+      tests:
+      - not_null
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null
+  - name: Course
+    description: 강좌에 대한 설명
+    columns:
+    - name: CID
+      description: 강좌 식별자
+      tests:
+      - unique
+      - not_null
+    - name: CName
+      description: 강좌 이름
+      tests:
+      - not_null
+    - name: Credits
+      description: 학점 수
+      tests:
+      - not_null
+    - name: Instructor
+      description: 강사 식별자
+      tests:
+      - not_null
+    - name: Days
+      description: 강좌 진행 요일
+      tests:
+      - not_null
+    - name: Hours
+      description: 강좌 진행 시간
+      tests:
+      - not_null
+    - name: DNO
+      description: 학과 식별자
+      tests:
+      - not_null
+  - name: Minor_in
+    description: 학생의 부전공 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 식별자
+      tests:
+      - unique
+      - not_null
+    - name: DNO
+      description: 부전공 번호
+      tests:
+      - not_null
+  - name: Faculty
+    description: 교수진에 대한 정보
+    columns:
+    - name: FacID
+      description: 교수 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Lname
+      description: 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 이름
+      tests:
+      - not_null
+    - name: Rank
+      description: 직급
+      tests:
+      - not_null
+    - name: Sex
+      description: 성별
+      tests:
+      - not_null
+    - name: Phone
+      description: 전화번호
+      tests:
+      - not_null
+    - name: Room
+      description: 교실 번호
+      tests:
+      - not_null
+    - name: Building
+      description: 건물 이름
+      tests:
+      - not_null

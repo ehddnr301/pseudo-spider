@@ -1,0 +1,106 @@
+version: 2
+sources:
+- name: match_season
+  description: match_season 데이터셋의 테이블 모음
+  database: match_season
+  tables:
+  - name: match_season
+    description: 경기 시즌에 대한 정보
+    columns:
+    - name: Season
+      description: 시즌 번호
+      tests:
+      - unique
+      - not_null
+    - name: Player
+      description: 선수 이름
+      tests:
+      - not_null
+    - name: Position
+      description: 선수 포지션
+      tests:
+      - not_null
+    - name: Country
+      description: 국가 코드
+      tests:
+      - not_null
+    - name: Team
+      description: 팀 코드
+      tests:
+      - not_null
+    - name: Draft_Pick_Number
+      description: 드래프트 �� 번호
+      tests:
+      - not_null
+    - name: Draft_Class
+      description: 드래프트 클래스
+      tests:
+      - not_null
+    - name: College
+      description: 대학 이름
+      tests:
+      - not_null
+  - name: team
+    description: 팀에 대한 설명
+    columns:
+    - name: Team_id
+      description: 팀의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 팀 이름
+      tests:
+      - not_null
+  - name: country
+    description: 국가에 대한 정보 테이블
+    columns:
+    - name: Country_id
+      description: 국가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Country_name
+      description: 국가의 이름
+      tests:
+      - not_null
+    - name: Capital
+      description: 국가의 수도
+      tests:
+      - not_null
+    - name: Official_native_language
+      description: 국가의 공식 언어
+      tests:
+      - not_null
+  - name: player
+    description: 선수에 대한 정보
+    columns:
+    - name: Player_ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Player
+      description: 선수의 이름
+      tests:
+      - not_null
+    - name: Years_Played
+      description: 선수가 활동한 년수
+      tests:
+      - not_null
+    - name: Total_WL
+      description: 총 승패 수
+      tests:
+      - not_null
+    - name: Singles_WL
+      description: 단식 승패 수
+      tests:
+      - not_null
+    - name: Doubles_WL
+      description: 복식 승패 수
+      tests:
+      - not_null
+    - name: Team
+      description: 팀의 고유 식별자
+      tests:
+      - not_null

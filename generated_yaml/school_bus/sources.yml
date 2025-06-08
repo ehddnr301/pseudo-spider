@@ -1,0 +1,74 @@
+version: 2
+sources:
+- name: school_bus
+  description: school_bus 데이터셋의 테이블 모음
+  database: school_bus
+  tables:
+  - name: school_bus
+    description: 학교 버스에 대한 정보
+    columns:
+    - name: School_ID
+      description: 학교의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Driver_ID
+      description: 운전사의 고유 식별자
+      tests:
+      - not_null
+    - name: Years_Working
+      description: 운전사가 일한 년수
+      tests:
+      - not_null
+    - name: If_full_time
+      description: 운전사가 전일제인지 여부
+      tests:
+      - not_null
+  - name: driver
+    description: 운전자를 나타내는 테이블
+    columns:
+    - name: Driver_ID
+      description: 운전자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 운전자의 이름
+      tests:
+      - not_null
+    - name: Party
+      description: 운전자가 소속된 정당
+      tests:
+      - not_null
+    - name: Home_city
+      description: 운전자의 거주 도시
+      tests:
+      - not_null
+    - name: Age
+      description: 운전자의 나이
+      tests:
+      - not_null
+  - name: school
+    description: 학교에 대한 정보
+    columns:
+    - name: School_ID
+      description: 학교의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Grade
+      description: 학교의 학년
+      tests:
+      - not_null
+    - name: School
+      description: 학교의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 학교의 위치
+      tests:
+      - not_null
+    - name: Type
+      description: 학교의 유형
+      tests:
+      - not_null

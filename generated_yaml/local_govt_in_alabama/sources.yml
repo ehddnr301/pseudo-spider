@@ -1,0 +1,63 @@
+version: 2
+sources:
+- name: local_govt_in_alabama
+  description: local_govt_in_alabama 데이터셋의 테이블 모음
+  database: local_govt_in_alabama
+  tables:
+  - name: Participants_in_Events
+    description: 이 테이블은 이벤트 참가자 정보를 저장합니다
+    columns:
+    - name: Event_ID
+      description: 이벤트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Participant_ID
+      description: 참가자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: Events
+    description: 이벤트에 대한 설명
+    columns:
+    - name: Event_ID
+      description: 이벤트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Service_ID
+      description: 서비스 고유 식별자
+      tests:
+      - not_null
+    - name: Event_Details
+      description: 이벤트 세부 사항
+      tests:
+      - not_null
+  - name: Services
+    description: 서비스에 대한 정보
+    columns:
+    - name: Service_ID
+      description: 서비스의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Service_Type_Code
+      description: 서비스 유형 코드
+      tests:
+      - not_null
+  - name: Participants
+    description: 참가자에 대한 정보
+    columns:
+    - name: Participant_ID
+      description: 참가자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Participant_Type_Code
+      description: 참가자의 유형 코드
+      tests:
+      - not_null
+    - name: Participant_Details
+      description: 참가자에 대한 세부 정보
+      tests:
+      - not_null

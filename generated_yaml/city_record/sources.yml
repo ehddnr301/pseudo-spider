@@ -1,0 +1,108 @@
+version: 2
+sources:
+- name: city_record
+  description: city_record 데이터셋의 테이블 모음
+  database: city_record
+  tables:
+  - name: hosting_city
+    description: 호스트 도시 정보를 담고 있는 테이블
+    columns:
+    - name: Year
+      description: 경기 연도
+      tests:
+      - not_null
+    - name: Match_ID
+      description: 경기 고유 ID
+      tests:
+      - unique
+      - not_null
+    - name: Host_City
+      description: 호스트 도시 이름
+      tests:
+      - not_null
+  - name: city
+    description: 도시 정보를 담고 있는 테이블
+    columns:
+    - name: City_ID
+      description: 도시의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: City
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: Hanzi
+      description: 한자 표기
+      tests:
+      - not_null
+    - name: Hanyu_Pinyin
+      description: 한어 병음
+      tests:
+      - not_null
+    - name: Regional_Population
+      description: 지역 인구 수
+      tests:
+      - not_null
+    - name: GDP
+      description: 지역의 국내 총생산
+      tests:
+      - not_null
+  - name: match
+    description: 경기 결과에 대한 정보
+    columns:
+    - name: Match_ID
+      description: 경기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date
+      description: 경기 날짜 및 시간
+      tests:
+      - not_null
+    - name: Venue
+      description: 경기 장소
+      tests:
+      - not_null
+    - name: Score
+      description: 경기 점수
+      tests:
+      - not_null
+    - name: Result
+      description: 경기 결과
+      tests:
+      - not_null
+    - name: Competition
+      description: 경기 대회
+      tests:
+      - not_null
+  - name: temperature
+    description: 기온 데이터를 포함하는 테이블
+    columns:
+    - name: City_ID
+      description: 도시의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: Jan
+      description: 1월의 평균 기온
+    - name: Feb
+      description: 2월의 평균 기온
+    - name: Mar
+      description: 3월의 평균 기온
+    - name: Apr
+      description: 4월의 평균 기온
+    - name: Jun
+      description: 6월의 평균 기온
+    - name: Jul
+      description: 7월의 평균 기온
+    - name: Aug
+      description: 8월의 평균 기온
+    - name: Sep
+      description: 9월의 평균 기온
+    - name: Oct
+      description: 10월의 평균 기온
+    - name: Nov
+      description: 11월의 평균 기온
+    - name: Dec
+      description: 12월의 평균 기온

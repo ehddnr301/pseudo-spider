@@ -1,0 +1,242 @@
+version: 2
+sources:
+- name: local_govt_and_lot
+  description: local_govt_and_lot 데이터셋의 테이블 모음
+  database: local_govt_and_lot
+  tables:
+  - name: Properties
+    description: 부동산에 대한 정보
+    columns:
+    - name: property_id
+      description: 부동산 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: property_type_code
+      description: 부동산 유형 코드
+      tests:
+      - not_null
+    - name: property_address
+      description: 부동산 주소
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부사항
+      tests:
+      - not_null
+  - name: Residents
+    description: 거주자에 대한 정보
+    columns:
+    - name: resident_id
+      description: 거주자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: property_id
+      description: 거주자가 거주하는 재산의 고유 식별자
+      tests:
+      - not_null
+    - name: date_moved_in
+      description: 거주자가 입주한 날짜
+      tests:
+      - not_null
+    - name: date_moved_out
+      description: 거주자가 ���거한 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Timed_Locations_of_Things
+    description: 사물의 시간별 위치 기록
+    columns:
+    - name: thing_id
+      description: 사물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date_and_Time
+      description: 위치 기록의 날짜와 시간
+      tests:
+      - not_null
+    - name: Location_Code
+      description: 위치 코드
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객에 대한 정보 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_details
+      description: 고객의 세부 정보
+      tests:
+      - not_null
+  - name: Residents_Services
+    description: 거주자 서비스에 대한 정보
+    columns:
+    - name: resident_id
+      description: 거주자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: service_id
+      description: 서비스의 고유 식별자
+      tests:
+      - not_null
+    - name: date_moved_in
+      description: 거주자가 이사한 날짜
+      tests:
+      - not_null
+    - name: property_id
+      description: 부동산의 고유 식별자
+      tests:
+      - not_null
+    - name: date_requested
+      description: 서비스 요청 날짜
+      tests:
+      - not_null
+    - name: date_provided
+      description: 서비스 제공 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Services
+    description: 서비스에 대한 설명
+    columns:
+    - name: service_id
+      description: 서비스 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organization_id
+      description: 조직 고유 식별자
+      tests:
+      - not_null
+    - name: service_type_code
+      description: 서비스 유형 코드
+      tests:
+      - not_null
+    - name: service_details
+      description: 서비스 세부 사항
+      tests:
+      - not_null
+  - name: Timed_Status_of_Things
+    description: 사물의 상태와 관련된 시간 정보
+    columns:
+    - name: thing_id
+      description: 사물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date_and_Date
+      description: 날짜 및 시간 정보
+      tests:
+      - not_null
+    - name: Status_of_Thing_Code
+      description: 사물 상태 코드
+      tests:
+      - not_null
+  - name: Organizations
+    description: 조직에 대한 정보 테이블
+    columns:
+    - name: organization_id
+      description: 조직의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: parent_organization_id
+      description: 상위 조직의 고유 식별자
+      tests:
+      - not_null
+    - name: organization_details
+      description: 조직에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Customer_Events
+    description: 고객 이벤트에 대한 정보
+    columns:
+    - name: Customer_Event_ID
+      description: 고객 이벤트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - not_null
+    - name: date_moved_in
+      description: 입주 날짜 및 시간
+      tests:
+      - not_null
+    - name: property_id
+      description: 부동산의 고유 식별자
+      tests:
+      - not_null
+    - name: resident_id
+      description: 거주자의 고유 식별자
+      tests:
+      - not_null
+    - name: thing_id
+      description: 사물의 고유 식별자
+      tests:
+      - not_null
+  - name: Customer_Event_Notes
+    description: 고객 이벤트 노트에 대한 설명
+    columns:
+    - name: Customer_Event_Note_ID
+      description: 고객 이벤트 노트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Customer_Event_ID
+      description: 고객 이벤트의 고유 식별자
+      tests:
+      - not_null
+    - name: service_type_code
+      description: 서비스 유형 코드
+      tests:
+      - not_null
+    - name: resident_id
+      description: 거주자의 고유 식별자
+      tests:
+      - not_null
+    - name: property_id
+      description: 재산의 고유 식별자
+      tests:
+      - not_null
+    - name: date_moved_in
+      description: 이사 날짜
+      tests:
+      - not_null
+  - name: Things
+    description: 사물에 대한 설명
+    columns:
+    - name: thing_id
+      description: 사물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organization_id
+      description: 조직의 고유 식별자
+      tests:
+      - not_null
+    - name: Type_of_Thing_Code
+      description: 사물 유형 코드
+      tests:
+      - not_null
+    - name: service_type_code
+      description: 서비스 유형 코드
+      tests:
+      - not_null
+    - name: service_details
+      description: 서비스 세부 사항
+      tests:
+      - not_null

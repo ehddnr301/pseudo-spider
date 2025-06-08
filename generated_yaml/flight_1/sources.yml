@@ -1,0 +1,86 @@
+version: 2
+sources:
+- name: flight_1
+  description: flight_1 데이터셋의 테이블 모음
+  database: flight_1
+  tables:
+  - name: flight
+    description: 비행 정보 테이블
+    columns:
+    - name: flno
+      description: 비행 번호
+      tests:
+      - unique
+      - not_null
+    - name: origin
+      description: 출발지
+      tests:
+      - not_null
+    - name: destination
+      description: 목적지
+      tests:
+      - not_null
+    - name: distance
+      description: 비행 거리
+      tests:
+      - not_null
+    - name: departure_date
+      description: 출발 날짜
+      tests:
+      - not_null
+    - name: arrival_date
+      description: 도착 날짜
+      tests:
+      - not_null
+    - name: price
+      description: 가격
+      tests:
+      - not_null
+    - name: aid
+      description: 항공사 ID
+      tests:
+      - not_null
+  - name: aircraft
+    description: 항공기 테이블에 대한 설명
+    columns:
+    - name: aid
+      description: 항공기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 항공기 이름
+      tests:
+      - not_null
+    - name: distance
+      description: 항공기 비행 거리
+      tests:
+      - not_null
+  - name: certificate
+    description: 증명서 테이블에 대한 설명
+    columns:
+    - name: eid
+      description: 이벤트 식별자
+      tests:
+      - unique
+      - not_null
+    - name: aid
+      description: 인증 식별자
+      tests:
+      - not_null
+  - name: employee
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: eid
+      description: 직원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 직원의 이름
+      tests:
+      - not_null
+    - name: salary
+      description: 직원의 급여
+      tests:
+      - not_null

@@ -1,0 +1,54 @@
+version: 2
+sources:
+- name: voter_1
+  description: voter_1 데이터셋의 테이블 모음
+  database: voter_1
+  tables:
+  - name: AREA_CODE_STATE
+    description: 지역 코드와 주에 대한 정보
+    columns:
+    - name: area_code
+      description: 지역 코드
+      tests:
+      - unique
+      - not_null
+    - name: state
+      description: 주
+      tests:
+      - not_null
+  - name: VOTES
+    description: 투표 정보를 저장하는 테이블
+    columns:
+    - name: vote_id
+      description: 투표의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: phone_number
+      description: 투표자의 전화번호
+      tests:
+      - not_null
+    - name: state
+      description: 투표가 이루어진 주
+      tests:
+      - not_null
+    - name: contestant_number
+      description: 후보자의 번호
+      tests:
+      - not_null
+    - name: created
+      description: 투표가 생성된 시간
+      tests:
+      - not_null
+  - name: CONTESTANTS
+    description: 참가자에 대한 정보
+    columns:
+    - name: contestant_number
+      description: 참가자 번호
+      tests:
+      - unique
+      - not_null
+    - name: contestant_name
+      description: 참가자 이름
+      tests:
+      - not_null

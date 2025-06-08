@@ -1,0 +1,83 @@
+version: 2
+sources:
+- name: company_employee
+  description: company_employee 데이터셋의 테이블 모음
+  database: company_employee
+  tables:
+  - name: people
+    description: 사람들에 대한 정보 테이블
+    columns:
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Age
+      description: 사람의 나이
+      tests:
+      - not_null
+    - name: Name
+      description: 사람의 이름
+      tests:
+      - not_null
+    - name: Nationality
+      description: 사람의 국적
+      tests:
+      - not_null
+    - name: Graduation_College
+      description: 사람이 ��업한 대학
+      tests:
+      - not_null
+  - name: company
+    description: 회사의 정보를 담고 있는 테이블
+    columns:
+    - name: Company_ID
+      description: 회사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 회사의 이름
+      tests:
+      - not_null
+    - name: Headquarters
+      description: 회사의 본사 위치
+      tests:
+      - not_null
+    - name: Industry
+      description: 회사가 속한 산업
+      tests:
+      - not_null
+    - name: Sales_in_Billion
+      description: 회사의 매출 (십억 단위)
+      tests:
+      - not_null
+    - name: Profits_in_Billion
+      description: 회사의 이익 (십억 단위)
+      tests:
+      - not_null
+    - name: Assets_in_Billion
+      description: 회사의 자산 (십억 단위)
+      tests:
+      - not_null
+    - name: Market_Value_in_Billion
+      description: 회사의 시장 가치 (십억 단위)
+      tests:
+      - not_null
+  - name: employment
+    description: 고용 정보를 담고 있는 테이블
+    columns:
+    - name: Company_ID
+      description: 회사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year_working
+      description: 근무한 연수
+      tests:
+      - not_null

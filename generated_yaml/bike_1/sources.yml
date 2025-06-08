@@ -1,0 +1,94 @@
+version: 2
+sources:
+- name: bike_1
+  description: bike_1 데이터셋의 테이블 모음
+  database: bike_1
+  tables:
+  - name: station
+    description: 역에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 역 이름
+      tests:
+      - not_null
+    - name: lat
+      description: 위도
+      tests:
+      - not_null
+    - name: long
+      description: 경도
+      tests:
+      - not_null
+    - name: dock_count
+      description: 부두 수
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: installation_date
+      description: 설치 날짜
+      tests:
+      - not_null
+  - name: status
+    description: 상태 정보를 나타내는 테이블
+    columns:
+    - name: station_id
+      description: 정거장 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: bikes_available
+      description: 사용 가능한 자전거 수
+      tests:
+      - not_null
+    - name: docks_available
+      description: 사용 가능한 도크 수
+      tests:
+      - not_null
+    - name: time
+      description: 상태 정보의 시간
+      tests:
+      - not_null
+  - name: trip
+    description: 여행 정보를 담고 있는 테이블
+    columns:
+    - name: id
+      description: 여행의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: duration
+      description: 여행의 지속 시간
+      tests:
+      - not_null: true
+    - name: start_date
+      description: 여행 시작 날짜
+      tests:
+      - not_null: true
+    - name: start_station_name
+      description: 여행 시작 역 이름
+      tests:
+      - not_null: true
+    - name: start_station_id
+      description: 여행 시작 역의 고유 식별자
+      tests:
+      - not_null: true
+    - name: end_date
+      description: 여행 종료 날짜
+    - name: end_station_name
+      description: 여행 종료 정류장 이름
+    - name: end_station_id
+      description: 여행 종료 정류장 ID
+    - name: bike_id
+      description: 자전거 ID
+    - name: subscription_type
+      description: 구독 유형
+    - name: zip_code
+      description: 우편번호

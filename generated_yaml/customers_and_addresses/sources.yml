@@ -1,0 +1,163 @@
+version: 2
+sources:
+- name: customers_and_addresses
+  description: customers_and_addresses 데이터셋의 테이블 모음
+  database: customers_and_addresses
+  tables:
+  - name: Customer_Addresses
+    description: 고객 주소 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_address_from
+      description: 주소 시작 날짜
+      tests:
+      - not_null
+    - name: address_type
+      description: 주소 유형
+      tests:
+      - not_null
+    - name: date_address_to
+      description: 주소 종료 날짜
+      tests:
+      - not_null
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_details
+      description: 제품에 대한 상세 정보
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: payment_method
+      description: 고객의 결제 방법
+      tests:
+      - not_null
+    - name: customer_name
+      description: 고객의 이름
+      tests:
+      - not_null
+    - name: date_became_customer
+      description: 고객이 된 날짜
+      tests:
+      - not_null
+    - name: other_customer_details
+      description: 기타 고객 세부 정보
+      tests:
+      - not_null
+  - name: Order_Items
+    description: 주문 항목에 대한 정보
+    columns:
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - not_null
+    - name: order_quantity
+      description: 주문 수량
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_content
+      description: 주소 내용
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주, 지방, 카운티
+      tests:
+      - not_null
+    - name: country
+      description: 국가
+      tests:
+      - not_null
+    - name: other_address_details
+      description: 기타 주소 세부사항
+      tests:
+      - not_null
+  - name: Customer_Contact_Channels
+    description: 고객 연락 채널에 대한 정보
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: channel_code
+      description: 연락 채널 코드
+      tests:
+      - not_null
+    - name: active_from_date
+      description: 활성 시작 날짜
+      tests:
+      - not_null
+    - name: active_to_date
+      description: 활성 종료 날짜
+      tests:
+      - not_null
+    - name: contact_number
+      description: 연락처 번호
+      tests:
+      - not_null
+  - name: Customer_Orders
+    description: 고객 주문에 대한 정보
+    columns:
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: order_status
+      description: 주문 상태
+      tests:
+      - not_null
+    - name: order_date
+      description: 주문 날짜
+      tests:
+      - not_null
+    - name: order_details
+      description: 주문 세부 사항
+      tests:
+      - not_null

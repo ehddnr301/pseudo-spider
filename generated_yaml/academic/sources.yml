@@ -1,0 +1,215 @@
+version: 2
+sources:
+- name: academic
+  description: academic 데이터셋의 테이블 모음
+  database: academic
+  tables:
+  - name: domain_conference
+    description: 도메인 회의에 대한 설명
+    columns:
+    - name: cid
+      description: 회의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: did
+      description: 도메인 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: conference
+    description: 회의에 대한 정보
+    columns:
+    - name: cid
+      description: 회의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: homepage
+      description: 회의 홈페이지 링크
+      tests:
+      - not_null
+    - name: name
+      description: 회의 이름
+      tests:
+      - not_null
+  - name: domain_journal
+    description: 도메인 저널 테이블
+    columns:
+    - name: did
+      description: 도메인 ID
+      tests:
+      - unique
+      - not_null
+    - name: jid
+      description: 저널 ID
+      tests:
+      - not_null
+  - name: domain_publication
+    description: 도메인 출판에 대한 설명
+    columns:
+    - name: did
+      description: 도메인 식별자
+      tests:
+      - unique
+      - not_null
+    - name: pid
+      description: 출판 식별자
+      tests:
+      - not_null
+  - name: domain_keyword
+    description: 도메인 키워드 테이블
+    columns:
+    - name: did
+      description: 도메인 ID
+      tests:
+      - unique
+      - not_null
+    - name: kid
+      description: 키워드 ID
+      tests:
+      - not_null
+  - name: journal
+    description: 저널 테이블에 대한 설명
+    columns:
+    - name: homepage
+      description: 저널의 홈페이지 URL
+      tests:
+      - not_null
+    - name: jid
+      description: 저널의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 저널의 이름
+      tests:
+      - not_null
+  - name: keyword
+    description: 키워드 테이블에 대한 설명
+    columns:
+    - name: keyword
+      description: 키워드 값
+      tests:
+      - not_null
+    - name: kid
+      description: 키드 식별자
+      tests:
+      - unique
+      - not_null
+  - name: cite
+    description: 인용 테이블에 대한 설명
+    columns:
+    - name: cited
+      description: 인용된 수
+      tests:
+      - not_null
+    - name: citing
+      description: 인용하는 수
+      tests:
+      - not_null
+  - name: publication
+    description: 출판물에 대한 설명
+    columns:
+    - name: abstract
+      description: 출판물의 초록
+      tests:
+      - not_null
+    - name: cid
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: citation_num
+      description: 인용 수
+      tests:
+      - not_null
+    - name: jid
+      description: 저자 ID
+      tests:
+      - not_null
+    - name: pid
+      description: 출판물 ID
+      tests:
+      - unique
+      - not_null
+    - name: reference_num
+      description: 참고 문헌 수
+      tests:
+      - not_null
+    - name: title
+      description: 출판물 제목
+      tests:
+      - not_null
+    - name: year
+      description: 출판 연도
+      tests:
+      - not_null
+  - name: author
+    description: 저자에 대한 정보
+    columns:
+    - name: aid
+      description: 저자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: homepage
+      description: 저자의 홈페이지 URL
+      tests:
+      - not_null
+    - name: name
+      description: 저자의 이름
+      tests:
+      - not_null
+    - name: oid
+      description: 저자의 소속 기관 ID
+      tests:
+      - not_null
+  - name: domain_author
+    description: 도메인 저자에 대한 설명
+    columns:
+    - name: aid
+      description: 저자 ID
+      tests:
+      - unique
+      - not_null
+    - name: did
+      description: 도메인 ID
+      tests:
+      - not_null
+  - name: publication_keyword
+    description: 출판물 키워드 테이블
+    columns:
+    - name: pid
+      description: 출판물 ID
+      tests:
+      - unique
+      - not_null
+    - name: kid
+      description: 키워드 ID
+      tests:
+      - not_null
+  - name: domain
+    description: 도메인 테이블에 대한 설명
+    columns:
+    - name: did
+      description: 도메인 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 도메인 이름
+      tests:
+      - not_null
+  - name: writes
+    description: 쓰기 작업에 대한 테이블
+    columns:
+    - name: aid
+      description: 작성자 ID
+      tests:
+      - unique
+      - not_null
+    - name: pid
+      description: 게시물 ID
+      tests:
+      - not_null

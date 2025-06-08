@@ -1,0 +1,572 @@
+version: 2
+sources:
+- name: baseball_1
+  description: baseball_1 데이터셋의 테이블 모음
+  database: baseball_1
+  tables:
+  - name: hall_of_fame
+    description: 명예의 전당 테이블에 대한 설명
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: yearid
+      description: 연도
+      tests:
+      - not_null
+    - name: votedby
+      description: 투표한 기관
+      tests:
+      - not_null
+    - name: ballots
+      description: 투표 수
+      tests:
+      - not_null
+    - name: needed
+      description: 필요한 투표 수
+      tests:
+      - not_null
+    - name: votes
+      description: 실제 투표 수
+      tests:
+      - not_null
+    - name: inducted
+      description: 입회 여부
+      tests:
+      - not_null
+    - name: category
+      description: 카테고리
+      tests:
+      - not_null
+    - name: needed_note
+      description: 필요한 노트
+      tests:
+      - not_null
+  - name: player_award
+    description: 선수 상에 대한 정보
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: award_id
+      description: 상의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 수상 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그의 고유 식별자
+      tests:
+      - not_null
+    - name: tie
+      description: 동점 여부
+      tests:
+      - not_null
+    - name: notes
+      description: 추가 정보
+      tests:
+      - not_null
+  - name: fielding_outfield
+    description: 야구 선수의 외야 수비 통계
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 경기 연도
+      tests:
+      - not_null
+    - name: stint
+      description: 선수의 출장 ��수
+      tests:
+      - not_null
+    - name: glf
+      description: 좌익수 수비율
+      tests:
+      - not_null
+    - name: gcf
+      description: 중견수 수비율
+      tests:
+      - not_null
+    - name: grf
+      description: 우익수 수비율
+      tests:
+      - not_null
+  - name: player_college
+    description: 선수와 대학 간의 관계를 나타내는 테이블
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: college_id
+      description: 대학의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 선수가 대학에 재학한 연도
+      tests:
+      - not_null
+  - name: all_star
+    description: 올스타 게임에 대한 정보
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 게임이 열린 연도
+      tests:
+      - not_null
+    - name: game_num
+      description: 게임 번호
+      tests:
+      - not_null
+    - name: game_id
+      description: 게임의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: team_id
+      description: 팀의 고유 식별자
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그의 고유 식별자
+      tests:
+      - not_null
+    - name: gp
+      description: 게임에서의 출전 비율
+      tests:
+      - not_null
+    - name: starting_pos
+      description: 선수의 시작 포지션
+      tests:
+      - not_null
+  - name: team_franchise
+    description: 팀 프랜차이즈에 대한 설명
+    columns:
+    - name: franchise_id
+      description: 프랜차이즈 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: franchise_name
+      description: 프랜차이즈 이름
+      tests:
+      - not_null
+    - name: active
+      description: 활성 상태
+      tests:
+      - not_null
+    - name: na_assoc
+      description: 주 연관
+      tests:
+      - not_null
+  - name: park
+    description: 공원에 대한 정보
+    columns:
+    - name: park_id
+      description: 공원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: park_name
+      description: 공원의 이름
+      tests:
+      - not_null
+    - name: park_alias
+      description: 공원의 별칭
+      tests:
+      - not_null
+    - name: city
+      description: 공원이 위치한 도시
+      tests:
+      - not_null
+    - name: state
+      description: 공원이 위치한 주
+      tests:
+      - not_null
+    - name: country
+      description: 공원이 위치한 국가
+      tests:
+      - not_null
+  - name: player_award_vote
+    description: 선수 상 투표에 대한 정보
+    columns:
+    - name: award_id
+      description: 상 ID
+      tests:
+      - not_null
+    - name: year
+      description: 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그 ID
+      tests:
+      - not_null
+    - name: player_id
+      description: 선수 ID
+      tests:
+      - unique
+      - not_null
+    - name: points_won
+      description: 획득한 포인트
+      tests:
+      - not_null
+    - name: points_max
+      description: 최대 포인트
+      tests:
+      - not_null
+    - name: votes_first
+      description: 1위 투표 수
+      tests:
+      - not_null
+  - name: manager_award
+    description: 매니저 상에 대한 정보
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: award_id
+      description: 상의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 수여 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그의 고유 식별자
+      tests:
+      - not_null
+    - name: tie
+      description: 동점 여부
+      tests:
+      - not_null
+    - name: notes
+      description: 추가 정보
+      tests:
+      - not_null
+  - name: team_half
+    description: 팀 반기 기록 테이블
+    columns:
+    - name: year
+      description: 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그 ID
+      tests:
+      - not_null
+    - name: team_id
+      description: 팀 ID
+      tests:
+      - not_null
+    - name: half
+      description: 반기
+      tests:
+      - not_null
+    - name: div_id
+      description: 디비전 ID
+      tests:
+      - not_null
+    - name: div_win
+      description: 디비전 우승
+      tests:
+      - not_null
+    - name: rank
+      description: 순위
+      tests:
+      - not_null
+    - name: g
+      description: 경기 수
+      tests:
+      - not_null
+    - name: w
+      description: 승리 수
+      tests:
+      - not_null
+    - name: l
+      description: 패배 수
+      tests:
+      - not_null
+  - name: college
+    description: 대학에 대한 정보
+    columns:
+    - name: college_id
+      description: 대학의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name_full
+      description: 대학의 전체 이름
+      tests:
+      - not_null
+    - name: city
+      description: 대학이 위치한 도시
+      tests:
+      - not_null
+    - name: state
+      description: 대학이 위치한 주
+      tests:
+      - not_null
+    - name: country
+      description: 대학이 위치한 국가
+      tests:
+      - not_null
+  - name: manager_award_vote
+    description: 매니저 상 투표 테이블
+    columns:
+    - name: award_id
+      description: 상 ID
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그 ID
+      tests:
+      - not_null
+    - name: player_id
+      description: 선수 ID
+      tests:
+      - not_null
+    - name: points_won
+      description: 획득한 점수
+      tests:
+      - not_null
+    - name: points_max
+      description: 최대 점수
+      tests:
+      - not_null
+    - name: votes_first
+      description: 1위 투표 수
+      tests:
+      - not_null
+  - name: salary
+    description: 급여에 대한 정보
+    columns:
+    - name: year
+      description: 연도
+      tests:
+      - not_null
+    - name: team_id
+      description: 팀 ID
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그 ID
+      tests:
+      - not_null
+    - name: player_id
+      description: 선수 ID
+      tests:
+      - unique
+      - not_null
+    - name: salary
+      description: 급여
+      tests:
+      - not_null
+  - name: postseason
+    description: 포스트시즌에 대한 설명
+    columns:
+    - name: year
+      description: 연도
+      tests:
+      - not_null
+    - name: round
+      description: 라운드
+      tests:
+      - not_null
+    - name: team_id_winner
+      description: 우승 팀 ID
+      tests:
+      - not_null
+    - name: league_id_winner
+      description: 우승 리그 ID
+      tests:
+      - not_null
+    - name: team_id_loser
+      description: 패배 팀 ID
+      tests:
+      - not_null
+    - name: league_id_loser
+      description: 패배 리그 ID
+      tests:
+      - not_null
+    - name: wins
+      description: 승리 수
+      tests:
+      - not_null
+    - name: losses
+      description: 패배 수
+      tests:
+      - not_null
+    - name: ties
+      description: 무승부 수
+      tests:
+      - not_null
+  - name: home_game
+    description: 홈 게임에 대한 정보
+    columns:
+    - name: year
+      description: 경기 연도
+      tests:
+      - not_null
+    - name: league_id
+      description: 리그 식별자
+      tests:
+      - not_null
+    - name: team_id
+      description: 팀 식별자
+      tests:
+      - not_null
+    - name: park_id
+      description: 공원 식별자
+      tests:
+      - not_null
+    - name: span_first
+      description: 시작 시간
+      tests:
+      - not_null
+    - name: span_last
+      description: 종료 시간
+      tests:
+      - not_null
+    - name: games
+      description: 경기 수
+      tests:
+      - not_null
+    - name: openings
+      description: 개막 수
+      tests:
+      - not_null
+    - name: attendance
+      description: 관중 수
+      tests:
+      - not_null
+  - name: manager_half
+    description: 선수 관리 정보를 담고 있는 테이블
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: year
+      description: 선수가 활동한 연도
+      tests:
+      - not_null: true
+    - name: team_id
+      description: 선수가 소속된 팀의 고유 식별자
+      tests:
+      - not_null: true
+    - name: league_id
+      description: 선수가 소속된 리그의 고유 식별자
+      tests:
+      - not_null: true
+    - name: inseason
+      description: 선수가 활동한 시즌
+      tests:
+      - not_null: true
+    - name: half
+      description: 경기 반기
+    - name: g
+      description: 경기 수
+    - name: w
+      description: 승리 수
+    - name: l
+      description: 패배 수
+    - name: rank
+      description: 순위
+  - name: manager
+    description: 선수 관리 정보를 담고 있는 테이블
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: year
+      description: 선수가 활동한 연도
+      tests:
+      - not_null
+    - name: team_id
+      description: 선수가 소속된 팀의 고유 식별자
+      tests:
+      - not_null
+    - name: league_id
+      description: 선수가 소속된 리그의 고유 식별자
+      tests:
+      - not_null
+    - name: inseason
+      description: 선수가 활동한 시즌
+      tests:
+      - not_null
+    - name: g
+      description: 게임 수를 나타내는 정수형 컬럼입니다.
+    - name: w
+      description: 승리 수를 나타내는 정수형 컬럼입니다.
+    - name: l
+      description: 패배 수를 나타내는 정수형 컬럼입니다.
+    - name: rank
+      description: 선수의 순위를 나타내는 실수형 컬럼입니다.
+    - name: plyr_mgr
+      description: 선수 관리자를 나타내는 객체형 컬럼입니다.
+  - name: fielding_postseason
+    description: 포스트시즌 필딩 통계에 대한 정보
+    columns:
+    - name: player_id
+      description: 선수의 고유 식별자
+    - name: year
+      description: 경기 연도
+    - name: team_id
+      description: 팀의 고유 식별자
+    - name: league_id
+      description: 리그의 고유 식별자
+    - name: round
+      description: 경기 라운드
+    - name: pos
+      description: 선수의 포지션을 나타내는 객체입니다.
+    - name: g
+      description: 선수가 경기에서 출전한 ��수를 나타내는 정수형 값입니다.
+    - name: gs
+      description: 선수가 선발 출전한 경기의 수를 나타내는 실수형 값입니다.
+    - name: inn_outs
+      description: 선수가 투구한 이닝 수를 나타내는 실수형 값입니다.
+    - name: po
+      description: 선수가 포구한 수를 나타내는 정수형 값입니다.
+    - name: a
+      description: 선수가 어시스트한 수를 나타내는 정수형 값입니다.
+    - name: e
+      description: 정수형 데이터로, 특정 이벤트의 수를 나타��니다.
+    - name: dp
+      description: 정수형 데이터로, 데이터 포인트의 수를 나타��니다.
+    - name: tp
+      description: 정수형 데이터로, 특정 시간 동안의 총 포인트를 나타��니다.
+    - name: pb
+      description: 실수형 데이터로, 특정 기준에 대한 비율을 나타��니다.
+    - name: sb
+      description: 실수형 데이터로, 특정 기준에 대한 서브 비율을 나타��니다.
+    - name: cs
+      description: 실수형 데이터로, 특정 기준에 대한 총합을 나타��니다.

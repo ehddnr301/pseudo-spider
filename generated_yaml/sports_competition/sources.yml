@@ -1,0 +1,130 @@
+version: 2
+sources:
+- name: sports_competition
+  description: sports_competition 데이터셋의 테이블 모음
+  database: sports_competition
+  tables:
+  - name: club_rank
+    description: 클럽 순위에 대한 정보
+    columns:
+    - name: Rank
+      description: 클럽의 순위
+      tests:
+      - not_null
+    - name: Club_ID
+      description: 클럽의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Gold
+      description: 금메달 수
+      tests:
+      - not_null
+    - name: Silver
+      description: 은메달 수
+      tests:
+      - not_null
+    - name: Bronze
+      description: 동메달 수
+      tests:
+      - not_null
+    - name: Total
+      description: 총 메달 수
+      tests:
+      - not_null
+  - name: competition_result
+    description: 경기 결과 테이블
+    columns:
+    - name: Competition_ID
+      description: 경기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Club_ID_1
+      description: 첫 번째 클럽의 고유 식별자
+      tests:
+      - not_null
+    - name: Club_ID_2
+      description: 두 번째 클럽의 고유 식별자
+      tests:
+      - not_null
+    - name: Score
+      description: 경기 점수
+      tests:
+      - not_null
+  - name: competition
+    description: 경쟁에 대한 정보
+    columns:
+    - name: Competition_ID
+      description: 경쟁의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Year
+      description: 경쟁이 열린 연도
+      tests:
+      - not_null
+    - name: Competition_type
+      description: 경쟁의 유형
+      tests:
+      - not_null
+    - name: Country
+      description: 경쟁이 열린 국가
+      tests:
+      - not_null
+  - name: club
+    description: 클럽에 대한 설명
+    columns:
+    - name: Club_ID
+      description: 클럽의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 클럽의 이름
+      tests:
+      - not_null
+    - name: Region
+      description: 클럽이 위치한 지역
+      tests:
+      - not_null
+    - name: Start_year
+      description: 클럽의 설립 연도
+      tests:
+      - not_null
+  - name: player
+    description: 선수에 대한 정보
+    columns:
+    - name: Player_ID
+      description: 선수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 선수의 이름
+      tests:
+      - not_null
+    - name: Position
+      description: 선수의 포지션
+      tests:
+      - not_null
+    - name: Club_ID
+      description: 선수가 소속된 클럽의 고유 식별자
+      tests:
+      - not_null
+    - name: Apps
+      description: 선수가 출전한 경기 수
+      tests:
+      - not_null
+    - name: Tries
+      description: 선수가 시도한 기회 수
+      tests:
+      - not_null
+    - name: Goals
+      description: 선수가 기록한 골 수
+      tests:
+      - not_null
+    - name: Points
+      description: 선수가 ��득한 포인트 수
+      tests:
+      - not_null

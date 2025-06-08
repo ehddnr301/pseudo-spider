@@ -1,0 +1,110 @@
+version: 2
+sources:
+- name: car_1
+  description: car_1 데이터셋의 테이블 모음
+  database: car_1
+  tables:
+  - name: car_makers
+    description: 자동차 제조업체에 대한 정보
+    columns:
+    - name: Id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Maker
+      description: 제조업체 이름
+      tests:
+      - not_null
+    - name: FullName
+      description: 제조업체 대표 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 제조업체 국가
+      tests:
+      - not_null
+  - name: countries
+    description: 국가에 대한 정보 테이블
+    columns:
+    - name: CountryId
+      description: 국가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: CountryName
+      description: 국가의 이름
+      tests:
+      - not_null
+    - name: Continent
+      description: 대��의 고유 식별자
+      tests:
+      - not_null
+  - name: model_list
+    description: 모델 목록에 대한 설명
+    columns:
+    - name: ModelId
+      description: 모델의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Maker
+      description: 제작자의 고유 식별자
+      tests:
+      - not_null
+    - name: Model
+      description: 모델 이름
+      tests:
+      - not_null
+  - name: car_names
+    description: 자동차 이름에 대한 테이블
+    columns:
+    - name: MakeId
+      description: 제조사 ID
+      tests:
+      - unique
+      - not_null
+    - name: Model
+      description: 모델 이름
+      tests:
+      - not_null
+    - name: Make
+      description: 제조사 이름
+      tests:
+      - not_null
+  - name: cars_data
+    description: 자동차 데이터에 대한 설명
+    columns:
+    - name: Id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: MPG
+      description: 연비
+      tests:
+      - not_null
+    - name: Cylinders
+      description: 실린더 수
+      tests:
+      - not_null
+    - name: Edispl
+      description: 배기량
+      tests:
+      - not_null
+    - name: Horsepower
+      description: 마력
+      tests:
+      - not_null
+    - name: Weight
+      description: 무게
+      tests:
+      - not_null
+    - name: Accelerate
+      description: 가속 시간
+      tests:
+      - not_null
+    - name: Year
+      description: 제조 연도
+      tests:
+      - not_null

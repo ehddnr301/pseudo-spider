@@ -1,0 +1,98 @@
+version: 2
+sources:
+- name: station_weather
+  description: station_weather 데이터셋의 테이블 모음
+  database: station_weather
+  tables:
+  - name: weekly_weather
+    description: 주간 날씨 데이터
+    columns:
+    - name: station_id
+      description: 기상 관측소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: day_of_week
+      description: 주 중의 날
+      tests:
+      - not_null
+    - name: high_temperature
+      description: 최고 기온
+      tests:
+      - not_null
+    - name: low_temperature
+      description: 최저 기온
+      tests:
+      - not_null
+    - name: precipitation
+      description: 강수량
+      tests:
+      - not_null
+    - name: wind_speed_mph
+      description: 바람 속도 (mph)
+      tests:
+      - not_null
+  - name: station
+    description: 역에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: network_name
+      description: 네트워크 이름
+      tests:
+      - not_null
+    - name: services
+      description: 제공되는 서비스
+      tests:
+      - not_null
+    - name: local_authority
+      description: 지역 당국
+      tests:
+      - not_null
+  - name: route
+    description: 기차 노선 정보를 담고 있는 테이블
+    columns:
+    - name: train_id
+      description: 기차의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: station_id
+      description: 역의 고유 식별자
+      tests:
+      - not_null
+  - name: train
+    description: 기차 정보 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: train_number
+      description: 기차 번호
+      tests:
+      - not_null
+    - name: name
+      description: ��승객 이름
+      tests:
+      - not_null
+    - name: origin
+      description: 출발지
+      tests:
+      - not_null
+    - name: destination
+      description: 목적지
+      tests:
+      - not_null
+    - name: time
+      description: 출발 시간
+      tests:
+      - not_null
+    - name: interval
+      description: 간격
+      tests:
+      - not_null

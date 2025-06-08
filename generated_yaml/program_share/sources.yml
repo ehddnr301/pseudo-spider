@@ -1,0 +1,92 @@
+version: 2
+sources:
+- name: program_share
+  description: program_share 데이터셋의 테이블 모음
+  database: program_share
+  tables:
+  - name: program
+    description: 프로그램에 대한 설명
+    columns:
+    - name: Program_ID
+      description: 프로그램의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 프로그램의 이름
+      tests:
+      - not_null
+    - name: Origin
+      description: 프로그램의 출처
+      tests:
+      - not_null
+    - name: Launch
+      description: 프로그램의 시작 시간
+      tests:
+      - not_null
+    - name: Owner
+      description: 프로그램의 소유자
+      tests:
+      - not_null
+  - name: channel
+    description: 채널에 대한 설명
+    columns:
+    - name: Channel_ID
+      description: 채널의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 채널 이름
+      tests:
+      - not_null
+    - name: Owner
+      description: 채널 소유자
+      tests:
+      - not_null
+    - name: Share_in_percent
+      description: 채널의 지분 비율
+      tests:
+      - not_null
+    - name: Rating_in_percent
+      description: 채널의 평가 비율
+      tests:
+      - not_null
+  - name: broadcast
+    description: 방송 테이블에 대한 설명
+    columns:
+    - name: Channel_ID
+      description: 채널 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Program_ID
+      description: 프로그램 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Time_of_day
+      description: 방송 시간
+      tests:
+      - not_null
+  - name: broadcast_share
+    description: 방송 점유율에 대한 정보
+    columns:
+    - name: Channel_ID
+      description: 채널의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Program_ID
+      description: 프로그램의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date
+      description: 방송 날짜
+      tests:
+      - not_null
+    - name: Share_in_percent
+      description: 방송 점유율(퍼센트)
+      tests:
+      - not_null

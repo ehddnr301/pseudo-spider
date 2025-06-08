@@ -1,0 +1,66 @@
+version: 2
+sources:
+- name: storm_record
+  description: storm_record 데이터셋의 테이블 모음
+  database: storm_record
+  tables:
+  - name: affected_region
+    description: 영향을 받은 지역에 대한 정보
+    columns:
+    - name: Region_id
+      description: 지역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Storm_ID
+      description: 폭풍의 고유 식별자
+      tests:
+      - not_null
+    - name: Number_city_affected
+      description: 영향을 받은 도시의 수
+      tests:
+      - not_null
+  - name: storm
+    description: 폭풍에 대한 정보
+    columns:
+    - name: Storm_ID
+      description: 폭풍의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 폭풍의 이름
+      tests:
+      - not_null
+    - name: Dates_active
+      description: 활동 날짜
+      tests:
+      - not_null
+    - name: Max_speed
+      description: 최대 속도
+      tests:
+      - not_null
+    - name: Damage_millions_USD
+      description: 피해 금액(백만 달러)
+      tests:
+      - not_null
+    - name: Number_Deaths
+      description: 사망자 수
+      tests:
+      - not_null
+  - name: region
+    description: 지역에 대한 설명
+    columns:
+    - name: Region_id
+      description: 지역의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Region_code
+      description: 지역 코드
+      tests:
+      - not_null
+    - name: Region_name
+      description: 지역 이름
+      tests:
+      - not_null

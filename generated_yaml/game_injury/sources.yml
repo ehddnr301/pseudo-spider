@@ -1,0 +1,98 @@
+version: 2
+sources:
+- name: game_injury
+  description: game_injury 데이터셋의 테이블 모음
+  database: game_injury
+  tables:
+  - name: game
+    description: 게임에 대한 정보
+    columns:
+    - name: stadium_id
+      description: 경기장이 식별하는 고유 번호
+      tests:
+      - not_null
+    - name: id
+      description: 게임의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Season
+      description: 경기 시즌
+      tests:
+      - not_null
+    - name: Date
+      description: 경기 날짜 및 시간
+      tests:
+      - not_null
+    - name: Home_team
+      description: 홈 팀 이름
+      tests:
+      - not_null
+    - name: Away_team
+      description: 어웨이 팀 이름
+      tests:
+      - not_null
+    - name: Score
+      description: 경기 점수
+      tests:
+      - not_null
+    - name: Competition
+      description: 경기 대회
+      tests:
+      - not_null
+  - name: stadium
+    description: 경기장에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 경기장 이름
+      tests:
+      - not_null
+    - name: Home_Games
+      description: 홈 게임 수
+      tests:
+      - not_null
+    - name: Average_Attendance
+      description: 평균 관중 수
+      tests:
+      - not_null
+    - name: Total_Attendance
+      description: 총 관중 수
+      tests:
+      - not_null
+    - name: Capacity_Percentage
+      description: 수용률
+      tests:
+      - not_null
+  - name: injury_accident
+    description: 부상 사고에 대한 정보
+    columns:
+    - name: game_id
+      description: 게임 식별자
+      tests:
+      - not_null
+    - name: id
+      description: 부상 사고 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Player
+      description: 선수 이름
+      tests:
+      - not_null
+    - name: Injury
+      description: 부상 종류
+      tests:
+      - not_null
+    - name: Number_of_matches
+      description: 경기 수
+      tests:
+      - not_null
+    - name: Source
+      description: 정보 출처
+      tests:
+      - not_null

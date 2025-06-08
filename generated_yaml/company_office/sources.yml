@@ -1,0 +1,86 @@
+version: 2
+sources:
+- name: company_office
+  description: company_office 데이터셋의 테이블 모음
+  database: company_office
+  tables:
+  - name: Office_locations
+    description: 사무실 위치에 대한 정보
+    columns:
+    - name: building_id
+      description: 건물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: company_id
+      description: 회사의 고유 식별자
+      tests:
+      - not_null
+    - name: move_in_year
+      description: 입주 연도
+      tests:
+      - not_null
+  - name: buildings
+    description: 건물에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 건물 이름
+      tests:
+      - not_null
+    - name: City
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: Height
+      description: 건물 높이
+      tests:
+      - not_null
+    - name: Stories
+      description: 층 수
+      tests:
+      - not_null
+    - name: Status
+      description: 건물 상태
+      tests:
+      - not_null
+  - name: Companies
+    description: 회사의 정보에 대한 테이블
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 회사 이름
+      tests:
+      - not_null
+    - name: Headquarters
+      description: 본사 위치
+      tests:
+      - not_null
+    - name: Industry
+      description: 산업 분야
+      tests:
+      - not_null
+    - name: Sales_billion
+      description: 매출 (십억 달러)
+      tests:
+      - not_null
+    - name: Profits_billion
+      description: 이익 (십억 달러)
+      tests:
+      - not_null
+    - name: Assets_billion
+      description: 자산 (십억 달러)
+      tests:
+      - not_null
+    - name: Market_Value_billion
+      description: 시장 가치 (십억 달러)
+      tests:
+      - not_null

@@ -1,0 +1,121 @@
+version: 2
+sources:
+- name: music_2
+  description: music_2 데이터셋의 테이블 모음
+  database: music_2
+  tables:
+  - name: Instruments
+    description: 악기 테이블에 대한 설명
+    columns:
+    - name: SongId
+      description: 노래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: BandmateId
+      description: ��드 ��버의 고유 식별자
+      tests:
+      - not_null
+    - name: Instrument
+      description: 사용되는 악기
+      tests:
+      - not_null
+  - name: Performance
+    description: 공연에 대한 정보
+    columns:
+    - name: SongId
+      description: 노래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Bandmate
+      description: ��드 ��버의 고유 식별자
+      tests:
+      - not_null
+    - name: StagePosition
+      description: 무대에서의 위치
+      tests:
+      - not_null
+  - name: Albums
+    description: 앨범에 대한 정보
+    columns:
+    - name: AId
+      description: 앨범의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 앨범 제목
+      tests:
+      - not_null
+    - name: Year
+      description: 앨범 발매 연도
+      tests:
+      - not_null
+    - name: Label
+      description: 앨범 레이블
+      tests:
+      - not_null
+    - name: Type
+      description: 앨범 유형
+      tests:
+      - not_null
+  - name: Songs
+    description: 노래에 대한 정보
+    columns:
+    - name: SongId
+      description: 노래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 노래 제목
+      tests:
+      - not_null
+  - name: Vocals
+    description: 보컬 관련 데이터
+    columns:
+    - name: SongId
+      description: 노래의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Bandmate
+      description: ��드 ��버의 고유 식별자
+      tests:
+      - not_null
+    - name: Type
+      description: 보컬의 유형
+      tests:
+      - not_null
+  - name: Tracklists
+    description: 트랙리스트에 대한 설명
+    columns:
+    - name: AlbumId
+      description: 앨범의 고유 식별자
+      tests:
+      - not_null
+    - name: Position
+      description: 트랙의 순서
+      tests:
+      - not_null
+    - name: SongId
+      description: 곡의 고유 식별자
+      tests:
+      - not_null
+  - name: Band
+    description: ��드에 대한 설명
+    columns:
+    - name: Id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Firstname
+      description: 이름
+      tests:
+      - not_null
+    - name: Lastname
+      description: 성
+      tests:
+      - not_null

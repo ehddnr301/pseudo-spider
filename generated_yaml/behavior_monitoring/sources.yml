@@ -1,0 +1,297 @@
+version: 2
+sources:
+- name: behavior_monitoring
+  description: behavior_monitoring 데이터셋의 테이블 모음
+  database: behavior_monitoring
+  tables:
+  - name: Behavior_Incident
+    description: 행동 사건에 대한 설명
+    columns:
+    - name: incident_id
+      description: 사건 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: incident_type_code
+      description: 사건 유형 코드
+      tests:
+      - not_null
+    - name: student_id
+      description: 학생 고유 식별자
+      tests:
+      - not_null
+    - name: date_incident_start
+      description: 사건 시작 날짜
+      tests:
+      - not_null
+    - name: date_incident_end
+      description: 사건 종료 날짜
+      tests:
+      - not_null
+    - name: incident_summary
+      description: 사건 요약
+      tests:
+      - not_null
+    - name: recommendations
+      description: 권장 사항
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Assessment_Notes
+    description: 학생 평가 노트에 대한 설명
+    columns:
+    - name: notes_id
+      description: 노트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - not_null
+    - name: teacher_id
+      description: 교사의 고유 식별자
+      tests:
+      - not_null
+    - name: date_of_notes
+      description: 노트 작성 날짜
+      tests:
+      - not_null
+    - name: text_of_notes
+      description: 노트의 내용
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Teachers
+    description: 교사에 대한 정보
+    columns:
+    - name: teacher_id
+      description: 교사의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 교사의 주소 식별자
+      tests:
+      - not_null
+    - name: first_name
+      description: 교사의 이름
+      tests:
+      - not_null
+    - name: middle_name
+      description: 교사의 중간 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 교사의 성
+      tests:
+      - not_null
+    - name: gender
+      description: 교사의 성별
+      tests:
+      - not_null
+    - name: cell_mobile_number
+      description: 교사의 휴대폰 번호
+      tests:
+      - not_null
+    - name: email_address
+      description: 교사의 이메일 주소
+      tests:
+      - not_null
+    - name: other_details
+      description: 교사에 대한 기타 정보
+      tests:
+      - not_null
+  - name: Detention
+    description: 구금 테이블에 대한 설명
+    columns:
+    - name: detention_id
+      description: 구금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: detention_type_code
+      description: 구금 유형 코드
+      tests:
+      - not_null
+    - name: teacher_id
+      description: 교사 고유 식별자
+      tests:
+      - not_null
+    - name: datetime_detention_start
+      description: 구금 시작 날짜 및 시간
+      tests:
+      - not_null
+    - name: datetime_detention_end
+      description: 구금 종료 날짜 및 시간
+      tests:
+      - not_null
+    - name: detention_summary
+      description: 구금 요약
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: line_1
+      description: 주소의 첫 번째 줄
+      tests:
+      - not_null
+    - name: line_2
+      description: 주소의 두 번째 줄
+      tests:
+      - not_null
+    - name: line_3
+      description: 주소의 세 번째 줄
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: zip_postcode
+      description: 우편번호
+      tests:
+      - not_null
+    - name: state_province_county
+      description: 주 또는 지방
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: other_address_details
+      description: 기타 주소 세부사항
+      tests:
+      - not_null
+  - name: Student_Addresses
+    description: 학생 주소에 대한 정보
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_address_from
+      description: 주소 시작 날짜
+      tests:
+      - not_null
+    - name: date_address_to
+      description: 주소 종료 날짜
+      tests:
+      - not_null
+    - name: monthly_rental
+      description: 월세 금액
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Ref_Incident_Type
+    description: 사건 유형에 대한 설명
+    columns:
+    - name: incident_type_code
+      description: 사건 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: incident_type_description
+      description: 사건 유형 설명
+      tests:
+      - not_null
+  - name: Students_in_Detention
+    description: 학생 구금 정보 테이블
+    columns:
+    - name: student_id
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: detention_id
+      description: 구금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: incident_id
+      description: 사건 고유 식별자
+      tests:
+      - unique
+      - not_null
+  - name: Ref_Detention_Type
+    description: 구금 유형에 대한 설명
+    columns:
+    - name: detention_type_code
+      description: 구금 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: detention_type_description
+      description: 구금 유형 설명
+      tests:
+      - not_null
+  - name: Ref_Address_Types
+    description: 주소 유형에 대한 설명
+    columns:
+    - name: address_type_code
+      description: 주소 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: address_type_description
+      description: 주소 유형 설명
+      tests:
+      - not_null
+  - name: Students
+    description: 학생 정보를 저장하는 테이블
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: address_id
+      description: 학생의 주소 식별자
+      tests:
+      - not_null: true
+    - name: first_name
+      description: 학생의 이름
+      tests:
+      - not_null: true
+    - name: middle_name
+      description: 학생의 중간 이름
+    - name: last_name
+      description: 학생의 성
+      tests:
+      - not_null: true
+    - name: cell_mobile_number
+      description: 학생의 휴대폰 번호
+    - name: email_address
+      description: 학생의 이메일 주소
+    - name: date_first_rental
+      description: 학생의 첫 번째 대여 날짜
+    - name: date_left_university
+      description: 학생이 대학을 떠난 날짜
+    - name: other_student_details
+      description: 기타 학생 세부 정보

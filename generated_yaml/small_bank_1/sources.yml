@@ -1,0 +1,42 @@
+version: 2
+sources:
+- name: small_bank_1
+  description: small_bank_1 데이터셋의 테이블 모음
+  database: small_bank_1
+  tables:
+  - name: SAVINGS
+    description: 저축 테이블에 대한 설명
+    columns:
+    - name: custid
+      description: 고객 식별자
+      tests:
+      - unique
+      - not_null
+    - name: balance
+      description: 계좌 ��액
+      tests:
+      - not_null
+  - name: CHECKING
+    description: 체크 계좌 정보
+    columns:
+    - name: custid
+      description: 고객 식별자
+      tests:
+      - unique
+      - not_null
+    - name: balance
+      description: 계좌 ��액
+      tests:
+      - not_null
+  - name: ACCOUNTS
+    description: 계좌 정보를 저장하는 테이블
+    columns:
+    - name: custid
+      description: 고객 ID
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 고객 이름
+      tests:
+      - not_null

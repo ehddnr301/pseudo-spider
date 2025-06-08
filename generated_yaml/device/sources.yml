@@ -1,0 +1,47 @@
+version: 2
+sources:
+- name: device
+  description: device 데이터셋의 테이블 모음
+  database: device
+  tables:
+  - name: shop
+    description: 상점에 대한 정보
+    columns:
+    - name: Shop_ID
+      description: 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Shop_Name
+      description: 상점의 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 상점의 위치
+      tests:
+      - not_null
+    - name: Open_Date
+      description: 상점의 개장 날짜
+      tests:
+      - not_null
+    - name: Open_Year
+      description: 상점의 개장 연도
+      tests:
+      - not_null
+  - name: stock
+    description: 재고 테이블에 대한 설명
+    columns:
+    - name: Shop_ID
+      description: 상점 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Device_ID
+      description: 장치 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Quantity
+      description: 재고 수량
+      tests:
+      - not_null

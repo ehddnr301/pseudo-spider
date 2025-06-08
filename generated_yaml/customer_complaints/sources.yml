@@ -1,0 +1,134 @@
+version: 2
+sources:
+- name: customer_complaints
+  description: customer_complaints 데이터셋의 테이블 모음
+  database: customer_complaints
+  tables:
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: parent_product_id
+      description: 부모 제품 식별자
+      tests:
+      - not_null
+    - name: product_category_code
+      description: 제품 카테고리 코드
+      tests:
+      - not_null
+    - name: date_product_first_available
+      description: 제품 최초 사용 가능 날짜
+      tests:
+      - not_null
+    - name: date_product_discontinued
+      description: 제품 단종 날짜
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: product_description
+      description: 제품 설명
+      tests:
+      - not_null
+    - name: product_price
+      description: 제품 가격
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_type_code
+      description: 고객 유형 코드
+      tests:
+      - not_null
+    - name: address_line_1
+      description: 주소 1
+      tests:
+      - not_null
+    - name: address_line_2
+      description: 주소 2
+      tests:
+      - not_null
+    - name: town_city
+      description: 도시
+      tests:
+      - not_null
+    - name: state
+      description: 주
+      tests:
+      - not_null
+    - name: email_address
+      description: 이메일 주소
+      tests:
+      - not_null
+    - name: phone_number
+      description: 전화번호
+      tests:
+      - not_null
+  - name: Staff
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender
+      description: 직원 성별
+      tests:
+      - not_null
+    - name: first_name
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: last_name
+      description: 직원 성
+      tests:
+      - not_null
+    - name: email_address
+      description: 직원 이메일 주소
+      tests:
+      - not_null
+    - name: phone_number
+      description: 직원 전화번호
+      tests:
+      - not_null
+  - name: Complaints
+    description: 고객 불만 사항을 기록하는 테이블
+    columns:
+    - name: complaint_id
+      description: 불만 사항의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: product_id
+      description: 불만 사항과 관련된 제품의 고유 식별자
+      tests:
+      - not_null: true
+    - name: customer_id
+      description: 불만 사항을 제기한 고객의 고유 식별자
+      tests:
+      - not_null: true
+    - name: complaint_outcome_code
+      description: 불만 사항의 결과 코드
+    - name: complaint_status_code
+      description: 불만 상태 코드를 나타��니다.
+    - name: complaint_type_code
+      description: 불만 유형 코드를 나타��니다.
+    - name: date_complaint_raised
+      description: 불만이 제기된 날짜를 나타��니다.
+    - name: date_complaint_closed
+      description: 불만이 종료된 날짜를 나타��니다.
+    - name: staff_id
+      description: 불만을 처리한 직원의 ID를 나타��니다.

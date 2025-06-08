@@ -1,0 +1,58 @@
+version: 2
+sources:
+- name: body_builder
+  description: body_builder 데이터셋의 테이블 모음
+  database: body_builder
+  tables:
+  - name: body_builder
+    description: 신체 조각가에 대한 정보
+    columns:
+    - name: Body_Builder_ID
+      description: 신체 조각가의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - not_null
+    - name: Snatch
+      description: 스내치 중량
+      tests:
+      - not_null
+    - name: Clean_Jerk
+      description: 클린 �� 저크 중량
+      tests:
+      - not_null
+    - name: Total
+      description: 총 중량
+      tests:
+      - not_null
+  - name: people
+    description: 사람들에 대한 정보 테이블
+    columns:
+    - name: People_ID
+      description: 사람의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 사람의 이름
+      tests:
+      - not_null
+    - name: Height
+      description: 사람의 키
+      tests:
+      - not_null
+    - name: Weight
+      description: 사람의 몸무게
+      tests:
+      - not_null
+    - name: Birth_Date
+      description: 사람의 생년월일
+      tests:
+      - not_null
+    - name: Birth_Place
+      description: 사람의 출생지
+      tests:
+      - not_null

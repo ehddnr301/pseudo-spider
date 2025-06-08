@@ -1,0 +1,46 @@
+version: 2
+sources:
+- name: network_1
+  description: network_1 데이터셋의 테이블 모음
+  database: network_1
+  tables:
+  - name: Likes
+    description: 학생들이 좋아요를 누른 항목에 대한 정보
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: liked_id
+      description: 좋아요를 누른 항목의 고유 식별자
+      tests:
+      - not_null
+  - name: Friend
+    description: 친구 관계를 나타내는 테이블
+    columns:
+    - name: student_id
+      description: 학생의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: friend_id
+      description: 친구의 고유 식별자
+      tests:
+      - not_null
+  - name: Highschooler
+    description: 고등학생에 대한 정보
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 학생 이름
+      tests:
+      - not_null
+    - name: grade
+      description: 학년
+      tests:
+      - not_null

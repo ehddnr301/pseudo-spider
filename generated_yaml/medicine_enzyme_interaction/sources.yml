@@ -1,0 +1,75 @@
+version: 2
+sources:
+- name: medicine_enzyme_interaction
+  description: medicine_enzyme_interaction 데이터셋의 테이블 모음
+  database: medicine_enzyme_interaction
+  tables:
+  - name: medicine
+    description: 약품에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 질병 이름
+      tests:
+      - not_null
+    - name: Trade_Name
+      description: 상표명
+      tests:
+      - not_null
+    - name: FDA_approved
+      description: FDA 승인 날짜
+      tests:
+      - not_null
+  - name: enzyme
+    description: 효소에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 이름
+      tests:
+      - not_null
+    - name: Location
+      description: 위치
+      tests:
+      - not_null
+    - name: Product
+      description: 제품
+      tests:
+      - not_null
+    - name: Chromosome
+      description: 염색체
+      tests:
+      - not_null
+    - name: OMIM
+      description: OMIM 번호
+      tests:
+      - not_null
+    - name: Porphyria
+      description: 포르피린증
+      tests:
+      - not_null
+  - name: medicine_enzyme_interaction
+    description: 약물과 효소 간의 상호작용에 대한 정보
+    columns:
+    - name: enzyme_id
+      description: 효소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: medicine_id
+      description: 약물의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: interaction_type
+      description: 효소와 약물 간의 상호작용 유형
+      tests:
+      - not_null

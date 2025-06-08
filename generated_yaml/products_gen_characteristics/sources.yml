@@ -1,0 +1,123 @@
+version: 2
+sources:
+- name: products_gen_characteristics
+  description: products_gen_characteristics 데이터셋의 테이블 모음
+  database: products_gen_characteristics
+  tables:
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: color_code
+      description: 제품 색상 코드
+      tests:
+      - not_null
+    - name: product_category_code
+      description: 제품 카테고리 코드
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: typical_buying_price
+      description: 일반 구매 가격
+      tests:
+      - not_null
+    - name: typical_selling_price
+      description: 일반 판매 가격
+      tests:
+      - not_null
+    - name: product_description
+      description: 제품 설명
+      tests:
+      - not_null
+    - name: other_product_details
+      description: 기타 제품 세부 정보
+      tests:
+      - not_null
+  - name: Ref_Characteristic_Types
+    description: 특성 유형에 대한 참조 테이블
+    columns:
+    - name: characteristic_type_code
+      description: 특성 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: characteristic_type_description
+      description: 특성 유형 설명
+      tests:
+      - not_null
+  - name: Ref_Colors
+    description: 색상 참조 테이블
+    columns:
+    - name: color_code
+      description: 색상 코드
+      tests:
+      - unique
+      - not_null
+    - name: color_description
+      description: 색상 설명
+      tests:
+      - not_null
+  - name: Ref_Product_Categories
+    description: 제품 카테고리에 대한 설명
+    columns:
+    - name: product_category_code
+      description: 제품 카테고리 코드
+      tests:
+      - unique
+      - not_null
+    - name: product_category_description
+      description: 제품 카테고리 설명
+      tests:
+      - not_null
+    - name: unit_of_measure
+      description: 측정 단위
+      tests:
+      - not_null
+  - name: Characteristics
+    description: 특성에 대한 설명
+    columns:
+    - name: characteristic_id
+      description: 특성 식별자
+      tests:
+      - unique
+      - not_null
+    - name: characteristic_type_code
+      description: 특성 유형 코드
+      tests:
+      - not_null
+    - name: characteristic_data_type
+      description: 특성 데이터 유형
+      tests:
+      - not_null
+    - name: characteristic_name
+      description: 특성 이름
+      tests:
+      - not_null
+    - name: other_characteristic_details
+      description: 기타 특성 세부사항
+      tests:
+      - not_null
+  - name: Product_Characteristics
+    description: 제품 특성에 대한 설명
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: characteristic_id
+      description: 특성의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_characteristic_value
+      description: 제품 특성의 값
+      tests:
+      - not_null

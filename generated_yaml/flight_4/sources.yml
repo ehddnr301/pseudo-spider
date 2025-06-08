@@ -1,0 +1,114 @@
+version: 2
+sources:
+- name: flight_4
+  description: flight_4 데이터셋의 테이블 모음
+  database: flight_4
+  tables:
+  - name: routes
+    description: 항공 노선에 대한 정보
+    columns:
+    - name: rid
+      description: 노선 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dst_apid
+      description: 목적지 공항 식별자
+      tests:
+      - not_null
+    - name: dst_ap
+      description: 목적지 공항 코드
+      tests:
+      - not_null
+    - name: src_apid
+      description: 출발지 공항 식별자
+      tests:
+      - not_null
+    - name: src_ap
+      description: 출발지 공항 코드
+      tests:
+      - not_null
+    - name: alid
+      description: 항공사 식별자
+      tests:
+      - not_null
+    - name: airline
+      description: 항공사 코드
+      tests:
+      - not_null
+    - name: codeshare
+      description: 코드��어 정보
+      tests:
+      - not_null
+  - name: airports
+    description: 공항에 대한 정보
+    columns:
+    - name: apid
+      description: 공항 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 공항 이름
+      tests:
+      - not_null
+    - name: city
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: country
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: x
+      description: 위도
+      tests:
+      - not_null
+    - name: y
+      description: 경도
+      tests:
+      - not_null
+    - name: elevation
+      description: 고도
+      tests:
+      - not_null
+    - name: iata
+      description: IATA 코드
+      tests:
+      - not_null
+    - name: icao
+      description: ICAO 코드
+      tests:
+      - not_null
+  - name: airlines
+    description: 항공사에 대한 정보
+    columns:
+    - name: alid
+      description: 항공사 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 항공사 이름
+      tests:
+      - not_null
+    - name: iata
+      description: 항공사 IATA 코드
+      tests:
+      - not_null
+    - name: icao
+      description: 항공사 ICAO 코드
+      tests:
+      - not_null
+    - name: callsign
+      description: 항공사 호출 부호
+      tests:
+      - not_null
+    - name: country
+      description: 항공사가 위치한 국가
+      tests:
+      - not_null
+    - name: active
+      description: 항공사 활성 상태
+      tests:
+      - not_null

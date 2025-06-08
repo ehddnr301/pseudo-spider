@@ -1,0 +1,170 @@
+version: 2
+sources:
+- name: cre_Doc_Tracking_DB
+  description: cre_Doc_Tracking_DB 데이터셋의 테이블 모음
+  database: cre_Doc_Tracking_DB
+  tables:
+  - name: Document_Locations
+    description: 문서 위치에 대한 정보
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Location_Code
+      description: 위치 코드
+      tests:
+      - not_null
+    - name: Date_in_Location_From
+      description: 위치에 있는 날짜 시작
+      tests:
+      - not_null
+    - name: Date_in_Locaton_To
+      description: 위치에 있는 날짜 종료
+      tests:
+      - not_null
+  - name: Ref_Locations
+    description: 위치 정보를 저장하는 테이블
+    columns:
+    - name: Location_Code
+      description: 위치 코드
+      tests:
+      - unique
+      - not_null
+    - name: Location_Name
+      description: 위치 이름
+      tests:
+      - not_null
+    - name: Location_Description
+      description: 위치 설명
+      tests:
+      - not_null
+  - name: Employees
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: Employee_ID
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Role_Code
+      description: 직원의 역할 코드
+      tests:
+      - not_null
+    - name: Employee_Name
+      description: 직원 이름
+      tests:
+      - not_null
+    - name: Gender_MFU
+      description: 직원 성별
+      tests:
+      - not_null
+    - name: Date_of_Birth
+      description: 직원 생년월일
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Roles
+    description: 역할에 대한 설명
+    columns:
+    - name: Role_Code
+      description: 역할 코드
+      tests:
+      - unique
+      - not_null
+    - name: Role_Name
+      description: 역할 이름
+      tests:
+      - not_null
+    - name: Role_Description
+      description: 역할 설명
+      tests:
+      - not_null
+  - name: Ref_Document_Types
+    description: 문서 유형에 대한 참조 테이블
+    columns:
+    - name: Document_Type_Code
+      description: 문서 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: Document_Type_Name
+      description: 문서 유형 이름
+      tests:
+      - not_null
+    - name: Document_Type_Description
+      description: 문서 유형 설명
+      tests:
+      - not_null
+  - name: All_Documents
+    description: 모든 문서에 대한 정보
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date_Stored
+      description: 문서가 저장된 날짜 및 시간
+      tests:
+      - not_null
+    - name: Document_Type_Code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: Document_Name
+      description: 문서의 이름
+      tests:
+      - not_null
+    - name: Document_Description
+      description: 문서에 대한 설명
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Documents_to_be_Destroyed
+    description: 파기될 문서에 대한 정보
+    columns:
+    - name: Document_ID
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Destruction_Authorised_by_Employee_ID
+      description: 파기를 승인한 직원의 고유 식별자
+      tests:
+      - not_null
+    - name: Destroyed_by_Employee_ID
+      description: 문서를 파기한 직원의 고유 식별자
+      tests:
+      - not_null
+    - name: Planned_Destruction_Date
+      description: 예정된 파기 날짜
+      tests:
+      - not_null
+    - name: Actual_Destruction_Date
+      description: 실제 파기 날짜
+      tests:
+      - not_null
+    - name: Other_Details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Ref_Calendar
+    description: 달력 정보를 저장하는 테이블
+    columns:
+    - name: Calendar_Date
+      description: 달력 날짜
+      tests:
+      - not_null
+    - name: Day_Number
+      description: 해당 날짜의 일자
+      tests:
+      - unique
+      - not_null

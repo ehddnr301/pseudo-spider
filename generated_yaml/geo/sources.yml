@@ -1,0 +1,147 @@
+version: 2
+sources:
+- name: geo
+  description: geo 데이터셋의 테이블 모음
+  database: geo
+  tables:
+  - name: lake
+    description: 호수에 대한 정보
+    columns:
+    - name: lake_name
+      description: 호수의 이름
+      tests:
+      - unique
+      - not_null
+    - name: area
+      description: 호수의 면적
+      tests:
+      - not_null
+    - name: country_name
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: state_name
+      description: 주 이름
+      tests:
+      - not_null
+  - name: river
+    description: 강에 대한 설명
+    columns:
+    - name: river_name
+      description: 강의 이름
+      tests:
+      - unique
+      - not_null
+    - name: length
+      description: 강의 길이
+      tests:
+      - not_null
+    - name: country_name
+      description: 강이 위치한 국가
+      tests:
+      - not_null
+    - name: traverse
+      description: 강의 특성
+      tests:
+      - not_null
+  - name: border_info
+    description: 주와 경계에 대한 정보
+    columns:
+    - name: state_name
+      description: 주 이름
+      tests:
+      - not_null
+    - name: border
+      description: 경계
+      tests:
+      - not_null
+  - name: highlow
+    description: 주별 최고 및 최저 고도 정보
+    columns:
+    - name: state_name
+      description: 주 이름
+      tests:
+      - unique
+      - not_null
+    - name: highest_elevation
+      description: 최고 고도
+      tests:
+      - not_null
+    - name: lowest_point
+      description: 최저 지점
+      tests:
+      - not_null
+    - name: highest_point
+      description: 최고 지점
+      tests:
+      - not_null
+    - name: lowest_elevation
+      description: 최저 고도
+      tests:
+      - not_null
+  - name: state
+    description: 주에 대한 정보
+    columns:
+    - name: state_name
+      description: 주 이름
+      tests:
+      - unique
+      - not_null
+    - name: population
+      description: 인구 수
+      tests:
+      - not_null
+    - name: area
+      description: 면적
+      tests:
+      - not_null
+    - name: country_name
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: capital
+      description: 수도
+      tests:
+      - not_null
+    - name: density
+      description: 인구 밀도
+      tests:
+      - not_null
+  - name: city
+    description: 도시 정보를 담고 있는 테이블
+    columns:
+    - name: city_name
+      description: 도시 이름
+      tests:
+      - not_null
+    - name: population
+      description: 인구 수
+      tests:
+      - not_null
+    - name: country_name
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: state_name
+      description: 주 이름
+      tests:
+      - not_null
+  - name: mountain
+    description: 산에 대한 정보
+    columns:
+    - name: mountain_name
+      description: 산의 이름
+      tests:
+      - not_null
+    - name: mountain_altitude
+      description: 산의 고도
+      tests:
+      - not_null
+    - name: country_name
+      description: 국가 이름
+      tests:
+      - not_null
+    - name: state_name
+      description: 주 이름
+      tests:
+      - not_null

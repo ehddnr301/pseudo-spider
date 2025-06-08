@@ -1,0 +1,154 @@
+version: 2
+sources:
+- name: apartment_rentals
+  description: apartment_rentals 데이터셋의 테이블 모음
+  database: apartment_rentals
+  tables:
+  - name: Apartment_Buildings
+    description: 아파트 건물에 대한 정보
+    columns:
+    - name: building_id
+      description: 건물 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: building_short_name
+      description: 건물의 ��은 이름
+      tests:
+      - not_null
+    - name: building_full_name
+      description: 건물의 전체 이름
+      tests:
+      - not_null
+    - name: building_description
+      description: 건물에 대한 설명
+      tests:
+      - not_null
+    - name: building_address
+      description: 건물의 주소
+      tests:
+      - not_null
+    - name: building_manager
+      description: 건물 관리자 이름
+      tests:
+      - not_null
+    - name: building_phone
+      description: 건물 전화번호
+      tests:
+      - not_null
+  - name: Apartments
+    description: 아파트에 대한 정보
+    columns:
+    - name: apt_id
+      description: 아파트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: building_id
+      description: 건물 고유 식별자
+      tests:
+      - not_null
+    - name: apt_type_code
+      description: 아파트 유형 코드
+      tests:
+      - not_null
+    - name: apt_number
+      description: 아파트 번호
+      tests:
+      - not_null
+    - name: bathroom_count
+      description: 욕실 수
+      tests:
+      - not_null
+    - name: bedroom_count
+      description: 침실 수
+      tests:
+      - not_null
+    - name: room_count
+      description: 방 수
+      tests:
+      - not_null
+  - name: View_Unit_Status
+    description: 유�� 상태 조회 테이블
+    columns:
+    - name: apt_id
+      description: 아파트 ID
+      tests:
+      - unique
+      - not_null
+    - name: apt_booking_id
+      description: 아파트 예약 ID
+      tests:
+      - not_null
+    - name: status_date
+      description: 상태 날짜
+      tests:
+      - not_null
+    - name: available_yn
+      description: 사용 가능 여부
+      tests:
+      - not_null
+  - name: Apartment_Bookings
+    description: 아파트 예약 정보를 담고 있는 테이블
+    columns:
+    - name: apt_booking_id
+      description: 예약 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: apt_id
+      description: 아파트 고유 식별자
+      tests:
+      - not_null
+    - name: guest_id
+      description: 손님 고유 식별자
+      tests:
+      - not_null
+    - name: booking_status_code
+      description: 예약 상태 코드
+      tests:
+      - not_null
+    - name: booking_start_date
+      description: 예약 시작 날짜
+      tests:
+      - not_null
+    - name: booking_end_date
+      description: 예약 종료 날짜
+      tests:
+      - not_null
+  - name: Guests
+    description: 손님 정보를 담고 있는 테이블
+    columns:
+    - name: guest_id
+      description: 손님의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: gender_code
+      description: 손님의 성별 코드
+      tests:
+      - not_null
+    - name: guest_first_name
+      description: 손님의 이름
+      tests:
+      - not_null
+    - name: guest_last_name
+      description: 손님의 성
+      tests:
+      - not_null
+    - name: date_of_birth
+      description: 손님의 생년월일
+      tests:
+      - not_null
+  - name: Apartment_Facilities
+    description: 아파트 시설에 대한 정보
+    columns:
+    - name: apt_id
+      description: 아파트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: facility_code
+      description: 시설 코드
+      tests:
+      - not_null

@@ -1,0 +1,67 @@
+version: 2
+sources:
+- name: real_estate_properties
+  description: real_estate_properties 데이터셋의 테이블 모음
+  database: real_estate_properties
+  tables:
+  - name: Other_Property_Features
+    description: 기타 속성 기능에 대한 설명
+    columns:
+    - name: property_id
+      description: 부동산 식별자
+      tests:
+      - unique
+      - not_null
+    - name: feature_id
+      description: 기능 식별자
+      tests:
+      - unique
+      - not_null
+    - name: property_feature_description
+      description: 부동산 기능 설명
+      tests:
+      - not_null
+  - name: Ref_Property_Types
+    description: 부동산 유형에 대한 설명
+    columns:
+    - name: property_type_code
+      description: 부동산 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: property_type_description
+      description: 부동산 유형 설명
+      tests:
+      - not_null
+  - name: Other_Available_Features
+    description: 다른 사용 가능한 기능에 대한 설명
+    columns:
+    - name: feature_id
+      description: 기능 식별자
+      tests:
+      - unique
+      - not_null
+    - name: feature_type_code
+      description: 기능 유형 코드
+      tests:
+      - not_null
+    - name: feature_name
+      description: 기능 이름
+      tests:
+      - not_null
+    - name: feature_description
+      description: 기능 설명
+      tests:
+      - not_null
+  - name: Ref_Feature_Types
+    description: 기능 유형에 대한 참조 테이블
+    columns:
+    - name: feature_type_code
+      description: 기능 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: feature_type_name
+      description: 기능 유형 이름
+      tests:
+      - not_null

@@ -1,0 +1,239 @@
+version: 2
+sources:
+- name: customers_and_invoices
+  description: customers_and_invoices 데이터셋의 테이블 모음
+  database: customers_and_invoices
+  tables:
+  - name: Accounts
+    description: 계좌 정보를 저장하는 테이블
+    columns:
+    - name: account_id
+      description: 계좌 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: date_account_opened
+      description: 계좌 개설 날짜
+      tests:
+      - not_null
+    - name: account_name
+      description: 계좌 이름
+      tests:
+      - not_null
+    - name: other_account_details
+      description: 기타 계좌 세부 정보
+      tests:
+      - not_null
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: parent_product_id
+      description: 부모 제품의 고유 식별자
+      tests:
+      - not_null
+    - name: production_type_code
+      description: 생산 유형 코드
+      tests:
+      - not_null
+    - name: unit_price
+      description: 제품의 단가
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: product_color
+      description: 제품 색상
+      tests:
+      - not_null
+    - name: product_size
+      description: 제품 크기
+      tests:
+      - not_null
+  - name: Financial_Transactions
+    description: 재무 거래에 대한 설명
+    columns:
+    - name: transaction_id
+      description: 거래 식별자
+      tests:
+      - unique
+      - not_null
+    - name: account_id
+      description: 계좌 식별자
+      tests:
+      - not_null
+    - name: invoice_number
+      description: 청구서 번호
+      tests:
+      - not_null
+    - name: transaction_type
+      description: 거래 유형
+      tests:
+      - not_null
+    - name: transaction_date
+      description: 거래 날짜
+      tests:
+      - not_null
+    - name: transaction_amount
+      description: 거래 금액
+      tests:
+      - not_null
+    - name: transaction_comment
+      description: 거래에 대한 설명
+      tests:
+      - not_null
+    - name: other_transaction_details
+      description: 기타 거래 세부사항
+      tests:
+      - not_null
+  - name: Order_Items
+    description: 주문 항목에 대한 설명
+    columns:
+    - name: order_item_id
+      description: 주문 항목 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - not_null
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - not_null
+    - name: product_quantity
+      description: 제품 수량
+      tests:
+      - not_null
+    - name: other_order_item_details
+      description: 기타 주문 항목 세부 정보
+      tests:
+      - not_null
+  - name: Invoices
+    description: 청구서 테이블
+    columns:
+    - name: invoice_number
+      description: 청구서 번호
+      tests:
+      - unique
+      - not_null
+    - name: order_id
+      description: 주문 ID
+      tests:
+      - not_null
+    - name: invoice_date
+      description: 청구서 날짜
+      tests:
+      - not_null
+  - name: Product_Categories
+    description: 제품 카테고리에 대한 설명
+    columns:
+    - name: production_type_code
+      description: 생산 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: product_type_description
+      description: 제품 유형 설명
+      tests:
+      - not_null
+    - name: vat_rating
+      description: 부가세 등급
+      tests:
+      - not_null
+  - name: Orders
+    description: 주문 테이블에 대한 설명
+    columns:
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: date_order_placed
+      description: 주문이 이루어진 날짜
+      tests:
+      - not_null
+    - name: order_details
+      description: 주문 세부 사항
+      tests:
+      - not_null
+  - name: Invoice_Line_Items
+    description: 청구서 항목에 대한 정보
+    columns:
+    - name: order_item_id
+      description: 주문 항목의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: invoice_number
+      description: 청구서 번호
+      tests:
+      - not_null: true
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - not_null: true
+    - name: product_title
+      description: 제품의 제목
+    - name: product_quantity
+      description: 제품의 수량을 나타��니다.
+    - name: product_price
+      description: 제품의 가격을 나타��니다.
+    - name: derived_product_cost
+      description: 유도된 제품 비용을 나타��니다.
+    - name: derived_vat_payable
+      description: 유도된 부가가치세 ��부액을 나타��니다.
+    - name: derived_total_cost
+      description: 유도된 총 비용을 나타��니다.
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique: true
+      - not_null: true
+    - name: customer_first_name
+      description: 고객의 이름
+      tests:
+      - not_null: true
+    - name: customer_middle_initial
+      description: 고객의 중간 이니셜
+    - name: customer_last_name
+      description: 고객의 성
+      tests:
+      - not_null: true
+    - name: gender
+      description: 고객의 성별
+    - name: email_address
+      description: 고객의 이메일 주소
+      tests:
+      - unique: true
+      - not_null: true
+    - name: login_name
+      description: 사용자의 로그인 이름
+    - name: login_password
+      description: 사용자의 로그인 비밀번호
+    - name: phone_number
+      description: 사용자의 전화번호
+    - name: town_city
+      description: 사용자가 거주하는 도시 또는 마을
+    - name: state_county_province
+      description: 사용자가 거주하는 주, 카운티 또는 지방
+    - name: country
+      description: 사용자가 거주하는 국가

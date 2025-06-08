@@ -1,0 +1,106 @@
+version: 2
+sources:
+- name: concert_singer
+  description: concert_singer 데이터셋의 테이블 모음
+  database: concert_singer
+  tables:
+  - name: stadium
+    description: 경기장에 대한 설명
+    columns:
+    - name: Stadium_ID
+      description: 경기장의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Location
+      description: 경기장의 위치
+      tests:
+      - not_null
+    - name: Name
+      description: 경기장의 이름
+      tests:
+      - not_null
+    - name: Capacity
+      description: 경기장의 수용 인원
+      tests:
+      - not_null
+    - name: Highest
+      description: 경기장에서 기록된 최대 인원
+      tests:
+      - not_null
+    - name: Lowest
+      description: 경기장에서 기록된 최소 인원
+      tests:
+      - not_null
+    - name: Average
+      description: 경기장에서의 평균 인원
+      tests:
+      - not_null
+  - name: concert
+    description: 콘서트에 대한 설명
+    columns:
+    - name: concert_ID
+      description: 콘서트의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: concert_Name
+      description: 콘서트의 이름
+      tests:
+      - not_null
+    - name: Theme
+      description: 콘서트의 주제
+      tests:
+      - not_null
+    - name: Stadium_ID
+      description: 콘서트가 열리는 스타디움의 고유 식별자
+      tests:
+      - not_null
+    - name: Year
+      description: 콘서트가 열리는 연도
+      tests:
+      - not_null
+  - name: singer
+    description: 가수에 대한 정보
+    columns:
+    - name: Singer_ID
+      description: 가수의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 가수의 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 가수가 속한 국가
+      tests:
+      - not_null
+    - name: Song_Name
+      description: 가수가 부른 노래의 이름
+      tests:
+      - not_null
+    - name: Song_release_year
+      description: 노래의 발매 연도
+      tests:
+      - not_null
+    - name: Age
+      description: 가수의 나이
+      tests:
+      - not_null
+    - name: Is_male
+      description: 가수의 성별
+      tests:
+      - not_null
+  - name: singer_in_concert
+    description: 가수의 콘서트 정보
+    columns:
+    - name: concert_ID
+      description: 콘서트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Singer_ID
+      description: 가수 고유 식별자
+      tests:
+      - not_null

@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: phone_market
+  description: phone_market 데이터셋의 테이블 모음
+  database: phone_market
+  tables:
+  - name: phone_market
+    description: 전화기 시장에 대한 정보
+    columns:
+    - name: Market_ID
+      description: 시장 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Phone_ID
+      description: 전화기 고유 식별자
+      tests:
+      - not_null
+    - name: Num_of_stock
+      description: 재고 수량
+      tests:
+      - not_null
+  - name: market
+    description: 시장에 대한 설명
+    columns:
+    - name: Market_ID
+      description: 시장 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: District
+      description: 시장 위치
+      tests:
+      - not_null
+    - name: Num_of_employees
+      description: 직원 수
+      tests:
+      - not_null
+    - name: Num_of_shops
+      description: 상점 수
+      tests:
+      - not_null
+    - name: Ranking
+      description: 시장 순위
+      tests:
+      - not_null
+  - name: phone
+    description: 전화기 정보 테이블
+    columns:
+    - name: Name
+      description: 전화기 소유자 이름
+      tests:
+      - not_null
+    - name: Phone_ID
+      description: 전화기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Memory_in_G
+      description: 전화기 메모리 용량(GB)
+      tests:
+      - not_null
+    - name: Carrier
+      description: 전화기 통신사
+      tests:
+      - not_null
+    - name: Price
+      description: 전화기 가격
+      tests:
+      - not_null

@@ -1,0 +1,95 @@
+version: 2
+sources:
+- name: shop_membership
+  description: shop_membership 데이터셋의 테이블 모음
+  database: shop_membership
+  tables:
+  - name: membership_register_branch
+    description: 회원 등록 지점에 대한 정보
+    columns:
+    - name: Member_ID
+      description: 회원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Branch_ID
+      description: 지점의 이름
+      tests:
+      - not_null
+    - name: Register_Year
+      description: 등록 연도
+      tests:
+      - not_null
+  - name: branch
+    description: 지점에 대한 정보
+    columns:
+    - name: Branch_ID
+      description: 지점 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 지점 이름
+      tests:
+      - not_null
+    - name: Open_year
+      description: 지점 개설 연도
+      tests:
+      - not_null
+    - name: Address_road
+      description: 지점 도로 주소
+      tests:
+      - not_null
+    - name: City
+      description: 지점이 위치한 도시
+      tests:
+      - not_null
+    - name: membership_amount
+      description: 회원 수
+      tests:
+      - not_null
+  - name: member
+    description: 회원 정보를 저장하는 테이블
+    columns:
+    - name: Member_ID
+      description: 회원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Card_Number
+      description: 회원 카드 번호
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 회원 이름
+      tests:
+      - not_null
+    - name: Hometown
+      description: 회원 고향
+      tests:
+      - not_null
+    - name: Level
+      description: 회원 레벨
+      tests:
+      - not_null
+  - name: purchase
+    description: 구매 테이블에 대한 설명
+    columns:
+    - name: Member_ID
+      description: 회원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Branch_ID
+      description: 지점 식별자
+      tests:
+      - not_null
+    - name: Year
+      description: 구매 연도
+      tests:
+      - not_null
+    - name: Total_pounds
+      description: 총 파운드 수
+      tests:
+      - not_null

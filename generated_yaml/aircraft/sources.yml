@@ -1,0 +1,129 @@
+version: 2
+sources:
+- name: aircraft
+  description: aircraft 데이터셋의 테이블 모음
+  database: aircraft
+  tables:
+  - name: aircraft
+    description: 항공기 테이블에 대한 설명
+    columns:
+    - name: Aircraft_ID
+      description: 항공기 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Aircraft
+      description: 항공기 이름
+      tests:
+      - not_null
+    - name: Description
+      description: 항공기 설명
+      tests:
+      - not_null
+    - name: Max_Gross_Weight
+      description: 최대 총 중량
+      tests:
+      - not_null
+    - name: Total_disk_area
+      description: 총 디스크 면적
+      tests:
+      - not_null
+    - name: Max_disk_Loading
+      description: 최대 디스크 하중
+      tests:
+      - not_null
+  - name: pilot
+    description: 파일��에 대한 정보
+    columns:
+    - name: Pilot_Id
+      description: 파일��의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 파일��의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 파일��의 나이
+      tests:
+      - not_null
+  - name: match
+    description: 경기 정보 테이블
+    columns:
+    - name: Round
+      description: 라운드 번호
+      tests:
+      - not_null
+    - name: Location
+      description: 경기 장소
+      tests:
+      - not_null
+    - name: Country
+      description: 경기 국가
+      tests:
+      - not_null
+    - name: Date
+      description: 경기 날짜
+      tests:
+      - not_null
+    - name: Fastest_Qualifying
+      description: 가장 빠른 예선 파일��
+      tests:
+      - not_null
+    - name: Winning_Pilot
+      description: 우승 파일��
+      tests:
+      - not_null
+    - name: Winning_Aircraft
+      description: 우승 항공기
+      tests:
+      - not_null
+  - name: airport_aircraft
+    description: 공항과 항공기 간의 관계를 나타내는 테이블
+    columns:
+    - name: ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Airport_ID
+      description: 공항의 고유 식별자
+      tests:
+      - not_null
+    - name: Aircraft_ID
+      description: 항공기의 고유 식별자
+      tests:
+      - not_null
+  - name: airport
+    description: 공항에 대한 정보 테이블
+    columns:
+    - name: Airport_ID
+      description: 공항의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Airport_Name
+      description: 공항의 이름
+      tests:
+      - not_null
+    - name: Total_Passengers
+      description: 총 승객 수
+      tests:
+      - not_null
+    - name: '%_Change_2007'
+      description: 2007년 대비 변화 비율
+    - name: International_Passengers
+      description: 국제 승객 수
+      tests:
+      - not_null
+    - name: Domestic_Passengers
+      description: 국내 승객 수
+      tests:
+      - not_null
+    - name: Transit_Passengers
+      description: 경유 승객 수
+    - name: Aircraft_Movements
+      description: 항공기 이동 수
+    - name: Freight_Metric_Tonnes
+      description: 화물 ��수

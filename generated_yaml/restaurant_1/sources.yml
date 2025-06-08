@@ -1,0 +1,111 @@
+version: 2
+sources:
+- name: restaurant_1
+  description: restaurant_1 데이터셋의 테이블 모음
+  database: restaurant_1
+  tables:
+  - name: Restaurant
+    description: 레스토랑에 대한 정보
+    columns:
+    - name: ResID
+      description: 레스토랑의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: ResName
+      description: 레스토랑의 이름
+      tests:
+      - not_null
+    - name: Address
+      description: 레스토랑의 주소
+      tests:
+      - not_null
+    - name: Rating
+      description: 레스토랑의 평점
+      tests:
+      - not_null
+  - name: Student
+    description: 학생 정보를 담고 있는 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: LName
+      description: 학생의 성
+      tests:
+      - not_null
+    - name: Fname
+      description: 학생의 이름
+      tests:
+      - not_null
+    - name: Age
+      description: 학생의 나이
+      tests:
+      - not_null
+    - name: Sex
+      description: 학생의 성별
+      tests:
+      - not_null
+    - name: Major
+      description: 학생의 전공
+      tests:
+      - not_null
+    - name: Advisor
+      description: 학생의 지도교수
+      tests:
+      - not_null
+    - name: city_code
+      description: 학생의 도시 코드
+      tests:
+      - not_null
+  - name: Restaurant_Type
+    description: 레스토랑 유형에 대한 설명
+    columns:
+    - name: ResTypeID
+      description: 레스토랑 유형의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: ResTypeName
+      description: 레스토랑 유형의 이름
+      tests:
+      - not_null
+    - name: ResTypeDescription
+      description: 레스토랑 유형에 대한 설명
+      tests:
+      - not_null
+  - name: Type_Of_Restaurant
+    description: 식당 유형에 대한 정보
+    columns:
+    - name: ResID
+      description: 식당 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: ResTypeID
+      description: 식당 유형 식별자
+      tests:
+      - not_null
+  - name: Visits_Restaurant
+    description: 식당 방문 기록 테이블
+    columns:
+    - name: StuID
+      description: 학생 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: ResID
+      description: 식당 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Time
+      description: 방문 시간
+      tests:
+      - not_null
+    - name: Spent
+      description: 소비 금액
+      tests:
+      - not_null

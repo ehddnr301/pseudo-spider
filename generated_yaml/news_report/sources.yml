@@ -1,0 +1,71 @@
+version: 2
+sources:
+- name: news_report
+  description: news_report 데이터셋의 테이블 모음
+  database: news_report
+  tables:
+  - name: journalist
+    description: 기자에 대한 정보
+    columns:
+    - name: journalist_ID
+      description: 기자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 기자의 이름
+      tests:
+      - not_null
+    - name: Nationality
+      description: 기자의 국적
+      tests:
+      - not_null
+    - name: Age
+      description: 기자의 나이
+      tests:
+      - not_null
+    - name: Years_working
+      description: 기자가 일한 년수
+      tests:
+      - not_null
+  - name: news_report
+    description: 뉴스 보고서에 대한 설명
+    columns:
+    - name: journalist_ID
+      description: 기자 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Event_ID
+      description: 이벤트 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Work_Type
+      description: 작업 유형
+      tests:
+      - not_null
+  - name: event
+    description: 이벤트에 대한 설명
+    columns:
+    - name: Event_ID
+      description: 이벤트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Date
+      description: 이벤트 날짜
+      tests:
+      - not_null
+    - name: Venue
+      description: 이벤트 장소
+      tests:
+      - not_null
+    - name: Name
+      description: 이벤트 이름
+      tests:
+      - not_null
+    - name: Event_Attendance
+      description: 이벤트 참석자 수
+      tests:
+      - not_null

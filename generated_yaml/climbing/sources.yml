@@ -1,0 +1,62 @@
+version: 2
+sources:
+- name: climbing
+  description: climbing 데이터셋의 테이블 모음
+  database: climbing
+  tables:
+  - name: mountain
+    description: 산에 대한 정보
+    columns:
+    - name: Mountain_ID
+      description: 산의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 산의 이름
+      tests:
+      - not_null
+    - name: Height
+      description: 산의 높이
+      tests:
+      - not_null
+    - name: Prominence
+      description: 산의 두드러짐
+      tests:
+      - not_null
+    - name: Range
+      description: 산맥
+      tests:
+      - not_null
+    - name: Country
+      description: 산이 위치한 국가
+      tests:
+      - not_null
+  - name: climber
+    description: 클라이머에 대한 설명
+    columns:
+    - name: Climber_ID
+      description: 클라이머의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 클라이머의 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 클라이머의 국가
+      tests:
+      - not_null
+    - name: Time
+      description: 클라이밍 시간
+      tests:
+      - not_null
+    - name: Points
+      description: 클라이밍 점수
+      tests:
+      - not_null
+    - name: Mountain_ID
+      description: 산의 고유 식별자
+      tests:
+      - not_null

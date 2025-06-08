@@ -1,0 +1,118 @@
+version: 2
+sources:
+- name: tvshow
+  description: tvshow 데이터셋의 테이블 모음
+  database: tvshow
+  tables:
+  - name: TV_Channel
+    description: TV 채널에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: series_name
+      description: 시리즈 이름
+      tests:
+      - not_null
+    - name: Country
+      description: 국가
+      tests:
+      - not_null
+    - name: Language
+      description: 언어
+      tests:
+      - not_null
+    - name: Content
+      description: 내용
+      tests:
+      - not_null
+    - name: Pixel_aspect_ratio_PAR
+      description: 픽셀 종��비
+      tests:
+      - not_null
+    - name: Hight_definition_TV
+      description: 고화질 TV 여부
+      tests:
+      - not_null
+    - name: Pay_per_view_PPV
+      description: 유료 시청 여부
+      tests:
+      - not_null
+    - name: Package_Option
+      description: 패키지 옵션
+      tests:
+      - not_null
+  - name: TV_series
+    description: TV 시리즈에 대한 정보
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Episode
+      description: 에피소드 제목
+      tests:
+      - not_null
+    - name: Air_Date
+      description: 방송 날짜
+      tests:
+      - not_null
+    - name: Rating
+      description: 시청률
+      tests:
+      - not_null
+    - name: Share
+      description: 점유율
+      tests:
+      - not_null
+    - name: 18_49_Rating_Share
+      description: 18-49세 시청률 점유율
+      tests:
+      - not_null
+    - name: Viewers_m
+      description: 시청자 수 (백만)
+      tests:
+      - not_null
+    - name: Weekly_Rank
+      description: 주간 순위
+      tests:
+      - not_null
+    - name: Channel
+      description: 방송 채널
+      tests:
+      - not_null
+  - name: Cartoon
+    description: 카��에 대한 설명
+    columns:
+    - name: id
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Title
+      description: 제목
+      tests:
+      - not_null
+    - name: Directed_by
+      description: 감독
+      tests:
+      - not_null
+    - name: Written_by
+      description: 작가
+      tests:
+      - not_null
+    - name: Original_air_date
+      description: 원래 방영 날짜
+      tests:
+      - not_null
+    - name: Production_code
+      description: 제작 코드
+      tests:
+      - not_null
+    - name: Channel
+      description: 채널
+      tests:
+      - not_null

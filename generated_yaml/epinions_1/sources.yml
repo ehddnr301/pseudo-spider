@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: epinions_1
+  description: epinions_1 데이터셋의 테이블 모음
+  database: epinions_1
+  tables:
+  - name: review
+    description: 리뷰 테이블에 대한 설명
+    columns:
+    - name: a_id
+      description: 작성자 ID
+      tests:
+      - unique
+      - not_null
+    - name: u_id
+      description: 사용자 ID
+      tests:
+      - not_null
+    - name: i_id
+      description: 아이템 ID
+      tests:
+      - not_null
+    - name: rating
+      description: 평점
+      tests:
+      - not_null
+    - name: rank
+      description: 순위
+      tests:
+      - not_null
+  - name: trust
+    description: 신뢰 관계를 나타내는 테이블
+    columns:
+    - name: source_u_id
+      description: 신뢰를 제공하는 사용자 ID
+      tests:
+      - unique
+      - not_null
+    - name: target_u_id
+      description: 신뢰를 받는 사용자 ID
+      tests:
+      - not_null
+    - name: trust
+      description: 신뢰의 정도
+      tests:
+      - not_null
+  - name: useracct
+    description: 사용자 계정 정보를 저장하는 테이블
+    columns:
+    - name: u_id
+      description: 사용자 고유 ID
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 사용자 이름
+      tests:
+      - not_null
+  - name: item
+    description: 아이템 테이블에 대한 설명
+    columns:
+    - name: i_id
+      description: 아이템 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: title
+      description: 아이템 제목
+      tests:
+      - not_null

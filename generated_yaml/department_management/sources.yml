@@ -1,0 +1,70 @@
+version: 2
+sources:
+- name: department_management
+  description: department_management 데이터셋의 테이블 모음
+  database: department_management
+  tables:
+  - name: management
+    description: 관리 테이블에 대한 설명
+    columns:
+    - name: department_ID
+      description: 부서 식별자
+      tests:
+      - unique
+      - not_null
+    - name: head_ID
+      description: 부서장 식별자
+      tests:
+      - not_null
+    - name: temporary_acting
+      description: 임시 대행에 대한 설명
+      tests:
+      - not_null
+  - name: department
+    description: 부서에 대한 정보
+    columns:
+    - name: Department_ID
+      description: 부서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: Name
+      description: 부서의 이름
+      tests:
+      - not_null
+    - name: Creation
+      description: 부서의 생성 날짜
+      tests:
+      - not_null
+    - name: Ranking
+      description: 부서의 순위
+      tests:
+      - not_null
+    - name: Budget_in_Billions
+      description: 부서의 예산(억 단위)
+      tests:
+      - not_null
+    - name: Num_Employees
+      description: 부서의 직원 수
+      tests:
+      - not_null
+  - name: head
+    description: 헤드 테이블에 대한 설명
+    columns:
+    - name: head_ID
+      description: 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: name
+      description: 이름
+      tests:
+      - not_null
+    - name: born_state
+      description: 출생 주
+      tests:
+      - not_null
+    - name: age
+      description: 나이
+      tests:
+      - not_null

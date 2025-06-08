@@ -1,0 +1,222 @@
+version: 2
+sources:
+- name: tracking_grants_for_research
+  description: tracking_grants_for_research 데이터셋의 테이블 모음
+  database: tracking_grants_for_research
+  tables:
+  - name: Projects
+    description: 프로젝트에 대한 정보
+    columns:
+    - name: project_id
+      description: 프로젝트 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organisation_id
+      description: 조직 고유 식별자
+      tests:
+      - not_null
+    - name: project_details
+      description: 프로젝트 세부 사항
+      tests:
+      - not_null
+  - name: Grants
+    description: 보조금에 대한 정보
+    columns:
+    - name: grant_id
+      description: 보조금 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organisation_id
+      description: 조직 고유 식별자
+      tests:
+      - not_null
+    - name: grant_amount
+      description: 보조금 금액
+      tests:
+      - not_null
+    - name: grant_start_date
+      description: 보조금 시작 날짜
+      tests:
+      - not_null
+    - name: grant_end_date
+      description: 보조금 종료 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Staff_Roles
+    description: 직원 역할에 대한 설명
+    columns:
+    - name: role_code
+      description: 역할 코드
+      tests:
+      - unique
+      - not_null
+    - name: role_description
+      description: 역할 설명
+      tests:
+      - not_null
+  - name: Project_Staff
+    description: 프로젝트 직원에 대한 정보
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: project_id
+      description: 프로젝트 고유 식별자
+      tests:
+      - not_null
+    - name: role_code
+      description: 직원 역할 코드
+      tests:
+      - not_null
+    - name: date_from
+      description: 프로젝트 시작 날짜
+      tests:
+      - not_null
+    - name: date_to
+      description: 프로젝트 종료 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Documents
+    description: 문서에 대한 설명
+    columns:
+    - name: document_id
+      description: 문서의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: document_type_code
+      description: 문서 유형 코드
+      tests:
+      - not_null
+    - name: grant_id
+      description: 부여된 고유 식별자
+      tests:
+      - not_null
+    - name: sent_date
+      description: 문서가 발송된 날짜
+      tests:
+      - not_null
+    - name: response_received_date
+      description: 응답이 수신된 날짜
+      tests:
+      - not_null
+    - name: other_details
+      description: 기타 세부 사항
+      tests:
+      - not_null
+  - name: Organisation_Types
+    description: 조직 유형에 대한 설명
+    columns:
+    - name: organisation_type
+      description: 조직 유형
+      tests:
+      - unique
+      - not_null
+    - name: organisation_type_description
+      description: 조직 유형 설명
+      tests:
+      - not_null
+  - name: Document_Types
+    description: 문서 유형에 대한 설명
+    columns:
+    - name: document_type_code
+      description: 문서 유형 코드
+      tests:
+      - unique
+      - not_null
+    - name: document_description
+      description: 문서 설명
+      tests:
+      - not_null
+  - name: Tasks
+    description: 작업에 대한 설명
+    columns:
+    - name: task_id
+      description: 작업의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: project_id
+      description: 프로젝트의 고유 식별자
+      tests:
+      - not_null
+    - name: task_details
+      description: 작업에 대한 세부 정보
+      tests:
+      - not_null
+    - name: eg Agree Objectives
+      description: 목표 동의 여부
+      tests:
+      - not_null
+  - name: Research_Staff
+    description: 연구 직원에 대한 정보
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: employer_organisation_id
+      description: 고용 기관 고유 식별자
+      tests:
+      - not_null
+    - name: staff_details
+      description: 직원 세부 정보
+      tests:
+      - not_null
+  - name: Project_Outcomes
+    description: 프로젝트 결과에 대한 설명
+    columns:
+    - name: project_id
+      description: 프로젝트 식별자
+      tests:
+      - unique
+      - not_null
+    - name: outcome_code
+      description: 결과 코드
+      tests:
+      - not_null
+    - name: outcome_details
+      description: 결과 세부사항
+      tests:
+      - not_null
+  - name: Organisations
+    description: 조직에 대한 정보 테이블
+    columns:
+    - name: organisation_id
+      description: 조직의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: organisation_type
+      description: 조직의 유형
+      tests:
+      - not_null
+    - name: organisation_details
+      description: 조직에 대한 세부 정보
+      tests:
+      - not_null
+  - name: Research_Outcomes
+    description: 연구 결과에 대한 설명
+    columns:
+    - name: outcome_code
+      description: 결과 코드
+      tests:
+      - unique
+      - not_null
+    - name: outcome_description
+      description: 결과 설명
+      tests:
+      - not_null

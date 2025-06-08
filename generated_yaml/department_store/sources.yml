@@ -1,0 +1,290 @@
+version: 2
+sources:
+- name: department_store
+  description: department_store 데이터셋의 테이블 모음
+  database: department_store
+  tables:
+  - name: Customer_Addresses
+    description: 고객 주소 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_from
+      description: 주소 유효 시작 날짜
+      tests:
+      - not_null
+    - name: date_to
+      description: 주소 유효 종료 날짜
+      tests:
+      - not_null
+  - name: Products
+    description: 제품에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: product_type_code
+      description: 제품 유형 코드
+      tests:
+      - not_null
+    - name: product_name
+      description: 제품 이름
+      tests:
+      - not_null
+    - name: product_price
+      description: 제품 가격
+      tests:
+      - not_null
+  - name: Customers
+    description: 고객 정보를 저장하는 테이블
+    columns:
+    - name: customer_id
+      description: 고객의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: payment_method_code
+      description: 고객의 결제 방법 코드
+      tests:
+      - not_null
+    - name: customer_code
+      description: 고객 코드
+      tests:
+      - unique
+      - not_null
+    - name: customer_name
+      description: 고객 이름
+      tests:
+      - not_null
+    - name: customer_address
+      description: 고객 주소
+      tests:
+      - not_null
+    - name: customer_phone
+      description: 고객 전화번호
+      tests:
+      - not_null
+    - name: customer_email
+      description: 고객 이메일
+      tests:
+      - not_null
+  - name: Department_Stores
+    description: 부서 상점에 대한 설명
+    columns:
+    - name: dept_store_id
+      description: 부서 상점의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dept_store_chain_id
+      description: 부서 상점 체인의 고유 식별자
+      tests:
+      - not_null
+    - name: store_name
+      description: 상점 이름
+      tests:
+      - not_null
+    - name: store_address
+      description: 상점 주소
+      tests:
+      - not_null
+    - name: store_phone
+      description: 상점 전화번호
+      tests:
+      - not_null
+    - name: store_email
+      description: 상점 이메일 주소
+      tests:
+      - not_null
+  - name: Order_Items
+    description: 주문 항목에 대한 정보
+    columns:
+    - name: order_item_id
+      description: 주문 항목의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: order_id
+      description: 주문과 연결된 고유 식별자
+      tests:
+      - not_null
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - not_null
+  - name: Departments
+    description: 부서에 대한 정보
+    columns:
+    - name: department_id
+      description: 부서 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dept_store_id
+      description: 부서가 속한 매장 고유 식별자
+      tests:
+      - not_null
+    - name: department_name
+      description: 부서 이름
+      tests:
+      - not_null
+  - name: Addresses
+    description: 주소 정보를 저장하는 테이블
+    columns:
+    - name: address_id
+      description: 주소의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_details
+      description: 주소의 상세 정보
+      tests:
+      - not_null
+  - name: Supplier_Addresses
+    description: 공급업체 주소에 대한 정보
+    columns:
+    - name: supplier_id
+      description: 공급업체 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: address_id
+      description: 주소 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_from
+      description: 주소 유효 시작 날짜
+      tests:
+      - not_null
+    - name: date_to
+      description: 주소 유효 종료 날짜
+      tests:
+      - not_null
+  - name: Staff
+    description: 직원 정보를 담고 있는 테이블
+    columns:
+    - name: staff_id
+      description: 직원 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: staff_gender
+      description: 직원 성별
+      tests:
+      - not_null
+    - name: staff_name
+      description: 직원 이름
+      tests:
+      - not_null
+  - name: Staff_Department_Assignments
+    description: 직원 부서 할당에 대한 정보
+    columns:
+    - name: staff_id
+      description: 직원의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: department_id
+      description: 부서의 고유 식별자
+      tests:
+      - not_null
+    - name: date_assigned_from
+      description: 할당 시작 날짜
+      tests:
+      - not_null
+    - name: job_title_code
+      description: 직무 제목 코드
+      tests:
+      - not_null
+    - name: date_assigned_to
+      description: 할당 종료 날짜
+      tests:
+      - not_null
+  - name: Customer_Orders
+    description: 고객 주문에 대한 정보
+    columns:
+    - name: order_id
+      description: 주문 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: customer_id
+      description: 고객 고유 식별자
+      tests:
+      - not_null
+    - name: order_status_code
+      description: 주문 상태 코드
+      tests:
+      - not_null
+    - name: order_date
+      description: 주문 날짜
+      tests:
+      - not_null
+  - name: Product_Suppliers
+    description: 제품 공급자에 대한 정보
+    columns:
+    - name: product_id
+      description: 제품의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: supplier_id
+      description: 공급자의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: date_supplied_from
+      description: 공급 시작 날짜
+      tests:
+      - not_null
+    - name: date_supplied_to
+      description: 공급 종료 날짜
+      tests:
+      - not_null
+    - name: total_amount_purchased
+      description: 구매한 총 수량
+      tests:
+      - not_null
+    - name: total_value_purchased
+      description: 구매한 총 금액
+      tests:
+      - not_null
+  - name: Department_Store_Chain
+    description: 부서 상점 체인에 대한 설명
+    columns:
+    - name: dept_store_chain_id
+      description: 부서 상점 체인의 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: dept_store_chain_name
+      description: 부서 상점 체인의 이름
+      tests:
+      - not_null
+  - name: Suppliers
+    description: 공급업체에 대한 정보
+    columns:
+    - name: supplier_id
+      description: 공급업체 고유 식별자
+      tests:
+      - unique
+      - not_null
+    - name: supplier_name
+      description: 공급업체 이름
+      tests:
+      - not_null
+    - name: supplier_phone
+      description: 공급업체 전화번호
+      tests:
+      - not_null
