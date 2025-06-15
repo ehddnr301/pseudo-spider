@@ -9,3 +9,7 @@ langchain-openai
 python-dotenv
 faker
 PyYAML
+
+dbt-clickhouse==1.9.2
+acryl-datahub==1.1.0
+acryl-datahub[dbt]
