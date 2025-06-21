@@ -4,15 +4,16 @@
 datahub docker quickstart
 
 # datahub가 준비될 때까지 대기
-until curl -s http://localhost:9002/health; do
+until curl -s http://datahub-frontend-react:9002/health; do
     echo "Waiting for datahub to be ready..."
     sleep 10
 done
 
 # dbt docs 생성
 cd "$(pwd)/pseudolab"
-dbt docs generate --profiles-dir "$(pwd)/pseudolab/profiles"
+dbt docs generate --profiles-dir "$(pwd)/profiles"
 
+cd ..
 # datahub에 메타데이터 수집
 datahub ingest -c "$(pwd)/recipe.yml"
 
