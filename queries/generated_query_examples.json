@@ -1,0 +1,302 @@
+[
+  {
+    "properties": {
+      "name": "학년별 학생 수 분석",
+      "description": "각 학년별 학생 수를 집계하여 학교의 학년별 인구 분포를 파악",
+      "statement": {
+        "value": "SELECT Grade, COUNT(*) as student_count FROM dbt.student_1.student_1.list GROUP BY Grade ORDER BY Grade;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,student_1.student_1.list,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "교실별 담당 교사와 학생 수 현황",
+      "description": "각 교실별로 담당 교사와 해당 교실의 학생 수를 조회하여 교실 운영 현황 파악",
+      "statement": {
+        "value": "SELECT t.Classroom, CONCAT(t.FirstName, ' ', t.LastName) as teacher_name, COUNT(s.LastName) as student_count FROM dbt.student_1.student_1.teachers t LEFT JOIN dbt.student_1.student_1.list s ON t.Classroom = s.Classroom GROUP BY t.Classroom, t.FirstName, t.LastName ORDER BY student_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,student_1.student_1.teachers,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,student_1.student_1.list,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "레스토랑 평점 순위 및 방문 통계",
+      "description": "레스토랑 평점별 순위와 각 레스토랑의 방문 횟수, 평균 소비 금액을 분석",
+      "statement": {
+        "value": "SELECT r.ResName, r.Rating, COUNT(v.StuID) as visit_count, AVG(v.Spent) as avg_spent FROM dbt.restaurant_1.restaurant_1.Restaurant r LEFT JOIN dbt.restaurant_1.restaurant_1.Visits_Restaurant v ON r.ResID = v.ResID GROUP BY r.ResID, r.ResName, r.Rating ORDER BY r.Rating DESC, visit_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Restaurant,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Visits_Restaurant,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "전공별 학생들의 레스토랑 선호도 분석",
+      "description": "학생들의 전공별로 선호하는 레스토랑 유형과 평균 소비 금액을 분석",
+      "statement": {
+        "value": "SELECT s.Major, rt.ResTypeName, COUNT(v.StuID) as visit_count, AVG(v.Spent) as avg_spent FROM dbt.restaurant_1.restaurant_1.Student s JOIN dbt.restaurant_1.restaurant_1.Visits_Restaurant v ON s.StuID = v.StuID JOIN dbt.restaurant_1.restaurant_1.Type_Of_Restaurant tor ON v.ResID = tor.ResID JOIN dbt.restaurant_1.restaurant_1.Restaurant_Type rt ON tor.ResTypeID = rt.ResTypeID GROUP BY s.Major, rt.ResTypeName ORDER BY s.Major, visit_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Student,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Visits_Restaurant,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Type_Of_Restaurant,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,restaurant_1.restaurant_1.Restaurant_Type,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "국가별 아티스트 수와 평균 평점 분석",
+      "description": "국가별 아티스트 수와 해당 국가 아티스트들의 평균 평점을 분석하여 음악 시장 동향 파악",
+      "statement": {
+        "value": "SELECT a.country, COUNT(DISTINCT a.artist_name) as artist_count, AVG(s.rating) as avg_rating FROM dbt.music_1.music_1.artist a LEFT JOIN dbt.music_1.music_1.song s ON a.artist_name = s.artist_name GROUP BY a.country ORDER BY avg_rating DESC, artist_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,music_1.music_1.artist,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,music_1.music_1.song,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "장르별 인기 곡과 파일 형식 분석",
+      "description": "각 장르별로 평점이 높은 곡들과 주로 사용되는 파일 형식을 분석",
+      "statement": {
+        "value": "SELECT g.g_name as genre, COUNT(s.song_name) as song_count, AVG(s.rating) as avg_rating, f.formats as popular_format FROM dbt.music_1.music_1.genre g JOIN dbt.music_1.music_1.song s ON g.g_name = s.genre_is JOIN dbt.music_1.music_1.files f ON s.f_id = f.f_id GROUP BY g.g_name, f.formats ORDER BY avg_rating DESC, song_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,music_1.music_1.genre,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,music_1.music_1.song,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,music_1.music_1.files,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "항공편 거리별 평균 가격 분석",
+      "description": "비행 거리 구간별 평균 가격을 분석하여 항공료 가격 정책 이해",
+      "statement": {
+        "value": "SELECT CASE WHEN distance < 500 THEN '단거리 (500km 미만)' WHEN distance < 1500 THEN '중거리 (500-1500km)' ELSE '장거리 (1500km 이상)' END as distance_category, COUNT(*) as flight_count, AVG(price) as avg_price, MIN(price) as min_price, MAX(price) as max_price FROM dbt.flight_1.flight_1.flight GROUP BY distance_category ORDER BY avg_price;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,flight_1.flight_1.flight,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "항공사별 평균 급여와 항공편 수 분석",
+      "description": "각 항공사별 직원 평균 급여와 운항하는 항공편 수를 비교 분석",
+      "statement": {
+        "value": "SELECT a.name as aircraft_name, COUNT(f.flno) as flight_count, AVG(e.salary) as avg_employee_salary FROM dbt.flight_1.flight_1.aircraft a LEFT JOIN dbt.flight_1.flight_1.flight f ON a.aid = f.aid LEFT JOIN dbt.flight_1.flight_1.certificate c ON a.aid = c.aid LEFT JOIN dbt.flight_1.flight_1.employee e ON c.eid = e.eid GROUP BY a.aid, a.name ORDER BY flight_count DESC, avg_employee_salary DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,flight_1.flight_1.aircraft,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,flight_1.flight_1.flight,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,flight_1.flight_1.certificate,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,flight_1.flight_1.employee,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "연도별 신규 회원 가입 현황",
+      "description": "각 연도별 신규 회원 가입 수를 집계하여 회원 증가 추세 분석",
+      "statement": {
+        "value": "SELECT Register_Year, COUNT(DISTINCT Member_ID) as new_members FROM dbt.shop_membership.shop_membership.membership_register_branch GROUP BY Register_Year ORDER BY Register_Year DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,shop_membership.shop_membership.membership_register_branch,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "지점별 매출 및 회원 분석",
+      "description": "각 지점별 총 매출, 평균 구매량, 등록 회원 수를 종합 분석하여 지점 성과 평가",
+      "statement": {
+        "value": "SELECT b.Name as branch_name, b.City, COUNT(DISTINCT mrb.Member_ID) as total_members, SUM(p.Total_pounds) as total_sales, AVG(p.Total_pounds) as avg_purchase FROM dbt.shop_membership.shop_membership.branch b LEFT JOIN dbt.shop_membership.shop_membership.membership_register_branch mrb ON b.Branch_ID = mrb.Branch_ID LEFT JOIN dbt.shop_membership.shop_membership.purchase p ON b.Branch_ID = p.Branch_ID GROUP BY b.Branch_ID, b.Name, b.City ORDER BY total_sales DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,shop_membership.shop_membership.branch,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,shop_membership.shop_membership.membership_register_branch,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,shop_membership.shop_membership.purchase,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "국가별 축구 리그와 팀 현황",
+      "description": "각 국가별 축구 리그 수와 팀 수를 집계하여 축구 인프라 현황 파악",
+      "statement": {
+        "value": "SELECT c.name as country_name, COUNT(DISTINCT l.id) as league_count, COUNT(DISTINCT t.id) as team_count FROM dbt.soccer_1.soccer_1.Country c LEFT JOIN dbt.soccer_1.soccer_1.League l ON c.id = l.country_id LEFT JOIN dbt.soccer_1.soccer_1.Team t ON l.country_id = c.id GROUP BY c.id, c.name ORDER BY league_count DESC, team_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,soccer_1.soccer_1.Country,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,soccer_1.soccer_1.League,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,soccer_1.soccer_1.Team,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "선수 신체 조건 통계 분석",
+      "description": "축구 선수들의 평균 키, 몸무게 및 연령대별 분포를 분석하여 선수 조건 트렌드 파악",
+      "statement": {
+        "value": "SELECT CASE WHEN YEAR(CURRENT_DATE) - YEAR(birthday) < 25 THEN '젊은 선수 (25세 미만)' WHEN YEAR(CURRENT_DATE) - YEAR(birthday) < 30 THEN '중견 선수 (25-30세)' ELSE '베테랑 선수 (30세 이상)' END as age_group, COUNT(*) as player_count, AVG(height) as avg_height, AVG(weight) as avg_weight FROM dbt.soccer_1.soccer_1.Player WHERE height IS NOT NULL AND weight IS NOT NULL GROUP BY age_group ORDER BY avg_height DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,soccer_1.soccer_1.Player,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "영화 연도별 평균 평점 추세",
+      "description": "영화 개봉 연도별 평균 평점을 분석하여 영화 품질의 시대적 변화 추세 파악",
+      "statement": {
+        "value": "SELECT m.year, COUNT(DISTINCT m.mID) as movie_count, AVG(r.stars) as avg_rating, COUNT(r.rID) as total_ratings FROM dbt.movie_1.movie_1.Movie m LEFT JOIN dbt.movie_1.movie_1.Rating r ON m.mID = r.mID GROUP BY m.year ORDER BY m.year DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,movie_1.movie_1.Movie,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,movie_1.movie_1.Rating,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "감독별 작품 수와 평균 평점 분석",
+      "description": "각 감독별로 제작한 영화 수와 평균 평점을 분석하여 감독의 작품 성과 평가",
+      "statement": {
+        "value": "SELECT m.director, COUNT(DISTINCT m.mID) as movie_count, AVG(r.stars) as avg_rating, MIN(m.year) as first_movie_year, MAX(m.year) as latest_movie_year FROM dbt.movie_1.movie_1.Movie m LEFT JOIN dbt.movie_1.movie_1.Rating r ON m.mID = r.mID WHERE m.director IS NOT NULL GROUP BY m.director HAVING movie_count >= 2 ORDER BY avg_rating DESC, movie_count DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,movie_1.movie_1.Movie,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,movie_1.movie_1.Rating,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "고객별 총 계좌 잔액 현황",
+      "description": "각 고객의 저축 계좌와 체크 계좌 잔액을 합산하여 총 자산 현황 파악",
+      "statement": {
+        "value": "SELECT a.name as customer_name, COALESCE(s.balance, 0) as savings_balance, COALESCE(c.balance, 0) as checking_balance, (COALESCE(s.balance, 0) + COALESCE(c.balance, 0)) as total_balance FROM dbt.small_bank_1.small_bank_1.ACCOUNTS a LEFT JOIN dbt.small_bank_1.small_bank_1.SAVINGS s ON a.custid = s.custid LEFT JOIN dbt.small_bank_1.small_bank_1.CHECKING c ON a.custid = c.custid ORDER BY total_balance DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,small_bank_1.small_bank_1.ACCOUNTS,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,small_bank_1.small_bank_1.SAVINGS,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,small_bank_1.small_bank_1.CHECKING,PROD)"
+      }
+    ]
+  },
+  {
+    "properties": {
+      "name": "계좌 유형별 평균 잔액 비교",
+      "description": "저축 계좌와 체크 계좌의 평균 잔액, 최고/최저 잔액을 비교 분석하여 고객 금융 패턴 파악",
+      "statement": {
+        "value": "SELECT 'SAVINGS' as account_type, COUNT(*) as account_count, AVG(balance) as avg_balance, MIN(balance) as min_balance, MAX(balance) as max_balance FROM dbt.small_bank_1.small_bank_1.SAVINGS UNION ALL SELECT 'CHECKING' as account_type, COUNT(*) as account_count, AVG(balance) as avg_balance, MIN(balance) as min_balance, MAX(balance) as max_balance FROM dbt.small_bank_1.small_bank_1.CHECKING ORDER BY avg_balance DESC;",
+        "language": "SQL"
+      }
+    },
+    "subjects": [
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,small_bank_1.small_bank_1.SAVINGS,PROD)"
+      },
+      {
+        "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:dbt,small_bank_1.small_bank_1.CHECKING,PROD)"
+      }
+    ]
+  }
+] 
